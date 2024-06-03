@@ -1,10 +1,28 @@
-<div>
+---
+
+type Props = {
+  size?: 'sm' | 'md'
+}
+
+const { size = 'md' } = Astro.props
+
+---
+
+<div class:list={["container", `container--${size}`]}>
   <slot/>
 </div>
 
 <style>
-  div {
-    max-width: min(85vw, 68rem);
+  .container {
+    max-width: min(85vw, var(--_container-max-width, 68rem));
     margin-inline: auto;
+  }
+
+  .container--sm {
+    --_container-max-width: 54rem;
+  }
+
+  .container--md {
+    --_container-max-width: 68rem;
   }
 </style>

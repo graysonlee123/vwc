@@ -1,0 +1,54 @@
+---
+import Container from "./Container.astro"
+import Logo from "./Logo.astro"
+import Link from './Link.astro'
+---
+
+<nav class="nav">
+  <Container>
+    <div class="layout">
+      <a href="/">
+        <Logo />
+      </a>
+      <ul class="items">
+        <li class="item">
+          <Link href="/">
+            Home
+          </Link>
+        </li>
+        <li class="item">
+          <Link href="/about/">
+            About
+          </Link>
+        </li>
+        <li class="item">
+          <Link href="/destinations/">
+            Destinations
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </Container>
+</nav>
+
+<style>
+  .nav {
+    padding: 0.75rem;
+    background-color: #4AB8D1;
+    color: white;
+  }
+
+  .layout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .items {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    list-style: none;
+  }
+</style>

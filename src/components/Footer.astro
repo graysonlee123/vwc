@@ -1,17 +1,132 @@
 ---
 import Container from "./Container.astro"
+import Link from "./Link.astro"
+import Logo from "./Logo.astro"
+import SocialIconList from "./SocialIconList.astro"
+
+const menus = [
+  {
+    label: 'Learn',
+    links: [
+      {
+        title: 'About',
+        href: '/about/'
+      },
+      {
+        title: 'Blog',
+        href: '/blog/'
+      },
+      {
+        title: 'Contact',
+        href: '/contact/'
+      },
+      {
+        title: 'Destinations',
+        href: '/destinations/'
+      },
+    ]
+  },
+  {
+    label: 'Other',
+    links: [
+      {
+        title: 'Careers',
+        href: '/careers/'
+      },
+      {
+        title: 'Privacy',
+        href: '/privacy/'
+      },
+      {
+        title: 'Terms and Conditions',
+        href: '/terms-and-conditions/'
+      },
+    ]
+  }
+]
 ---
 
-<footer>
-  <Container>
-    Footer
+<footer class="footer">
+  <Container size="sm">
+    <div class="layout">
+      {
+        menus.map(({label, links}) => <div class="col">
+          <div class="label">
+            {label}
+          </div>
+          <ul class="list">
+            {links.map(({title, href}) => (<li class="item"><Link href={href}>{title}</Link></li>))}
+          </ul>
+        </div>)
+      }
+      <div class="col col--last">
+        <Logo />
+        <div>
+          Vacations with Character<br/>
+          {new Date().getFullYear()} &copy; | All Rights Reserved
+        </div>
+        <div class="socials">
+          <SocialIconList />
+        </div>
+        <div>
+          (800) 908-3005 <br/>
+          info@vacationswithcharacter.com
+        </div>
+      </div>
+    </div>
   </Container>
 </footer>
 
 <style>
-  footer {
-    padding: 0.75rem;
+  .footer {
+    font-size: 0.8125rem;
     background-color: #fff;
-    color: rosybrown;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3rem;
+    margin-block: 4rem;
+    padding-block: 4rem;
+    border-top-color: currentColor;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-color: currentColor;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+
+  @media (width >= 48rem) {
+    .layout {
+      flex-direction: row;
+    }
+  
+    .col--last {
+      margin-left: auto;
+    }
+  }
+
+  .col {
+    width: 100%;
+    max-width: 12rem;
+  }
+
+  .list {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .label {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .socials {
+    margin-block: 1.5rem;
   }
 </style>
