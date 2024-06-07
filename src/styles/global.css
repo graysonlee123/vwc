@@ -1,3 +1,15 @@
+/** Variables */
+
+:root {
+  --font-family--primary: 'Karla Variable', sans-serif;
+
+  --color--white: 0 0% 100%;
+  --color--black: 0 0% 0%;
+  --color--gray--700: 0 0% 32%;
+  --color--blue--400: 191 59% 55%;
+  --color--blue--700: 191 46% 29%;
+}
+
 /** Defaults */
 
 *,
@@ -11,7 +23,6 @@
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -44,6 +55,7 @@ h6 {
 /** Fonts */
 
 body {
-  font-family: 'Karla Variable', sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-family--primary);
+  color: hsl(var(--color--gray--700));
+  line-height: 1.5;
 }
