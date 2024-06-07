@@ -1,13 +1,22 @@
 /** Variables */
 
 :root {
-  --font-family--primary: 'Karla Variable', sans-serif;
+  --font-family--primary: 'Karla', sans-serif;
 
   --color--white: 0 0% 100%;
   --color--black: 0 0% 0%;
   --color--gray--700: 0 0% 32%;
   --color--blue--400: 191 59% 55%;
   --color--blue--700: 191 46% 29%;
+}
+
+/** Fonts */
+
+@font-face {
+  font-family: 'Karla';
+  src: url('/fonts/karla-variable-subset.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
 }
 
 /** Defaults */
