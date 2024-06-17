@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import Container from "./Container.astro";
+import Badges from "./Badges.astro";
+
+import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
+---
+
+<Container>
+  <div class="layout">
+    <div class="texts">
+      <h1>Vacations with Character</h1>
+      <p>A family-owned full-service travel agency located in and licensed by the state of Florida.</p>
+      <a href="/destinations/">
+        Destinations
+      </a>
+      <Badges />
+    </div>
+    <div class="media">
+      <Image class="image" src={imageKidsAtCastle} alt="Two kids sitting on their parents' shoulders enjoying Disney fireworks" />
+    </div>
+  </div>
+</Container>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
+    margin-block: 6rem;
+  }
+
+  .image {
+    border-radius: 2rem;
+    box-shadow:
+      6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+      22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+      100px 100px 80px rgba(0, 0, 0, 0.07);
+  }
+</style>

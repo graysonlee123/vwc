@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+
+import badgeImageDisneyAuthorizedPlanner from '../assets/images/badgeDisneyAuthorizedVacationPlanner.jpg';
+import badgeImageDisneyEarmarkedGold from '../assets/images/badgeDisneyEarmarkedGoldProducer.png';
+import badgeImageUniversalAgent from '../assets/images/badgeUniversalPreferredTravelAgency.png';
+import badgeImageTravelLeadersNetwork from '../assets/images/badgeTravelLeadersNetwork.png';
+import badgeImageCLIA from '../assets/images/badgeCLIA.jpg';
+---
+
+<div class="layout">
+  <div class="cell">
+    <Image class="image" src={badgeImageDisneyAuthorizedPlanner} alt="Disney Authorized Vacation Planner badge" />
+  </div>
+  <div class="cell">
+    <Image class="image" src={badgeImageDisneyEarmarkedGold} alt="CLIA badge" />
+  </div>
+  <div class="cell">
+    <Image class="image" src={badgeImageUniversalAgent} alt="CLIA badge" />
+  </div>
+  <div class="cell">
+    <Image class="image" src={badgeImageTravelLeadersNetwork} alt="CLIA badge" />
+  </div>
+  <div class="cell">
+    <Image class="image" src={badgeImageCLIA} alt="CLIA badge" />
+  </div>
+</div>
+
+<style>
+  .layout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .cell {
+    opacity: 60%;
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+  
+  .image {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    max-width: 5rem;
+    height: auto;
+    filter: grayscale(1);
+    transition-property: filter;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+  }
+
+  .cell:hover {
+    opacity: 100%;
+  }
+  
+  .cell:hover .image {
+    filter: grayscale(0);
+  }
+</style>
