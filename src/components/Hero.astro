@@ -17,7 +17,7 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
       <Badges />
     </div>
     <div class="media">
-      <Image class="image" src={imageKidsAtCastle} alt="Two kids sitting on their parents' shoulders enjoying Disney fireworks" />
+      <Image class="image" src={imageKidsAtCastle} alt="Two kids sitting on their parents' shoulders enjoying Disney fireworks" fetchpriority="high" />
     </div>
   </div>
 </Container>
@@ -32,6 +32,8 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
   }
 
   .image {
+    width: 100%;
+    object-fit: cover;
     border-radius: 2rem;
     box-shadow:
       6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
