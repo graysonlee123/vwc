@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
+
 import Container from "./Container.astro";
 import Badges from "./Badges.astro";
+import Button from "./Button.astro";
 
 import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
 ---
@@ -10,11 +12,15 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
   <div class="layout">
     <div class="texts">
       <h1>Vacations with Character</h1>
-      <p>A family-owned full-service travel agency located in and licensed by the state of Florida.</p>
-      <a href="/destinations/">
-        Destinations
-      </a>
-      <Badges />
+      <p class="paragraph">A family-owned full-service travel agency located in and licensed by the state of Florida.</p>
+      <div class="actions">
+        <Button href="/destinations">
+          Destinations
+        </Button>
+      </div>
+      <div class="badges">
+        <Badges />
+      </div>
     </div>
     <div class="media">
       <Image class="image" src={imageKidsAtCastle} alt="Two kids sitting on their parents' shoulders enjoying Disney fireworks" fetchpriority="high" />
@@ -29,6 +35,19 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg'
     align-items: center;
     gap: 3rem;
     margin-block: 6rem;
+  }
+
+  .paragraph {
+    margin-top: 0.75rem;
+    max-width: 40ch;
+  }
+  
+  .actions {
+    margin-top: 2rem;
+  }
+  
+  .badges {
+    margin-top: 3rem;
   }
 
   .image {
