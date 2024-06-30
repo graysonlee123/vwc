@@ -1,13 +1,11 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 
-import type { HTMLAttributes } from 'astro/types'
-
-type Props = HTMLAttributes<'a'>
-
+type Props = HTMLAttributes<'a'>;
 ---
 
 <a {...Astro.props}>
-  <slot/>
+  <slot />
 </a>
 
 <style>
@@ -25,7 +23,7 @@ type Props = HTMLAttributes<'a'>
     background-color: hsl(var(--color--blue--400));
   }
 
-  @media (hover:hover) {
+  @media (hover: hover) {
     a {
       transition-property: transform;
       transition-duration: 400ms;

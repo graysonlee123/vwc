@@ -1,8 +1,8 @@
 ---
-import Container from "./Container.astro"
-import Link from "./Link.astro"
-import Logo from "./Logo.astro"
-import SocialIconList from "./SocialIconList.astro"
+import Container from './Container.astro';
+import Link from './Link.astro';
+import Logo from './Logo.astro';
+import SocialIconList from './SocialIconList.astro';
 
 const menus = [
   {
@@ -10,66 +10,70 @@ const menus = [
     links: [
       {
         title: 'About',
-        href: '/about/'
+        href: '/about/',
       },
       {
         title: 'Blog',
-        href: '/blog/'
+        href: '/blog/',
       },
       {
         title: 'Contact',
-        href: '/contact/'
+        href: '/contact/',
       },
       {
         title: 'Destinations',
-        href: '/destinations/'
+        href: '/destinations/',
       },
-    ]
+    ],
   },
   {
     label: 'Other',
     links: [
       {
         title: 'Careers',
-        href: '/careers/'
+        href: '/careers/',
       },
       {
         title: 'Privacy',
-        href: '/privacy/'
+        href: '/privacy/',
       },
       {
         title: 'Terms and Conditions',
-        href: '/terms-and-conditions/'
+        href: '/terms-and-conditions/',
       },
-    ]
-  }
-]
+    ],
+  },
+];
 ---
 
 <footer class="footer">
   <Container size="sm">
     <div class="layout">
       {
-        menus.map(({label, links}) => <div class="col">
-          <div class="label">
-            {label}
+        menus.map(({ label, links }) => (
+          <div class="col">
+            <div class="label">{label}</div>
+            <ul class="list">
+              {links.map(({ title, href }) => (
+                <li class="item">
+                  <Link href={href}>{title}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul class="list">
-            {links.map(({title, href}) => (<li class="item"><Link href={href}>{title}</Link></li>))}
-          </ul>
-        </div>)
+        ))
       }
       <div class="col col--last">
         <Logo />
         <div>
-          Vacations with Character<br/>
+          Vacations with Character<br />
           {new Date().getFullYear()} &copy; | All Rights Reserved
         </div>
         <div class="socials">
           <SocialIconList />
         </div>
         <div>
-          (800) 908-3005 <br/>
+          (800) 908-3005 <br />
           info@vacationswithcharacter.com
         </div>
       </div>
@@ -102,7 +106,7 @@ const menus = [
     .layout {
       flex-direction: row;
     }
-  
+
     .col--last {
       margin-left: auto;
     }
