@@ -31,12 +31,7 @@ const { label, href, icon } = platforms[platform];
 ---
 
 <span>
-  <Link
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    title={`Visit us on ${label}!`}
-  >
+  <Link href={href} target="_blank" rel="noopener noreferrer" title={`Visit us on ${label}!`}>
     <Fragment set:html={icon} />
   </Link>
 </span>
