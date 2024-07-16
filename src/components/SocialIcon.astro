@@ -1,7 +1,11 @@
 ---
 import Link from './Link.astro';
 
-import { FACEBOOK_USERNAME, INSTAGRAM_USERNAME, PINTEREST_USERNAME } from '../lib/constants';
+import {
+  FACEBOOK_USERNAME,
+  INSTAGRAM_USERNAME,
+  PINTEREST_USERNAME,
+} from '../lib/constants';
 
 type Props = {
   platform: 'facebook' | 'instagram' | 'pinterest';
@@ -31,7 +35,12 @@ const { label, href, icon } = platforms[platform];
 ---
 
 <span>
-  <Link href={href} target="_blank" rel="noopener noreferrer" title={`Visit us on ${label}!`}>
+  <Link
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    title={`Visit us on ${label}!`}
+  >
     <Fragment set:html={icon} />
   </Link>
 </span>
