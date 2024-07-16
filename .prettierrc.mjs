@@ -12,7 +12,6 @@ export default {
       },
     },
   ],
-  documentSelectors: ['**/*.astro'],
   trailingComma: 'es5',
   arrowParens: 'always',
   bracketSpacing: true,
