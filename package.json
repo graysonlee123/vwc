@@ -12,8 +12,8 @@
     "format:write": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "astro": "^4.8.6",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^4.15.11",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
