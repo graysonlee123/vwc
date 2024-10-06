@@ -1,0 +1,21 @@
+---
+import Logo from './Logo.astro';
+---
+
+<a class="link" href="/" title="Home">
+  <Logo />
+  <span>Vacations with<br />Character&reg;</span>
+</a>
+
+<style>
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: var(--font-size--lg);
+    line-height: 1;
+    font-weight: bold;
+    color: var(--clr--white);
+    text-decoration: none;
+  }
+</style>
