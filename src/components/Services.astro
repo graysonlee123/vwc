@@ -1,0 +1,125 @@
+---
+import {
+  AFFILIATE_URL_DISNEY,
+  AFFILIATE_URL_SANDALS,
+  QUOTE_URL,
+} from '../lib/constants';
+import Button from './Button.astro';
+import Container from './Container.astro';
+
+interface Service {
+  title: string;
+  content: string;
+  buttonText: string;
+  href: string;
+  target?: string;
+  rel?: string;
+}
+const services: Service[] = [
+  {
+    title: 'Disney Destinations',
+    content:
+      "From Walt Disney World, Disneyland, Disney Cruise Line, Adventures by Disney, Disney's Beach Resorts, to Disney's Aulani Resort and Spa in Hawaii, we can help you plan a magical vacation with memories that will last a lifetime.",
+    buttonText: 'Learn more',
+    href: AFFILIATE_URL_DISNEY,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    title: 'Universal Orlando',
+    content:
+      'This is the place where vacation becomes adventure. An entire universe of action, thrills, and excitement for all ages. Stay at a fabulous onsite resort and experience the adventure of a lifetime at Universal Orlando Resort.',
+    buttonText: 'Get a quote',
+    href: QUOTE_URL,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    title: 'Cruising Adventures',
+    content:
+      "With multiple ships and endless adventures, cruises give you the chance to be in awe of the world again. Contact us and we'll help you navigate the waters to find the perfect ship and perfect cruise line tailored to your vacation style.",
+    buttonText: 'Get a quote',
+    href: QUOTE_URL,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    title: 'All-inclusive Vacations',
+    content:
+      'Searching for a seamless vacation? You have enough to do and we have information at our fingertips. From the Caribbean to Europe or even Hawaii, let us take the worry out of this part of your planning.',
+    buttonText: 'Get a quote',
+    href: QUOTE_URL,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  {
+    title: 'Sandals Vacations',
+    content: '',
+    buttonText: 'Learn more',
+    href: AFFILIATE_URL_SANDALS,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+];
+---
+
+<div class="services">
+  <div class="intro">
+    <h2>Services</h2>
+    <p>We specialize in the happiest places on earth!</p>
+  </div>
+  <Container>
+    <div class="layout">
+      {
+        services.map(({ title, content, buttonText, href, target, rel }) => (
+          <div class="card">
+            <h3 class="card-title">{title}</h3>
+            <p class="card-content">{content}</p>
+            <div class="card-actions">
+              <Button href={href} target={target} rel={rel}>
+                {buttonText}
+              </Button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</div>
+
+<style>
+  .services {
+    padding-block: 5rem;
+    text-align: center;
+    background-color: #ebf4f7;
+  }
+
+  .intro {
+    margin-bottom: 5rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: left;
+    background-color: hsl(var(--color--white));
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .card-content {
+    margin-top: 0.75rem;
+  }
+
+  .card-actions {
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+</style>
