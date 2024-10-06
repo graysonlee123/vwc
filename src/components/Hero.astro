@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 
-import Container from './Container.astro';
+import { QUOTE_URL } from '../lib/constants';
 import Badges from './Badges.astro';
 import Button from './Button.astro';
+import Container from './Container.astro';
 
 import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg';
 ---
@@ -11,13 +12,15 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg';
 <Container>
   <div class="layout">
     <div class="texts">
-      <h1>Vacations with Character</h1>
+      <h1>Where the Fun Begins!</h1>
       <p class="paragraph">
         A family-owned full-service travel agency located in and licensed by the
         state of Florida.
       </p>
       <div class="actions">
-        <Button href="/destinations">Destinations</Button>
+        <Button href={QUOTE_URL} target="_blank" rel="noopener noreferrer"
+          >Get a Quote</Button
+        >
       </div>
       <div class="badges">
         <Badges />
