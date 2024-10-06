@@ -6,7 +6,7 @@ import Badges from './Badges.astro';
 import Button from './Button.astro';
 import Container from './Container.astro';
 
-import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg';
+import magicKingdomStation from '../assets/images/magicKingdomStation.jpg';
 ---
 
 <Container>
@@ -29,7 +29,7 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg';
     <div class="media">
       <Image
         class="image"
-        src={imageKidsAtCastle}
+        src={magicKingdomStation}
         alt="Two kids sitting on their parents' shoulders enjoying Disney fireworks"
         fetchpriority="high"
       />
@@ -61,6 +61,7 @@ import imageKidsAtCastle from '../assets/images/kidsAtCastleWithParents.jpg';
 
   .image {
     width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 2rem;
     box-shadow:
