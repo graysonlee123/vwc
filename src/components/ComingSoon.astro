@@ -1,0 +1,27 @@
+---
+import Link from './Link.astro';
+
+type Props = {
+  title?: string;
+};
+---
+
+<div class="coming-soon">
+  <h1>{Astro.props.title || 'Coming soon'}</h1>
+  <p>
+    This page is coming soon! In the meantime, would you like to <Link
+      class="link"
+      href="/">return to the home page?</Link
+    >
+  </p>
+</div>
+
+<style>
+  .coming-soon {
+    margin-block: 3rem;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+</style>
