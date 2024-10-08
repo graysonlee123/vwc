@@ -96,11 +96,12 @@ const services: Service[] = [
 
   .intro {
     margin-bottom: 5rem;
+    padding-inline: 1.5rem;
   }
 
   .layout {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -121,5 +122,17 @@ const services: Service[] = [
   .card-actions {
     margin-top: auto;
     padding-top: 2rem;
+  }
+
+  @media (width >= 48rem) {
+    .layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
