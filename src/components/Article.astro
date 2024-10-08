@@ -2,20 +2,14 @@
   <slot />
 </div>
 
-<style>
-  .article {
-    margin-block: 3rem;
-  }
-</style>
-
 <style is:global>
-  .article h2 {
+  .article * + h2 {
     margin-top: 2rem;
   }
 
-  .article p,
-  .article ul,
-  .article ol {
+  .article * + p,
+  .article * + ul,
+  .article * + ol {
     margin-top: 0.75rem;
   }
 </style>
