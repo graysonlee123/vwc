@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://' + import.meta.env.VERCEL_URL,
+  site: 'https://' + process.env.VERCEL_URL,
   redirects: {
     '/about-us.html': '/about/',
     '/all-inclusive-resorts.html': '/',
