@@ -2,10 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site:
-    import.meta.env.PUBLIC_ENVIRONMENT === 'production'
-      ? 'https://www.vacationswithcharacter.com'
-      : 'https://www.staging.vacationswithcharacter.com',
+  site: 'https://' + import.meta.env.VERCEL_URL,
   redirects: {
     '/about-us.html': '/about/',
     '/all-inclusive-resorts.html': '/',
