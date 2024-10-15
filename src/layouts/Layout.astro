@@ -3,47 +3,19 @@ import '../styles/global.css';
 
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navigation.astro';
+import SEO from '../components/SEO.astro';
 
-type Props = {
-  title?: string;
-};
+import type { SEOProps } from '../components/SEO.astro';
 
-const { title: pageTitle } = Astro.props;
-const title = pageTitle
-  ? pageTitle + ' | Vacations with Character'
-  : 'Vacations with Character';
-const site = Astro.site?.href ?? '';
-const ogImageURL = site + 'og.jpg';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+type Props = SEOProps;
+
+const { title, description, noindex } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-    <meta
-      name="description"
-      content="Vacations with Character® LLC offers expert planning for Disney, Universal, cruises, all-inclusive resorts, and more. Book a vacation with a personal touch today!"
-    />
-    <meta property="twitter:image" content={ogImageURL} />
-    <meta property="twitter:title" content="Vacations with Character" />
-    <meta
-      property="twitter:description"
-      content="Vacations with Character® LLC offers expert planning for Disney, Universal, cruises, all-inclusive resorts, and more. Book a vacation with a personal touch today!"
-    />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="Vacations with Character" />
-    <meta property="og:title" content="Vacations with Character" />
-    <meta
-      property="og:description"
-      content="Vacations with Character® LLC offers expert planning for Disney, Universal, cruises, all-inclusive resorts, and more. Book a vacation with a personal touch today!"
-    />
-    <meta property="og:url" content={canonicalURL} />
-    <meta name="generator" content={Astro.generator} />
+    <SEO title={title} description={description} noindex={noindex} />
   </head>
   <body>
     <Navbar />
