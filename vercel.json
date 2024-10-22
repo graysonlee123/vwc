@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/about-us.html", "destination": "/about/", "permanent": true },
+    { "source": "/all-inclusive-resorts.html", "destination": "/", "permanent": false },
+    { "source": "/disney.html", "destination": "/", "permanent": false },
+    { "source": "/happy-clients.html", "destination": "/", "permanent": true },
+    { "source": "/our-services.html", "destination": "/", "permanent": false },
+    { "source": "/privacy-policy.html", "destination": "/privacy-policy/", "permanent": true },
+    { "source": "/terms-and-conditions.html", "destination": "/terms-and-conditions/", "permanent": true },
+    { "source": "/tickets.html", "destination": "/", "permanent": true },
+    { "source": "/universal-orlando.html", "destination": "/", "permanent": false }
+  ]
+}
