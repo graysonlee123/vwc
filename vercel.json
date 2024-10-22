@@ -9,5 +9,6 @@
     { "source": "/terms-and-conditions.html", "destination": "/terms-and-conditions/", "permanent": true },
     { "source": "/tickets.html", "destination": "/", "permanent": true },
     { "source": "/universal-orlando.html", "destination": "/", "permanent": false }
-  ]
+  ],
+  "trailingSlash": true
 }
