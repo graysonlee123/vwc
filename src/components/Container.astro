@@ -1,9 +1,9 @@
 ---
 type Props = {
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
 };
 
-const { size = 'md' } = Astro.props;
+const { size = 'lg' } = Astro.props;
 ---
 
 <div class:list={['container', `container--${size}`]}>
@@ -22,5 +22,9 @@ const { size = 'md' } = Astro.props;
 
   .container--md {
     --_container-max-width: 68rem;
+  }
+
+  .container--lg {
+    --_container-max-width: 81.25rem;
   }
 </style>

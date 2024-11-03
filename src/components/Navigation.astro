@@ -1,4 +1,5 @@
 ---
+import Button from './Button.astro';
 import Container from './Container.astro';
 import Link from './Link.astro';
 import Logomark from './Logomark.astro';
@@ -22,29 +23,33 @@ import Logomark from './Logomark.astro';
           <Link href="/contact/"> Contact </Link>
         </li>
       </ul>
+      <div class="buttons">
+        <Button href="/contact/">Contact</Button>
+      </div>
     </div>
   </Container>
 </nav>
 
 <style>
   .nav {
-    padding: 0.75rem;
-    background-color: hsl(var(--color--blue--400));
-    color: hsl(var(--color--white));
+    padding: 1.25rem 0.75rem;
   }
 
   .layout {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    justify-content: space-between;
   }
 
   .items {
     display: flex;
-    gap: 1.5rem;
+    gap: 3rem;
     align-items: center;
     list-style: none;
+  }
+
+  .buttons {
+    margin-left: auto;
   }
 
   @media (width < 48rem) {
