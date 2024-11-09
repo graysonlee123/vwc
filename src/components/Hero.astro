@@ -10,7 +10,7 @@ import heroImage from '../assets/images/beachAerial.jpg';
 <Container>
   <div class="hero">
     <div class="texts">
-      <h1 class="header">Where the Fun Begins!</h1>
+      <h1 class="brush-font header">Where the Fun Begins!</h1>
       <p class="subheader">
         A family-owned full-service travel agency located<br /> in and licensed by
         the state of Florida.
@@ -50,16 +50,13 @@ import heroImage from '../assets/images/beachAerial.jpg';
   }
 
   .header {
-    font-size: 3rem;
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    font-family: serif;
+    font-size: var(--font-size--2xl);
   }
 
   .subheader {
+    margin-top: 0.5rem;
     font-weight: bold;
-    line-height: 1.2;
+    font-size: var(--font-size--lg);
   }
 
   .badges {

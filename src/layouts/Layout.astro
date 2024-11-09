@@ -17,7 +17,7 @@ const { title, description, noindex } = Astro.props as Props;
   <head>
     <SEO title={title} description={description} noindex={noindex} />
   </head>
-  <body>
+  <body class="body-font">
     <Navbar />
     <slot />
     <Footer />

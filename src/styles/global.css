@@ -1,10 +1,14 @@
 /** Variables */
 
 :root {
-  --font-family--primary: 'Karla', sans-serif;
+  --font-family--body: 'Mona Sans', sans-serif;
+  --font-family--brush: 'Caveat Brush', cursive;
 
+  --font-size--sm: 0.8125rem;
   --font-size--md: 1rem;
   --font-size--lg: 1.25rem;
+  --font-size--xl: 2rem;
+  --font-size--2xl: 4.75rem;
 
   --color--white: 0 0% 100%;
   --color--black: 0 0% 0%;
@@ -16,8 +20,15 @@
 /** Fonts */
 
 @font-face {
-  font-family: 'Karla';
-  src: url('/fonts/karla-variable-subset.woff2') format('woff2');
+  font-family: 'Mona Sans';
+  src: url('/fonts/mona-sans/mona-sans-variable.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat Brush';
+  src: url('/fonts/caveat-brush/caveat-brush.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
 }
@@ -35,6 +46,8 @@
 }
 
 body {
+  font-size: var(--font-size--md);
+  color: hsl(var(--color--gray--700));
   -webkit-font-smoothing: antialiased;
 }
 
@@ -66,9 +79,17 @@ h6 {
 
 /** Fonts */
 
-body {
-  font-family: var(--font-family--primary);
-  font-size: var(--font-size--md);
-  color: hsl(var(--color--gray--700));
-  line-height: 1.5;
+.body-font {
+  font-family: var(--font-family--body);
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  font-optical-sizing: auto;
+}
+
+.brush-font {
+  font-family: var(--font-family--brush);
+  font-weight: 400;
+  font-style: normal;
 }
