@@ -9,17 +9,18 @@ import Card from './Card.astro';
 import Container from './Container.astro';
 import Testimonial from './Testimonial.astro';
 
-import allInclusiveResortsImage from '../assets/images/allInclusiveResorts.jpg';
-import disneyCruiseShipImage from '../assets/images/disneyCruiseShip.jpg';
-import hogwartsImage from '../assets/images/hogwarts.jpg';
-import magicKingdomParadeImage from '../assets/images/magicKingdomParade.jpg';
-import magicKingdomStation from '../assets/images/magicKingdomStation.jpg';
+import allInclusivesImage from '../assets/images/allInclusiveResorts.jpg';
+import cruisingImage from '../assets/images/disneyCruiseShip.jpg';
+import universalOrlandoImage from '../assets/images/hogwarts.jpg';
+import disneyDestinationsImage from '../assets/images/magicKingdomParade.jpg';
+import sandalsVacationsImage from '../assets/images/beachAerial.jpg';
+import beachesVacationsImage from '../assets/images/familyOnBeach.jpg';
 
 const services = [
   {
     title: 'Disney Destinations',
-    imageSrc: magicKingdomParadeImage,
-    imageAlt: '',
+    imageSrc: disneyDestinationsImage,
+    imageAlt: 'A child looking at a Disney float with Disney princesses on it',
     buttonText: 'Learn More',
     href: AFFILIATE_URL_DISNEY,
     target: '_blank',
@@ -27,8 +28,8 @@ const services = [
   },
   {
     title: 'Universal Orlando',
-    imageSrc: hogwartsImage,
-    imageAlt: '',
+    imageSrc: universalOrlandoImage,
+    imageAlt: 'Photo of the Hogwarts Castle at Universal Orlando at night',
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -36,8 +37,8 @@ const services = [
   },
   {
     title: 'Cruising Adventures',
-    imageSrc: disneyCruiseShipImage,
-    imageAlt: '',
+    imageSrc: cruisingImage,
+    imageAlt: 'Aerial view of a Disney Cruise Ship setting sail from land',
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -45,8 +46,9 @@ const services = [
   },
   {
     title: 'All-inclusives',
-    imageSrc: allInclusiveResortsImage,
-    imageAlt: '',
+    imageSrc: allInclusivesImage,
+    imageAlt:
+      'Off-shore photo of a Carribean resort, there are two large hotel buildings',
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -54,8 +56,9 @@ const services = [
   },
   {
     title: 'Sandals Vacations',
-    imageSrc: magicKingdomStation,
-    imageAlt: '',
+    imageSrc: sandalsVacationsImage,
+    imageAlt:
+      'Aerial view of a beach with people enjoying the sand and the water',
     buttonText: 'Learn More',
     href: AFFILIATE_URL_SANDALS,
     target: '_blank',
@@ -63,8 +66,9 @@ const services = [
   },
   {
     title: 'Beaches Vacations',
-    imageSrc: magicKingdomStation,
-    imageAlt: '',
+    imageSrc: beachesVacationsImage,
+    imageAlt:
+      'A small family relaxing on an isolated beach, the mother is closest in a hammock while the father and child play in the water',
     buttonText: 'Learn More',
     href: AFFILIATE_URL_BEACHES,
     target: '_blank',
