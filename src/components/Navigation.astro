@@ -26,6 +26,7 @@ import SocialIconList from './SocialIconList.astro';
       </ul>
       <div class="right">
         <SocialIconList />
+        <span class="divider" aria-hidden="true"></span>
         <Button href="/contact/">Contact</Button>
       </div>
     </div>
@@ -53,8 +54,15 @@ import SocialIconList from './SocialIconList.astro';
   .right {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     margin-left: auto;
+  }
+
+  .divider {
+    display: block;
+    width: 2px;
+    height: 2rem;
+    background-color: hsl(var(--color--gray--100));
   }
 
   @media (width < 48rem) {
