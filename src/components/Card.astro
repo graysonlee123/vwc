@@ -9,6 +9,7 @@ interface Props {
   buttonText?: string;
   target?: string;
   rel?: string;
+  style?: string | astroHTML.JSX.CSSProperties;
 }
 
 const {
@@ -19,10 +20,11 @@ const {
   href,
   target,
   rel,
+  style,
 } = Astro.props;
 ---
 
-<a class="card" href={href} target={target} rel={rel}>
+<a class="card" href={href} target={target} rel={rel} style={style}>
   <h3 class="title">{title}</h3>
   <span class="button">{buttonText}</span>
   {imageSrc && <Image class="image" src={imageSrc} alt={imageAlt} />}
@@ -32,8 +34,10 @@ const {
   .card {
     position: relative;
     z-index: 0;
-    display: grid;
-    justify-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
     gap: 3rem;
     padding: 1rem;
     color: #fff;
