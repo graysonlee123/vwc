@@ -3,6 +3,7 @@ import Button from './Button.astro';
 import Container from './Container.astro';
 import Link from './Link.astro';
 import Logomark from './Logomark.astro';
+import SocialIconList from './SocialIconList.astro';
 ---
 
 <nav class="nav">
@@ -23,7 +24,8 @@ import Logomark from './Logomark.astro';
           <Link href="/contact/"> Contact </Link>
         </li>
       </ul>
-      <div class="buttons">
+      <div class="right">
+        <SocialIconList />
         <Button href="/contact/">Contact</Button>
       </div>
     </div>
@@ -48,7 +50,10 @@ import Logomark from './Logomark.astro';
     list-style: none;
   }
 
-  .buttons {
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
     margin-left: auto;
   }
 
