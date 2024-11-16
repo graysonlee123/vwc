@@ -13,7 +13,9 @@ const { icon: Icon, iconColor, title, style, accent } = Astro.props;
 <div class:list={{ card: true, accent: accent }} style={style}>
   {Icon && <span class:list={['icon', iconColor]}>{<Icon />}</span>}
   <h3 class="title">{title}</h3>
-  <slot />
+  <div class="content">
+    <slot />
+  </div>
 </div>
 
 <style>
@@ -74,7 +76,7 @@ const { icon: Icon, iconColor, title, style, accent } = Astro.props;
     --_background-color: 276 87% 87%;
   }
 
-  /* Accent */
-  .accent {
+  .content {
+    text-wrap: balance;
   }
 </style>
