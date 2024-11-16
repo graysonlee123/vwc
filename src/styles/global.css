@@ -11,6 +11,7 @@
   --font-size--xl: 2rem;
   --font-size--2xl: 4.75rem;
 
+  --color--brand: var(--color--blue--400);
   --color--white: 0 0% 100%;
   --color--black: 0 0% 0%;
   --color--gray--100: 0 0% 90%;
