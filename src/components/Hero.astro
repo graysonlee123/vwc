@@ -7,28 +7,72 @@ import Container from './Container.astro';
 import heroImage from '../assets/images/beachAerial.jpg';
 ---
 
-<Container>
-  <div class="hero">
-    <div class="texts">
-      <h1 class="brush-font header">Where the Fun Begins!</h1>
-      <p class="subheader">
-        A family-owned full-service travel agency located in and licensed by the
-        state of Florida.
-      </p>
+<div class="hero">
+  <Container>
+    <div class="layout">
+      <div class="texts">
+        <h1 class="brush-font header">Where the Fun Begins!</h1>
+        <p class="subheader">
+          A family-owned full-service travel agency located in and licensed by
+          the state of Florida.
+        </p>
+      </div>
+      <div class="footer">
+        <Badges />
+      </div>
+      <Image
+        class="image"
+        src={heroImage}
+        alt="Aerial view of a tropical beach with people enjoying the sand and the water."
+      />
     </div>
-    <div class="footer">
-      <Badges />
-    </div>
-    <Image
-      class="image"
-      src={heroImage}
-      alt="Aerial view of a tropical beach with people enjoying the sand and the water."
-    />
+  </Container>
+  <div class="back" aria-hidden="true">
+    <span class="shadow"></span>
+    <span class="shadow"></span>
   </div>
-</Container>
+</div>
 
 <style>
   .hero {
+    position: relative;
+    z-index: 0;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -5;
+    inset: 0;
+  }
+
+  .shadow {
+    position: absolute;
+    display: block;
+  }
+
+  .shadow:nth-child(1) {
+    z-index: -5;
+    top: 0%;
+    right: 10%;
+    aspect-ratio: 3 / 5;
+    width: 600px;
+    background-color: #c89e86;
+    filter: blur(999px);
+    opacity: 15%;
+  }
+
+  .shadow:nth-child(2) {
+    z-index: -10;
+    top: -50%;
+    left: 10%;
+    aspect-ratio: 3 / 4;
+    width: 800px;
+    background-color: #008a8b;
+    filter: blur(9999px);
+    opacity: 10%;
+  }
+
+  .layout {
     position: relative;
     z-index: 0;
     padding-top: 5rem;
@@ -39,7 +83,7 @@ import heroImage from '../assets/images/beachAerial.jpg';
     overflow: hidden;
   }
 
-  .hero::after {
+  .layout::after {
     content: '';
     position: absolute;
     z-index: -1;
