@@ -1,0 +1,127 @@
+---
+import Button from '../Button.astro';
+import Container from '../Container.astro';
+import Scroller from './Scroller.astro';
+
+import DiagonAlleyImage from '../../assets/images/diagonAlley.jpg';
+import FamilyOnBeachImage from '../../assets/images/familyOnBeach.jpg';
+import MagicKingdomStationImage from '../../assets/images/magicKingdomStation.jpg';
+import MomAndDaughterAnimalKingdomImage from '../../assets/images/momAndDaughterAnimalKingdom.jpg';
+import HogwartsImage from '../../assets/images/hogwartsDaytime.jpg';
+import MagicKingdomCastleImage from '../../assets/images/magicKingdomCastle.jpg';
+import PrincessTianaImage from '../../assets/images/princessTiana.jpg';
+import DisneyCharactersImage from '../../assets/images/disneyCharacters.jpg';
+
+const scrollerOne = [
+  {
+    src: DisneyCharactersImage,
+    alt: 'Goofy, Donald Duck, Mickey Mouse, Minnie Mouse, and Pluto posing for a picture in front of Magic Kindom Castle.',
+  },
+  {
+    src: MagicKingdomStationImage,
+    alt: "A train waiting at the front of Magic Kingdom's train station.",
+  },
+  {
+    src: HogwartsImage,
+    alt: 'Hogwarts at Universal Studios; a lush forest covers the lower third of the view.',
+  },
+  {
+    src: MomAndDaughterAnimalKingdomImage,
+    alt: "A mother and daughter wearing Mickey Mouse ears share a loving moment in front of the Tree of Life at Disney's Animal Kingdom.",
+  },
+];
+
+const scrollerTwo = [
+  {
+    src: DiagonAlleyImage,
+    alt: 'View of Diagon Alley at Universal Studios, featuring colorful shopfronts, hanging signs, and a fire-breathing dragon atop Gringotts Bank against a bright blue sky.',
+  },
+  {
+    src: FamilyOnBeachImage,
+    alt: 'A woman in a hammock on the beach; in the background, a man and child are playing in the water near the shoreline.',
+  },
+  {
+    src: MagicKingdomCastleImage,
+    alt: 'Front view of Magic Kingdom Castle on a bright, cloudless day; Minnie Mouse, Minnie Mouse, and Olaf stand on the stage.',
+  },
+  {
+    src: PrincessTianaImage,
+    alt: 'Princess Tiana actress sharing a special moment with a young girl; the Magic Kingdom Castle can be seen in the background.',
+  },
+];
+---
+
+<div class="cta">
+  <Container>
+    <div class="card">
+      <div class="text">
+        <h2 class="header">Ready for Adventure?</h2>
+        <p class="body">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+          architecto ipsum accusamus nihil similique quasi modi voluptate error
+          voluptatem. Excepturi?
+        </p>
+        <div class="actions">
+          <Button href="/">Begin the Memories</Button>
+        </div>
+      </div>
+      <div class="column column--one">
+        <Scroller propsForImages={scrollerOne} staggerSizes />
+      </div>
+      <div class="column column--two">
+        <Scroller
+          propsForImages={scrollerTwo}
+          scrollDirection="backwards"
+          flushAgainst="right"
+        />
+      </div>
+    </div>
+  </Container>
+</div>
+
+<style>
+  .cta {
+    --gap: 1.5rem;
+
+    margin-block: 12rem;
+  }
+
+  .card {
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap);
+    min-height: 30rem;
+    background-color: hsl(var(--color--blue--400));
+    color: hsl(var(--color--blue--900));
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  .text {
+    grid-column: 1 / span 5;
+    align-self: center;
+    padding: 4rem;
+  }
+
+  .body {
+    text-wrap: balance;
+  }
+
+  .header {
+    font-size: var(--font-size--xl);
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+
+  .column--one {
+    grid-column: span 4;
+  }
+
+  .column--two {
+    grid-column: span 3;
+  }
+</style>
