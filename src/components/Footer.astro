@@ -4,136 +4,143 @@ import { BLOG_URL } from '@lib/constants';
 import Container from '@components/Container.astro';
 import Legal from '@components/Legal.astro';
 import Link from '@components/Link.astro';
+import Logomark from '@components/Logomark.astro';
 import SocialIconList from '@components/SocialIconList.astro';
-
-const menus = [
-  {
-    label: 'Learn',
-    links: [
-      {
-        title: 'About',
-        href: '/about/',
-      },
-      {
-        title: 'Blog',
-        href: BLOG_URL,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      },
-      {
-        title: 'Contact',
-        href: '/contact/',
-      },
-      {
-        title: 'Destinations',
-        href: '/destinations/',
-      },
-    ],
-  },
-  {
-    label: 'Other',
-    links: [
-      {
-        title: 'Careers',
-        href: '/careers/',
-      },
-      {
-        title: 'Privacy',
-        href: '/privacy-policy/',
-      },
-      {
-        title: 'Terms and Conditions',
-        href: '/terms-and-conditions/',
-      },
-    ],
-  },
-];
 ---
 
 <footer class="footer">
-  <Container size="md">
-    <div class="layout">
-      {
-        menus.map(({ label, links }) => (
-          <div class="col">
-            <div class="label">{label}</div>
-            <ul class="list">
-              {links.map(({ title, href, target, rel }) => (
-                <li class="item">
-                  <Link href={href} target={target} rel={rel}>
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-      <div class="col col--last">
-        <div class="socials">
-          <SocialIconList />
+  <div class="wrapper">
+    <Container>
+      <div class="layout">
+        <div class="logo">
+          <Logomark />
         </div>
-        <div>
-          (800) 908-3005 <br />
-          info@vacationswithcharacter.com
+        <div class="links">
+          <ul class="links">
+            <li class="item">
+              <Link href="/about/">About</Link>
+            </li>
+            <li class="item">
+              <Link href={BLOG_URL} target="_blank" rel="noopener noreferrer"
+                >Blog</Link
+              >
+            </li>
+            <li class="item">
+              <Link href="/contact/">Contact</Link>
+            </li>
+            <li class="item">
+              <Link href="/destinations/">Destinations</Link>
+            </li>
+            <li class="item">
+              <Link href="/careers/">Careers</Link>
+            </li>
+            <li class="item">
+              <Link href="/privacy-policy/">Privacy</Link>
+            </li>
+            <li class="item">
+              <Link href="/terms-and-conditions/">Terms and Conditions</Link>
+            </li>
+          </ul>
+        </div>
+        <div class="extras">
+          <div class="socials">
+            <SocialIconList />
+          </div>
+          <div>
+            (800) 908-3005 <br />
+            info@vacationswithcharacter.com
+          </div>
         </div>
       </div>
-    </div>
-    <Legal />
-  </Container>
+      <Legal />
+    </Container>
+  </div>
+  <div class="back" aria-hidden="true">
+    <span class="shadow" aria-hidden="true"></span>
+    <span class="shadow" aria-hidden="true"></span>
+  </div>
 </footer>
 
 <style>
   .footer {
-    margin-block: 4rem;
+    position: relative;
+    z-index: 0;
     font-size: var(--font-size--sm);
-    background-color: #fff;
+  }
+
+  .wrapper {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    background-color: hsl(var(--color--white));
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: hsl(var(--color--gray--100));
   }
 
   .layout {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 3rem;
-    margin-block: 4rem;
-    padding-block: 4rem;
-    border-top-color: currentColor;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-bottom-color: currentColor;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-  }
-
-  @media (width >= 48rem) {
-    .layout {
-      flex-direction: row;
-    }
-
-    .col--last {
-      margin-left: auto;
-    }
-  }
-
-  .col {
-    width: 100%;
-    max-width: 12rem;
-  }
-
-  .list {
     display: grid;
+    grid-template-columns: repeat(12, 1fr);
     gap: 0.75rem;
+    margin-bottom: 4rem;
+    padding-bottom: 6rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(var(--color--gray--100));
+  }
+
+  .logo {
+    grid-column: 1 / span 8;
+    grid-row: 1 / 2;
+  }
+
+  .links {
+    grid-column: 1 / span 8;
+    grid-row: 2 / 3;
+    display: flex;
+    gap: 1.5rem;
     padding: 0;
     list-style: none;
   }
 
-  .label {
-    margin-bottom: 2rem;
-    font-size: var(--font-size--md);
-    font-weight: 500;
+  .extras {
+    grid-column: 9 / span 4;
+    grid-row: 1 / 3;
   }
 
   .socials {
     margin-bottom: 1.5rem;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -5;
+    inset: 0;
+  }
+
+  .shadow {
+    position: absolute;
+    display: block;
+  }
+
+  .shadow:nth-child(1) {
+    z-index: -5;
+    top: -15%;
+    right: -20%;
+    aspect-ratio: 3 / 1;
+    width: 900px;
+    background-color: #af86e1;
+    filter: blur(999px);
+    opacity: 10%;
+  }
+
+  .shadow:nth-child(2) {
+    z-index: -10;
+    top: -10%;
+    left: -10%;
+    aspect-ratio: 2 / 1;
+    width: 1200px;
+    background-color: #008a8b;
+    filter: blur(9999px);
+    opacity: 7.5%;
   }
 </style>
