@@ -79,16 +79,21 @@ const {
     width: 100%;
     height: auto;
     border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
   }
 
   .flush-against--left .image {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    border-left-width: 0;
   }
 
   .flush-against--right .image {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-right-width: 0;
   }
 
   @keyframes slide-up {
