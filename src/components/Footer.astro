@@ -9,8 +9,8 @@ import SocialIconList from '@components/SocialIconList.astro';
 ---
 
 <footer class="footer">
-  <div class="wrapper">
-    <Container>
+  <Container>
+    <div class="wrapper">
       <div class="layout">
         <div class="logo">
           <Logomark />
@@ -53,8 +53,8 @@ import SocialIconList from '@components/SocialIconList.astro';
         </div>
       </div>
       <Legal />
-    </Container>
-  </div>
+    </div>
+  </Container>
   <div class="back" aria-hidden="true">
     <span class="shadow" aria-hidden="true"></span>
     <span class="shadow" aria-hidden="true"></span>
@@ -69,20 +69,20 @@ import SocialIconList from '@components/SocialIconList.astro';
   }
 
   .wrapper {
-    padding-top: 7rem;
-    padding-bottom: 4rem;
-    background-color: hsl(var(--color--white));
-    border-top-width: 2px;
-    border-top-style: solid;
-    border-top-color: hsl(var(--color--gray--100));
+    background-color: hsl(0 0% 100% / 50%);
+    backdrop-filter: blur(32px) saturate(100%);
+    padding: 3rem;
+    border-radius: 2rem 2rem 0 0;
+    border: 2px solid hsl(var(--color--gray--100));
+    border-bottom-width: 0px;
   }
 
   .layout {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 0.75rem;
-    margin-bottom: 4rem;
-    padding-bottom: 6rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: hsl(var(--color--gray--100));
@@ -124,23 +124,23 @@ import SocialIconList from '@components/SocialIconList.astro';
 
   .shadow:nth-child(1) {
     z-index: -5;
-    top: -15%;
-    right: -20%;
-    aspect-ratio: 3 / 1;
+    bottom: 25%;
+    right: 10%;
+    aspect-ratio: 2 / 1;
     width: 900px;
-    background-color: #af86e1;
-    filter: blur(999px);
+    background-color: #008a8b;
+    filter: blur(999px) saturate(800%);
     opacity: 10%;
   }
 
   .shadow:nth-child(2) {
     z-index: -10;
-    top: -10%;
+    bottom: 15%;
     left: -10%;
     aspect-ratio: 2 / 1;
     width: 1200px;
-    background-color: #008a8b;
-    filter: blur(9999px);
+    background-color: #af86e1;
+    filter: blur(9999px) saturate(800%);
     opacity: 7.5%;
   }
 </style>
