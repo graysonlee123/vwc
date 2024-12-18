@@ -8,5 +8,6 @@
       "@layouts/*": ["src/layouts/*"],
       "@lib/*": ["src/lib/*"]
     }
-  }
+  },
+  "verbatimModuleSyntax": true
 }
