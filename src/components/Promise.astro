@@ -105,8 +105,10 @@ import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
           href="/contact/"
           buttonText="About Us"
           title="10 Years of Experience"
-          imageSrc={ctaCardImage}
-          imageAlt="Photo of a Disney Cruise Ship's horns, with a chimney behind"
+          imageProps={{
+            src: ctaCardImage,
+            alt: "Photo of a Disney Cruise Ship's horns, with a chimney behind",
+          }}
           style={{ height: '100%' }}
         />
       </div>

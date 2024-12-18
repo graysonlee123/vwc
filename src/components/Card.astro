@@ -1,33 +1,24 @@
 ---
+import type { ComponentProps } from 'astro/types';
 import { Image } from 'astro:assets';
 
 interface Props {
-  href: string;
   title?: string;
-  imageSrc?: any; // TODO: Proper typing here
-  imageAlt?: string;
   buttonText?: string;
+  href: string;
   target?: string;
   rel?: string;
+  imageProps: ComponentProps<typeof Image>;
   style?: string | astroHTML.JSX.CSSProperties;
 }
 
-const {
-  title,
-  imageSrc,
-  imageAlt = '',
-  buttonText,
-  href,
-  target,
-  rel,
-  style,
-} = Astro.props;
+const { title, buttonText, href, target, rel, imageProps, style } = Astro.props;
 ---
 
 <a class="card" href={href} target={target} rel={rel} style={style}>
   <h3 class="title">{title}</h3>
   <span class="button">{buttonText}</span>
-  {imageSrc && <Image class="image" src={imageSrc} alt={imageAlt} />}
+  <Image {...imageProps} class="image" />
 </a>
 
 <style>

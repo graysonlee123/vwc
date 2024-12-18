@@ -16,11 +16,15 @@ import disneyDestinationsImage from '@assets/images/magicKingdomParade.jpg';
 import sandalsVacationsImage from '@assets/images/beachAerial.jpg';
 import beachesVacationsImage from '@assets/images/familyOnBeach.jpg';
 
-const services = [
+import type { ComponentProps } from 'astro/types';
+
+const services: ComponentProps<typeof Card>[] = [
   {
     title: 'Disney Destinations',
-    imageSrc: disneyDestinationsImage,
-    imageAlt: 'A child looking at a Disney float with Disney princesses on it',
+    imageProps: {
+      src: disneyDestinationsImage,
+      alt: 'A child looking at a Disney float with Disney princesses on it',
+    },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_DISNEY,
     target: '_blank',
@@ -28,8 +32,10 @@ const services = [
   },
   {
     title: 'Universal Orlando',
-    imageSrc: universalOrlandoImage,
-    imageAlt: 'Photo of the Hogwarts Castle at Universal Orlando at night',
+    imageProps: {
+      src: universalOrlandoImage,
+      alt: 'Photo of the Hogwarts Castle at Universal Orlando at night',
+    },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -37,8 +43,10 @@ const services = [
   },
   {
     title: 'Cruising Adventures',
-    imageSrc: cruisingImage,
-    imageAlt: 'Aerial view of a Disney Cruise Ship setting sail from land',
+    imageProps: {
+      src: cruisingImage,
+      alt: 'Aerial view of a Disney Cruise Ship setting sail from land',
+    },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -46,9 +54,10 @@ const services = [
   },
   {
     title: 'All-inclusives',
-    imageSrc: allInclusivesImage,
-    imageAlt:
-      'Off-shore photo of a Carribean resort, there are two large hotel buildings',
+    imageProps: {
+      src: allInclusivesImage,
+      alt: 'Off-shore photo of a Carribean resort, there are two large hotel buildings',
+    },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
@@ -56,9 +65,10 @@ const services = [
   },
   {
     title: 'Sandals Vacations',
-    imageSrc: sandalsVacationsImage,
-    imageAlt:
-      'Aerial view of a beach with people enjoying the sand and the water',
+    imageProps: {
+      src: sandalsVacationsImage,
+      alt: 'Aerial view of a beach with people enjoying the sand and the water',
+    },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_SANDALS,
     target: '_blank',
@@ -66,9 +76,10 @@ const services = [
   },
   {
     title: 'Beaches Vacations',
-    imageSrc: beachesVacationsImage,
-    imageAlt:
-      'A small family relaxing on an isolated beach, the mother is closest in a hammock while the father and child play in the water',
+    imageProps: {
+      src: beachesVacationsImage,
+      alt: 'A small family relaxing on an isolated beach, the mother is closest in a hammock while the father and child play in the water',
+    },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_BEACHES,
     target: '_blank',
@@ -81,19 +92,16 @@ const services = [
   <div class="layout">
     <div class="cards">
       {
-        services.map(
-          ({ title, imageSrc, imageAlt, buttonText, href, target, rel }) => (
-            <Card
-              title={title}
-              imageSrc={imageSrc}
-              imageAlt={imageAlt}
-              buttonText={buttonText}
-              href={href}
-              target={target}
-              rel={rel}
-            />
-          )
-        )
+        services.map(({ title, buttonText, href, target, rel, imageProps }) => (
+          <Card
+            title={title}
+            buttonText={buttonText}
+            href={href}
+            target={target}
+            imageProps={imageProps}
+            rel={rel}
+          />
+        ))
       }
     </div>
     <div class="testimonial">
