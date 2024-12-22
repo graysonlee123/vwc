@@ -19,7 +19,16 @@ const { title, description, noindex } = Astro.props as Props;
   </head>
   <body class="body-font">
     <Navbar />
-    <slot />
+    <main class="main">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .main {
+    position: relative;
+    z-index: 5;
+  }
+</style>
