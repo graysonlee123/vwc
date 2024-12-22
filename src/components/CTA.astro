@@ -12,41 +12,65 @@ import MagicKingdomCastleImage from '@assets/images/magicKingdomCastle.jpg';
 import PrincessTianaImage from '@assets/images/princessTiana.jpg';
 import DisneyCharactersImage from '@assets/images/disneyCharacters.jpg';
 
+const scrollerOneSmallWidths = [312 * 2, 312];
+const scrollerOneLargeWidths = [416 * 2, 416];
+const scrollerOneSmallSizes = '312px';
+const scrollerOneLargeSizes = '416px';
+
 const scrollerOne = [
   {
     src: DisneyCharactersImage,
     alt: 'Goofy, Donald Duck, Mickey Mouse, Minnie Mouse, and Pluto posing for a picture in front of Magic Kindom Castle.',
+    widths: scrollerOneLargeWidths,
+    sizes: scrollerOneLargeSizes,
   },
   {
     src: MagicKingdomStationImage,
     alt: "A train waiting at the front of Magic Kingdom's train station.",
+    widths: scrollerOneSmallWidths,
+    sizes: scrollerOneSmallSizes,
   },
   {
     src: HogwartsImage,
     alt: 'Hogwarts at Universal Studios; a lush forest covers the lower third of the view.',
+    widths: scrollerOneLargeWidths,
+    sizes: scrollerOneLargeSizes,
   },
   {
     src: MomAndDaughterAnimalKingdomImage,
     alt: "A mother and daughter wearing Mickey Mouse ears share a loving moment in front of the Tree of Life at Disney's Animal Kingdom.",
+    widths: scrollerOneSmallWidths,
+    sizes: scrollerOneSmallSizes,
   },
 ];
+
+const scrollerTwoWidths = [306 * 2, 306];
+const scrollerTwoSizes = '306px';
 
 const scrollerTwo = [
   {
     src: DiagonAlleyImage,
     alt: 'View of Diagon Alley at Universal Studios, featuring colorful shopfronts, hanging signs, and a fire-breathing dragon atop Gringotts Bank against a bright blue sky.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
   },
   {
     src: FamilyOnBeachImage,
     alt: 'A woman in a hammock on the beach; in the background, a man and child are playing in the water near the shoreline.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
   },
   {
     src: MagicKingdomCastleImage,
     alt: 'Front view of Magic Kingdom Castle on a bright, cloudless day; Minnie Mouse, Minnie Mouse, and Olaf stand on the stage.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
   },
   {
     src: PrincessTianaImage,
     alt: 'Princess Tiana actress sharing a special moment with a young girl; the Magic Kingdom Castle can be seen in the background.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
   },
 ];
 ---

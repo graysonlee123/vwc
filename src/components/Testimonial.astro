@@ -27,7 +27,13 @@ import Stars from '@components/Stars.astro';
     use them!
   </p>
   <div class="footer">
-    <Image class="avatar" src={defaultAvatarImage} alt="Avatar" />
+    <Image
+      class="avatar"
+      src={defaultAvatarImage}
+      alt="Avatar"
+      widths={[64 * 2, 64]}
+      sizes="64px"
+    />
     <div class="meta">
       <div>Brittany</div>
       <Stars />

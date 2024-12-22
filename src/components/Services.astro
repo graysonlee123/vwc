@@ -18,12 +18,17 @@ import beachesVacationsImage from '@assets/images/familyOnBeach.jpg';
 
 import type { ComponentProps } from 'astro/types';
 
+const sizes = '252px';
+const widths = [252 * 2, 252];
+
 const services: ComponentProps<typeof Card>[] = [
   {
     title: 'Disney Destinations',
     imageProps: {
       src: disneyDestinationsImage,
       alt: 'A child looking at a Disney float with Disney princesses on it',
+      sizes,
+      widths,
     },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_DISNEY,
@@ -35,6 +40,8 @@ const services: ComponentProps<typeof Card>[] = [
     imageProps: {
       src: universalOrlandoImage,
       alt: 'Photo of the Hogwarts Castle at Universal Orlando at night',
+      sizes,
+      widths,
     },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
@@ -46,6 +53,8 @@ const services: ComponentProps<typeof Card>[] = [
     imageProps: {
       src: cruisingImage,
       alt: 'Aerial view of a Disney Cruise Ship setting sail from land',
+      sizes,
+      widths,
     },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
@@ -57,6 +66,8 @@ const services: ComponentProps<typeof Card>[] = [
     imageProps: {
       src: allInclusivesImage,
       alt: 'Off-shore photo of a Carribean resort, there are two large hotel buildings',
+      sizes,
+      widths,
     },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
@@ -68,6 +79,8 @@ const services: ComponentProps<typeof Card>[] = [
     imageProps: {
       src: sandalsVacationsImage,
       alt: 'Aerial view of a beach with people enjoying the sand and the water',
+      sizes,
+      widths,
     },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_SANDALS,
@@ -79,6 +92,8 @@ const services: ComponentProps<typeof Card>[] = [
     imageProps: {
       src: beachesVacationsImage,
       alt: 'A small family relaxing on an isolated beach, the mother is closest in a hammock while the father and child play in the water',
+      sizes,
+      widths,
     },
     buttonText: 'Learn More',
     href: AFFILIATE_URL_BEACHES,
