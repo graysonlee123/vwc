@@ -1,6 +1,5 @@
 ---
-import type { ComponentProps } from 'astro/types';
-import { Image } from 'astro:assets';
+import { Image, type LocalImageProps } from 'astro:assets';
 
 interface Props {
   title?: string;
@@ -8,7 +7,7 @@ interface Props {
   href: string;
   target?: string;
   rel?: string;
-  imageProps: ComponentProps<typeof Image>;
+  imageProps: Omit<LocalImageProps, 'class'>;
   style?: string | astroHTML.JSX.CSSProperties;
 }
 
@@ -18,7 +17,7 @@ const { title, buttonText, href, target, rel, imageProps, style } = Astro.props;
 <a class="card" href={href} target={target} rel={rel} style={style}>
   <h3 class="title">{title}</h3>
   <span class="button">{buttonText}</span>
-  <Image {...imageProps} class="image" />
+  <Image {...imageProps as LocalImageProps} class="image" />
 </a>
 
 <style>
