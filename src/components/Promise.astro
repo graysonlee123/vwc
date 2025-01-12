@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import { QUOTE_URL } from '@lib/constants';
 
 import Button from '@components/Button.astro';
@@ -12,6 +14,10 @@ import ShieldIcon from '@components/Icons/ShieldIcon.astro';
 import StarIcon from '@components/Icons/StarIcon.astro';
 
 import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
+import fireworkOneImage from '@assets/images/firework-01.png'
+import fireworkTwoImage from '@assets/images/firework-02.png'
+import starOneImage from '@assets/images/star-01.png'
+import starTwoImage from '@assets/images/star-02.png'
 ---
 
 <div class="section">
@@ -27,6 +33,10 @@ import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
             Get Started
           </Button>
         </div>
+        <Image src={fireworkOneImage} alt="" class="firework-one" />
+        <Image src={starOneImage} alt="" class="star-one" />
+        <Image src={starTwoImage} alt="" class="star-two" />
+        <Image src={starTwoImage} alt="" class="star-three" />
       </div>
       <div class="item">
         <IconCard
@@ -114,6 +124,11 @@ import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
           style={{ height: '100%' }}
         />
       </div>
+      <div class="item" aria-hidden="true">
+        <Image src={fireworkTwoImage} alt="" class="firework-two" />
+        <Image src={starOneImage} alt="" class="star-four" />
+        <Image src={starTwoImage} alt="" class="star-five" />
+      </div>
     </div>
   </Container>
   <div class="back" aria-hidden="true">
@@ -171,10 +186,54 @@ import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
   }
 
   .intro {
+    position: relative;
+    z-index: 0;
     grid-column: 1 / span 8;
     grid-row: 1 / span 2;
     text-align: center;
     transform: translateY(-4rem);
+  }
+
+  .firework-one,
+  .star-one,
+  .star-two,
+  .star-three {
+    position: absolute;
+    z-index: -1;
+    opacity: 7.5%;
+    height: auto;
+  }
+
+  .firework-one {
+    --width: 15rem;
+
+    bottom: calc(-0.5 * var(--width));
+    left: calc(-0.25 * var(--width));
+    width: var(--width);
+  }
+
+  .star-one {
+    --width: 8rem;
+
+    top: 45%;
+    right: 2rem;
+    width: var(--width);
+  }
+
+  .star-two {
+    --width: 6rem;
+
+    top: calc(100% + var(--width) / 3);
+    left: 25%;
+    width: var(--width);
+  }
+
+  .star-three {
+    --width: 4rem;
+
+    top: calc(-0.3 * var(--width));
+    right: 0;
+    width: var(--width);
   }
 
   .title {
@@ -221,5 +280,46 @@ import ctaCardImage from '@assets/images/cruiseShipFunnel.jpg';
   .item:nth-of-type(7) {
     grid-column: 9 / span 4;
     grid-row: 1 / span 4;
+  }
+
+  .item:nth-of-type(8) {
+    position: relative;
+    z-index: 0;
+    transform: translate(3rem, 6rem);
+    grid-column: 5 / -1;
+    grid-row: 7 / 10;
+  }
+
+  .firework-two,
+  .star-four,
+  .star-five {
+    position: absolute;
+    z-index: -1;
+    opacity: 7.5%;
+    height: auto;
+  }
+
+  .firework-two {
+    --width: 12rem;
+
+    bottom: -2rem;
+    right: 5rem;
+    width: var(--width);
+  }
+
+  .star-four {
+    --width: 6rem;
+
+    top: 10%;
+    right: 0;
+    width: var(--width);
+  }
+
+  .star-five {
+    --width: 4rem;
+
+    bottom: 4rem;
+    right: 20rem;
+    width: var(--width);
   }
 </style>
