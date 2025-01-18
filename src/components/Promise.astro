@@ -18,6 +18,10 @@ import fireworkOneImage from '@assets/images/firework-01.png'
 import fireworkTwoImage from '@assets/images/firework-02.png'
 import starOneImage from '@assets/images/star-01.png'
 import starTwoImage from '@assets/images/star-02.png'
+
+const startDate = new Date('2010-01-01');
+const currentDate = new Date();
+const yearsOfExperience = currentDate.getFullYear() - startDate.getFullYear();
 ---
 
 <div class="section">
@@ -114,7 +118,7 @@ import starTwoImage from '@assets/images/star-02.png'
         <Card
           href="/about/"
           buttonText="About Us"
-          title="15 Years of Experience"
+          title={`${yearsOfExperience} Years of Experience`}
           imageProps={{
             src: ctaCardImage,
             alt: "Photo of a Disney Cruise Ship's horns, with a chimney behind",
