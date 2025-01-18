@@ -9,12 +9,12 @@ import Card from '@components/Card.astro';
 import Container from '@components/Container.astro';
 import Testimonial from '@components/Testimonial.astro';
 
-import allInclusivesImage from '@assets/images/allInclusiveResorts.jpg';
-import cruisingImage from '@assets/images/disneyCruiseShip.jpg';
+import aulaniResortImage from '@assets/images/disneysAulaniResort.jpg';
+import cruisingAdventuresImage from '@assets/images/disneyCruiseShip.jpg';
 import universalOrlandoImage from '@assets/images/hogwarts.jpg';
 import disneyDestinationsImage from '@assets/images/magicKingdomParade.jpg';
 import sandalsVacationsImage from '@assets/images/beachAerial.jpg';
-import beachesVacationsImage from '@assets/images/familyOnBeach.jpg';
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom.jpg';
 
 import type { ComponentProps } from 'astro/types';
 
@@ -51,7 +51,7 @@ const services: ComponentProps<typeof Card>[] = [
   {
     title: 'Cruising Adventures',
     imageProps: {
-      src: cruisingImage,
+      src: cruisingAdventuresImage,
       alt: 'Aerial view of a Disney Cruise Ship setting sail from land',
       sizes,
       widths,
@@ -62,15 +62,15 @@ const services: ComponentProps<typeof Card>[] = [
     rel: 'noopener noreferrer',
   },
   {
-    title: 'All-inclusives',
+    title: "Disney's Aulani",
     imageProps: {
-      src: allInclusivesImage,
-      alt: 'Off-shore photo of a Carribean resort, there are two large hotel buildings',
+      src: aulaniResortImage,
+      alt: "Off-shore photo of the tropical Disney's Aulani resort, there are two large hotel buildings",
       sizes,
       widths,
     },
-    buttonText: 'Get a Quote',
-    href: QUOTE_URL,
+    buttonText: 'Learn More',
+    href: "https://www.disneytravelcenter.com/MIN-000000000096088/sites++aulani++aulani/",
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -88,10 +88,10 @@ const services: ComponentProps<typeof Card>[] = [
     rel: 'noopener noreferrer',
   },
   {
-    title: 'Beaches Vacations',
+    title: 'All-Inclusives',
     imageProps: {
-      src: beachesVacationsImage,
-      alt: 'A small family relaxing on an isolated beach, the mother is closest in a hammock while the father and child play in the water',
+      src: allInclusivesImage,
+      alt: 'A tropical all-inclusive hotel room looking out at the beach and ocean',
       sizes,
       widths,
     },
