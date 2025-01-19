@@ -19,9 +19,9 @@ import fireworkTwoImage from '@assets/images/firework-02.png'
 import starOneImage from '@assets/images/star-01.png'
 import starTwoImage from '@assets/images/star-02.png'
 
-const startDate = new Date('2010-01-01');
+const startDate = new Date(Date.UTC(2010, 1, 1));
 const currentDate = new Date();
-const yearsOfExperience = currentDate.getFullYear() - startDate.getFullYear();
+const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYear();
 console.log({startDate, currentDate, yearsOfExperience})
 ---
 
