@@ -1,3 +1,7 @@
+---
+import '../../node_modules/toastify-js/src/toastify.css';
+---
+
 <form
   id="contact-form"
 >
@@ -25,11 +29,13 @@
 </form>
 
 <script>
+  import Toastify from 'toastify-js'
   import { PUBLIC_FORMSPREE_FORM_ID } from "astro:env/client"
 
-  // TODO: Type this properly
   type FormspreeResponse = {
-    errors: FormspreeError[]
+    next: string
+    ok: boolean
+    errors?: FormspreeError[]
   }
 
   type FormspreeError = {
@@ -46,6 +52,26 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
+
+      const toastifyOptions: Toastify.Options = {
+        position: 'center',
+        gravity: 'top',
+        close: true,
+      }
+
+      const successToast = Toastify({
+        text: 'Your message has been sent! We will get back to you soon!',
+        className: 'toastify-success',
+        style: { background: '#047857' },
+        ...toastifyOptions,
+      })
+
+      const errorToast = Toastify({
+        text: 'Oops! There was a problem submitting your form. Please try again.',
+        className: 'toastify-error',
+        style: { background: '#be123c' },
+        ...toastifyOptions,
+      })
 
       const formData = new FormData(form)
 
@@ -65,19 +91,23 @@
         console.log({ data })
 
         if (!response.ok) {
-          if (Object.hasOwn(data, 'errors')) {
-            alert(data["errors"].map(error => error["message"]).join(", "))
+          if (Object.hasOwn(data, 'errors') && data.errors) {
+            throw new Error(data.errors.map(error => error["message"]).join(", "))
           }
 
-          throw new Error('Oops! There was a problem submitting your form')
+          throw new Error('Oops! There was a problem submitting your form.')
         } else {
+          successToast.showToast()
           form.reset()
-          // TODO: Handle success notications with something like toastify-js
-          alert('Message sent!')
         }
       } catch (error) {
-        // TODO: Handle error notications with something like toastify-js
-        console.error(error)
+        console.log({error})
+
+        if (error instanceof Error) {
+          errorToast.options.text = error.message
+        }
+
+        errorToast.showToast()
       }
     })
   })()
