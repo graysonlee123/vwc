@@ -3,7 +3,7 @@ import Container from "@components/Container.astro";
 import Article from "@components/Article.astro";
 import Image from "astro/components/Image.astro";
 
-import aboutImage from '@assets/images/cruiseshipWaterslide.jpg';
+import aboutImage from '@assets/images/familyOnBeachWithShip.jpg';
 import Button from "@components/Button.astro";
 ---
 
@@ -14,14 +14,12 @@ import Button from "@components/Button.astro";
         <Image
           src={aboutImage}
           alt=""
-          style={{
-            height: 'auto',
-          }}
+          class="image"
         />
       </div>
       <div class="text">
         <Article>
-          <h1>About Us</h1>
+          <h1 class="brush-font title">About Us</h1>
           <p>The word "character" can be used to describe many things such as the charm of a city, a beloved life-sized mouse, or Muggle-born boy with wizarding powers. More Importantly having character means you possess honesty, moral and ethical quality, integrity, dedication, creativity and sense of humor. These traits summarize who we are at Vacations with Character® and this is what our agency represents.</p>
           <p>Beyond this we understand the importance of vacations! They're not only fun and relaxing, but healthy for us. They help us recharge and while our minds, bodies and souls personally benefit, our relationships do too. We reconnect and bond all while creating precious and amazing memories that remain with us for a lifetime.</p>
           <p>This is why our team at Vacations with Character® has come together. We recognize every family is a story beyond just people and vacations. We have the experience and expert knowledge plus training to not only help you create an amazing vacation - but one that is tailored to your wishes and dreams, and that you'll cherish forever.</p>
@@ -45,6 +43,19 @@ import Button from "@components/Button.astro";
   .layout {
     display: grid;
     gap: 3rem;
+  }
+
+  .title {
+    font-size: var(--font-size--2xl);
+    color: hsl(var(--color--blue--900));
+  }
+
+  .image {
+    height: auto;
+    border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
   }
 
   .actions {
