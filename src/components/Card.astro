@@ -2,19 +2,20 @@
 import { Image, type LocalImageProps } from 'astro:assets';
 
 interface Props {
-  title?: string;
-  buttonText?: string;
   href: string;
+  imageProps: Omit<LocalImageProps, 'class'>;
+  buttonText?: string;
+  title?: string;
   target?: string;
   rel?: string;
-  imageProps: Omit<LocalImageProps, 'class'>;
   style?: string | astroHTML.JSX.CSSProperties;
+  shadow?: boolean;
 }
 
-const { title, buttonText, href, target, rel, imageProps, style } = Astro.props;
+const { href, imageProps, buttonText, title, target, rel, style, shadow = true } = Astro.props;
 ---
 
-<a class="card" href={href} target={target} rel={rel} style={style}>
+<a class="card" href={href} target={target} rel={rel} style={style} data-shadow={shadow}>
   <h3 class="title">{title}</h3>
   <span class="button">{buttonText}</span>
   <Image {...imageProps as LocalImageProps} class="image" />
@@ -58,15 +59,15 @@ const { title, buttonText, href, target, rel, imageProps, style } = Astro.props;
     transform: scale(1.05);
   }
 
-  .card::after {
+  .card[data-shadow="true"]::after {
     content: '';
     position: absolute;
     z-index: -1;
     inset: 0;
     background-image: linear-gradient(
       to bottom,
-      hsla(0 0% 0% / 40%) 33%,
-      hsla(0 0% 0% / 30%) 45%,
+      hsla(0 0% 0% / 30%) 33%,
+      hsla(0 0% 0% / 20%) 45%,
       hsla(0 0% 0% / 10%) 100%
     );
     border-radius: inherit;
