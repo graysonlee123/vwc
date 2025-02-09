@@ -1,15 +1,17 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
-import ComingSoon from '@components/ComingSoon.astro';
 import Container from '@components/Container.astro';
+import CTA from '@components/CTA.astro';
+import { default as AboutComponent } from '@components/About.astro';
 ---
 
 <Layout
   title="About | Vacations with Character"
   description="This page is under construction. Visit again soon!"
 >
-  <Container size="sm">
-    <ComingSoon title="About" />
+  <Container>
+    <AboutComponent/>
+    <CTA/>
   </Container>
 </Layout>
