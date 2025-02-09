@@ -10,7 +10,7 @@ import Container from '@components/Container.astro';
 import Testimonial from '@components/Testimonial.astro';
 
 import aulaniResortImage from '@assets/images/disneysAulaniResort.jpg';
-import cruisingAdventuresImage from '@assets/images/sunsetDisneyCruiseShip.jpg';
+import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide.jpg';
 import universalOrlandoImage from '@assets/images/hogwarts.jpg';
 import disneyDestinationsImage from '@assets/images/magicKingdomParade.jpg';
 import sandalsVacationsImage from '@assets/images/beachAerial.jpg';
@@ -55,6 +55,9 @@ const services: ComponentProps<typeof Card>[] = [
       alt: 'Aerial view of a Disney Cruise Ship at sea at sunset',
       sizes,
       widths,
+      style: {
+        objectPosition: '50% 100%',
+      },
     },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
