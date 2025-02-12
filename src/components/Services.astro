@@ -1,8 +1,6 @@
 ---
 import {
-  AFFILIATE_URL_BEACHES,
   AFFILIATE_URL_DISNEY,
-  AFFILIATE_URL_SANDALS,
   QUOTE_URL,
 } from '@lib/constants';
 import Card from '@components/Card.astro';
@@ -85,8 +83,8 @@ const services: ComponentProps<typeof Card>[] = [
       sizes,
       widths,
     },
-    buttonText: 'Learn More',
-    href: AFFILIATE_URL_SANDALS,
+    buttonText: 'Get a Quote',
+    href: QUOTE_URL,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -98,8 +96,8 @@ const services: ComponentProps<typeof Card>[] = [
       sizes,
       widths,
     },
-    buttonText: 'Learn More',
-    href: AFFILIATE_URL_BEACHES,
+    buttonText: 'Get a Quote',
+    href: QUOTE_URL,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
