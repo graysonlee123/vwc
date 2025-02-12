@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = {
+  id: string
+  inputProps: HTMLAttributes<'input'>
+  labelProps?: HTMLAttributes<'label'>
+}
+
+const {id, inputProps, labelProps} = Astro.props
+---
+
+<div>
+  <div>
+    <label for={id} {...labelProps}>
+      <slot/>
+    </label>
+  </div>
+  <input id={id} {...inputProps}/>
+</div>
+
+<style>
+  input {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid hsl(var(--color--black) / 10%);
+    border-radius: 0.25rem;
+    color: inherit;
+  }
+</style>
