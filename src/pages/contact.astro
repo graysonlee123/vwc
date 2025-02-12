@@ -1,15 +1,98 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
-import ContactComponent from '@components/Contact.astro';
 import Container from '@components/Container.astro';
+import ContactForm from '@components/ContactForm.astro';
+import { Image } from 'astro:assets';
+
+import ContactImage from '@assets/images/beachAerial.jpg'
 ---
 
 <Layout
   title="Contact | Vacations with Character"
   description="This page is under construction. Visit again soon!"
 >
-  <Container size="sm">
-    <ContactComponent/>
-  </Container>
+  <section class="section">
+    <Container size="md">
+      <div class="layout">
+        <div class="card main">
+          <h1 class="brush-font">Contact</h1>
+          <p class="description">Ready to Begin the Memories? Have a specific question you'd like to have answered? Feel free to reach out to us and we'd love to help!</p>
+          <ContactForm/>
+        </div>
+        <div class="card">
+          Contact info
+        </div>
+        <Image
+          class="image"
+          src={ContactImage}
+          alt=""
+        />
+      </div>
+    </Container>
+  </section>
 </Layout>
+
+<style>
+  .section {
+    margin-block: 7rem;
+  }
+
+  .layout {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .card {
+    padding: 3rem;
+    border-radius: 1.5rem;
+    background-color: hsl(var(--color--white));
+    drop-shadow: 0 0 1rem hsl(var(--color--black) / 10%);
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  .brush-font {
+    font-size: var(--font-size--2xl);
+  }
+
+  .description {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .image {
+    height: auto;
+    background-color: hsl(var(--color--gray--100));
+    border-radius: 1.5rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+    }
+
+    .card {
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+    }
+
+    .main {
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+    }
+
+    .image {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>

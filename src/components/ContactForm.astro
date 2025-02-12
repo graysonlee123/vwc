@@ -1,31 +1,52 @@
 ---
-import '../../node_modules/toastify-js/src/toastify.css';
+import Button from '@components/Button.astro';
+import InputField from '@components/InputField.astro';
+import TextareaField from '@components/TextareaField.astro';
+import 'toastify-js/src/toastify.css';
 ---
 
 <form
   id="contact-form"
 >
-  <label for="name">Name</label>
-  <input
-    type="text"
-    name="name"
-    id="name"
-    required
-  />
-  <label for="email">Email</label>
-  <input
-    type="email"
-    name="email"
-    id="email"
-    required
-  />
-  <label for="message">Message</label>
-  <textarea
-    name="message"
-    id="message"
-    required
-  />
-  <button type="submit">Send</button>
+  <div class="layout">
+    <InputField
+      id="name"
+      inputProps={{
+        type: "text",
+        name: "name",
+        id: "name",
+        required: true,
+      }}
+    >
+      Name
+    </InputField>
+    <InputField
+      id="email"
+      inputProps={{
+        type: "email",
+        name: "email",
+        id: "email",
+        required: true,
+      }}
+    >
+      Email
+    </InputField>
+    <TextareaField
+      id="message"
+      textareaProps={{
+        name: "message",
+        id: "message",
+        required: true,
+      }}
+    >
+      Message
+    </TextareaField>
+    <div>
+      <Button as="button" type="submit">
+        Send
+      </Button>
+    </div>
+  </div>
 </form>
 
 <script>
@@ -112,3 +133,10 @@ import '../../node_modules/toastify-js/src/toastify.css';
     })
   })()
 </script>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 1.5rem;
+  }
+</style>
