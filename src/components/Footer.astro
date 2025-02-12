@@ -71,7 +71,8 @@ import SocialIconList from '@components/SocialIconList.astro';
   .wrapper {
     background-color: hsl(0 0% 100% / 70%);
     backdrop-filter: blur(32px) saturate(100%);
-    padding: 3rem;
+    padding-block: 3rem;
+    padding-inline: 1.5rem;
     border-radius: 2rem 2rem 0 0;
     border: 2px solid hsl(var(--color--gray--100));
     border-bottom-width: 0px;
@@ -79,8 +80,8 @@ import SocialIconList from '@components/SocialIconList.astro';
 
   .layout {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0.75rem;
+    row-gap: 3rem;
+    column-gap: 0.75rem;
     margin-bottom: 3rem;
     padding-bottom: 3rem;
     border-bottom-width: 2px;
@@ -88,23 +89,13 @@ import SocialIconList from '@components/SocialIconList.astro';
     border-bottom-color: hsl(var(--color--gray--100));
   }
 
-  .logo {
-    grid-column: 1 / span 8;
-    grid-row: 1 / 2;
-  }
-
   .links {
-    grid-column: 1 / span 8;
-    grid-row: 2 / 3;
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
     padding: 0;
     list-style: none;
-  }
-
-  .extras {
-    grid-column: 9 / span 4;
-    grid-row: 1 / 3;
   }
 
   .socials {
@@ -125,9 +116,9 @@ import SocialIconList from '@components/SocialIconList.astro';
   .shadow:nth-child(1) {
     z-index: -5;
     bottom: 25%;
-    right: 10%;
+    left: 30%;
+    right: 5%;
     aspect-ratio: 2 / 1;
-    width: 900px;
     background-color: #008a8b;
     filter: blur(999px) saturate(800%);
     opacity: 10%;
@@ -136,11 +127,36 @@ import SocialIconList from '@components/SocialIconList.astro';
   .shadow:nth-child(2) {
     z-index: -10;
     bottom: 15%;
-    left: -10%;
+    left: 0%;
+    right: 25%;
     aspect-ratio: 2 / 1;
-    width: 1200px;
     background-color: #af86e1;
     filter: blur(9999px) saturate(800%);
     opacity: 7.5%;
+  }
+
+  @media (width >= 48rem) {
+    .wrapper {
+      padding-inline: 3rem;
+    }
+
+    .layout {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .logo {
+      grid-column: 1 / span 8;
+      grid-row: 1 / 2;
+    }
+
+    .links {
+      grid-column: 1 / span 8;
+      grid-row: 2 / 3;
+    }
+
+    .extras {
+      grid-column: 9 / span 4;
+      grid-row: 1 / 3;
+    }
   }
 </style>
