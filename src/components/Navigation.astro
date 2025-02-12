@@ -2,6 +2,7 @@
 import Button from '@components/Button.astro';
 import Container from '@components/Container.astro';
 import Link from '@components/Link.astro';
+import Logo from '@components/Logo.astro';
 import Logomark from '@components/Logomark.astro';
 import SocialIconList from '@components/SocialIconList.astro';
 ---
@@ -9,23 +10,33 @@ import SocialIconList from '@components/SocialIconList.astro';
 <nav class="nav">
   <Container>
     <div class="layout">
-      <Logomark />
+      <span class="logomark">
+        <Logomark/>
+      </span>
+      <span class="logo">
+        <Logo/>
+      </span>
       <ul class="items">
         <li class="item">
-          <Link href="/"> Home </Link>
+          <Link href="/">
+            Home
+          </Link>
         </li>
         <li class="item">
-          <Link href="/about/"> About </Link>
+          <Link href="/about/">
+            About
+          </Link>
         </li>
         <li class="item">
-          <Link href="/destinations/"> Destinations </Link>
-        </li>
-        <li class="item">
-          <Link href="/contact/"> Contact </Link>
+          <Link href="/destinations/">
+            Destinations
+          </Link>
         </li>
       </ul>
       <div class="right">
-        <SocialIconList />
+        <span class="socials">
+          <SocialIconList />
+        </span>
         <span class="divider" aria-hidden="true"></span>
         <Button as="a" class="button" href="/contact/">
           Contact
@@ -70,8 +81,44 @@ import SocialIconList from '@components/SocialIconList.astro';
     background-color: hsl(var(--color--gray--100));
   }
 
-  @media (width < 48rem) {
+  @media (width < 28rem) {
+    .logomark {
+      display: none;
+    }
+  }
+
+  @media (width >= 28rem) {
+    .logo {
+      display: none;
+    }
+  }
+
+  @media (width < 62rem) {
     .items {
+      display: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .logomark {
+      flex-shrink: 0;
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+
+  @media (width < 75rem) {
+    .socials {
+      display: none;
+    }
+
+    .divider {
       display: none;
     }
   }
