@@ -4,7 +4,7 @@ import Logo from '@components/Logo.astro';
 
 <a class="link" href="/" title="Home">
   <Logo />
-  <span>Vacations with<br />Character</span>
+  <span>Vacations with<br />Character<span class="tm">&reg;</span></span>
 </a>
 
 <style>
@@ -17,5 +17,11 @@ import Logo from '@components/Logo.astro';
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
+  }
+
+  .tm {
+    display: inline-block;
+    font-size: 0.75em;
+    transform: translate(2px, -4px);
   }
 </style>
