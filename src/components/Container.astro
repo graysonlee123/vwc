@@ -1,6 +1,6 @@
 ---
 type Props = {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
 };
 
 const { size = 'lg' } = Astro.props;
@@ -14,6 +14,10 @@ const { size = 'lg' } = Astro.props;
   .container {
     max-width: min(85vw, var(--_container-max-width, 68rem));
     margin-inline: auto;
+  }
+
+  .container--xs {
+    --_container-max-width: 48rem;
   }
 
   .container--sm {
