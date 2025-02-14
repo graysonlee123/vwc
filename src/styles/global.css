@@ -38,13 +38,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Reenie Beanie';
-  src: url('/fonts/reenie-beanie/reenie-beanie.ttf') format('truetype');
-  font-style: normal;
-  font-display: swap;
-}
-
 /** Defaults */
 
 *,
