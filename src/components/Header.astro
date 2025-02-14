@@ -1,0 +1,55 @@
+---
+import type { Polymorphic } from 'astro/types';
+
+type HeaderHTMLTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+type Props<Tag extends HeaderHTMLTags> = Polymorphic<{
+  as: Tag
+  family?: 'body' | 'brush'
+  size?: 'lg' | 'xl' | '2xl'
+  color?: 'navy' | 'inherit'
+}>
+
+const {as: Tag, family = 'body', size = 'xl', color = 'inherit', ...props} = Astro.props
+---
+
+<Tag
+  {...props}
+  data-font-family={family}
+  data-font-size={size}
+  data-color={color}
+>
+  <slot/>
+</Tag>
+
+<style>
+  [data-font-family='body'] {
+    font-family: var(--font-family--body);
+  }
+
+  [data-font-family='brush'] {
+    font-family: var(--font-family--brush);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  [data-font-size='lg'] {
+    font-size: var(--font-size--lg);
+  }
+
+  [data-font-size='xl'] {
+    font-size: var(--font-size--xl);
+  }
+
+  [data-font-size='2xl'] {
+    font-size: var(--font-size--2xl);
+  }
+
+  [data-color='navy'] {
+    color: hsl(var(--color--blue--900));
+  }
+
+  [data-color='inherit'] {
+    color: inherit;
+  }
+</style>

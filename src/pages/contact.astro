@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from '@layouts/Layout.astro';
 
 import Container from '@components/Container.astro';
 import ContactForm from '@components/ContactForm.astro';
-import { Image } from 'astro:assets';
+import Header from '@components/Header.astro';
 
 import ContactImage from '@assets/images/beachAerial.jpg'
 ---
@@ -16,7 +18,14 @@ import ContactImage from '@assets/images/beachAerial.jpg'
     <Container size="md">
       <div class="layout">
         <div class="card main">
-          <h1 class="brush-font">Contact</h1>
+          <Header
+            as="h1"
+            family="brush"
+            size="2xl"
+            color="navy"
+          >
+            Contact
+          </Header>
           <p class="description">Ready to Begin the Memories? Have a specific question you'd like to have answered? Feel free to reach out to us and we'd love to help!</p>
           <ContactForm/>
         </div>
@@ -51,10 +60,6 @@ import ContactImage from '@assets/images/beachAerial.jpg'
     border-width: 2px;
     border-style: solid;
     border-color: hsl(var(--color--gray--100));
-  }
-
-  .brush-font {
-    font-size: var(--font-size--2xl);
   }
 
   .description {

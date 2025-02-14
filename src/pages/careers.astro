@@ -4,6 +4,8 @@ import Layout from '@layouts/Layout.astro';
 import Container from '@components/Container.astro';
 import Article from '@components/Article.astro';
 import Image from '@components/Image.astro';
+import Header from '@components/Header.astro';
+
 import CareersImage from '@assets/images/team.jpg'
 ---
 
@@ -13,9 +15,14 @@ import CareersImage from '@assets/images/team.jpg'
 >
   <Container size="xs">
     <Article class="article">
-      <h1>
+      <Header
+        as="h1"
+        family="brush"
+        size="2xl"
+        color="navy"
+      >
         Careers
-      </h1>
+      </Header>
       <p>Do you enjoy traveling to meet Mickey and Friends, or are you drawn to thrilling adventures with Harry Potter in distant Wizarding Worlds? Have you recently explored Walt Disney World, other Disney locations, Universal Orlando Resort, or do you have a passion for cruising? Are you the person that friends and family turn to for vacation advice, and do you love assisting them with their travel arrangements? If so, this entrepreneurial opportunity could be perfect for you!</p>
       <p>At Vacations with Character&reg;, we fulfill dreams every day, and we are actively looking for individuals who share our passion to join our incredible team.</p>
       <p>If you resonate with the above and possess excellent communication skills, a keen attention to detail, an entrepreneurial mindset, and social media savvy, this might be your opportunity to boost your income, run your own business, and make a positive impact by sharing your experiences with others—all while being supported by a community of friends and travel professionals.</p>

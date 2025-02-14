@@ -58,8 +58,13 @@
 }
 
 body {
-  font-size: var(--font-size--md);
   color: hsl(var(--color--gray--700));
+  font-family: var(--font-family--body);
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -87,29 +92,4 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-}
-
-/** Fonts */
-
-.body-font {
-  font-family: var(--font-family--body);
-  font-weight: 400;
-  line-height: 1.6;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-  font-optical-sizing: auto;
-}
-
-.brush-font {
-  font-family: var(--font-family--brush);
-  font-weight: 400;
-  line-height: 1;
-  font-style: normal;
-}
-
-.handwriting-font {
-  font-family: var(--font-family--handwriting);
-  font-weight: 400;
-  line-height: 1;
-  font-style: normal;
 }

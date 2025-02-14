@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 import Badges from '@components/Badges.astro';
 import Container from '@components/Container.astro';
+import Header from '@components/Header.astro';
 
 import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
 ---
@@ -11,7 +12,13 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
   <Container>
     <div class="layout">
       <div class="texts">
-        <h1 class="brush-font header">Where the Fun Begins!</h1>
+        <Header
+          as="h1"
+          family="brush"
+          size="2xl"
+        >
+          Where the Fun Begins!
+        </Header>
         <p class="subheader">
           A family-owned, full-service travel agency located in and licensed by
           the state of Florida.
@@ -104,10 +111,6 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
 
   .texts {
     padding-inline: 0.75rem;
-  }
-
-  .header {
-    font-size: var(--font-size--2xl);
   }
 
   .subheader {

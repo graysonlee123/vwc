@@ -12,6 +12,7 @@ import CompassIcon from '@components/Icons/CompassIcon.astro';
 import HeartIcon from '@components/Icons/HeartIcon.astro';
 import ShieldIcon from '@components/Icons/ShieldIcon.astro';
 import StarIcon from '@components/Icons/StarIcon.astro';
+import Header from '@components/Header.astro';
 
 import ctaCardImage from '@assets/images/girlMakingHeartWithHands.jpg';
 import fireworkOneImage from '@assets/images/firework-01.png'
@@ -28,7 +29,14 @@ const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYea
   <Container size="md">
     <div class="layout">
       <div class="intro">
-        <h2 class="brush-font title">Our Promise to You</h2>
+        <Header
+          as="h2"
+          family="brush"
+          size="2xl"
+          color="navy"
+        >
+          Our Promise to You
+        </Header>
         <p class="subtitle">
           Our core beliefs are what make us stand out from other agencies.
         </p>
@@ -216,11 +224,6 @@ const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYea
     width: var(--width);
     bottom: calc(50% - 0.5 * var(--width));
     left: calc(50% - 0.5 * var(--width));
-  }
-
-  .title {
-    font-size: var(--font-size--2xl);
-    color: hsl(var(--color--blue--900));
   }
 
   .subtitle {
