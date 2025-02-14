@@ -132,8 +132,8 @@ const services: ComponentProps<typeof Card>[] = [
     position: relative;
     z-index: 0;
     display: grid;
-    grid-template-columns: 2fr 1fr;
     align-items: center;
+    row-gap: 3rem;
     column-gap: 3rem;
     margin-top: -4rem;
     padding: 1.5rem;
@@ -150,5 +150,11 @@ const services: ComponentProps<typeof Card>[] = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1.5rem;
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: 2fr 1fr;
+    }
   }
 </style>
