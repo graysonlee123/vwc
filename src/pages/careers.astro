@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 
 import Container from '@components/Container.astro';
 import Article from '@components/Article.astro';
+import Image from '@components/Image.astro';
+import CareersImage from '@assets/images/team.jpg'
 ---
 
 <Layout
@@ -10,7 +12,7 @@ import Article from '@components/Article.astro';
   description="Interested in a career at Vacations with Character? Want to join our team of travel professionals? Email us for more details!"
 >
   <Container size="xs">
-    <Article class="asdf">
+    <Article class="article">
       <h1>
         Careers
       </h1>
@@ -18,13 +20,22 @@ import Article from '@components/Article.astro';
       <p>At Vacations with Character&reg;, we fulfill dreams every day, and we are actively looking for individuals who share our passion to join our incredible team.</p>
       <p>If you resonate with the above and possess excellent communication skills, a keen attention to detail, an entrepreneurial mindset, and social media savvy, this might be your opportunity to boost your income, run your own business, and make a positive impact by sharing your experiences with others—all while being supported by a community of friends and travel professionals.</p>
       <p>Are you interested in becoming part of the talented team at Vacations with Character&reg;? Email <a href="mailto:robin@vacationswithcharacter.com">robin@vacationswithcharacter.com</a> for more details on how to become an Independent Contractor and join us!</p>
+      <Image
+        src={CareersImage}
+        alt="A collage of images of the Vacations with Character team"
+        class="image"
+      />
     </Article>
   </Container>
 </Layout>
 
 <style>
-  .asdf {
+  .article {
     margin-top: 5rem;
     margin-bottom: 7rem;
+  }
+
+  .image {
+    margin-top: 3rem;
   }
 </style>
