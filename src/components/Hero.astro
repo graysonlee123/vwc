@@ -33,7 +33,6 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
         alt="A Disney Cruise Ship docked off of the shore of a tropical island."
         sizes="(min-width: 1530px) 1300px, 85vw"
         widths={[2600, 1300, 996, 768, 480]}
-        style={{ objectPosition: '50% 55%'}}
         quality="high"
         loading="eager"
       />
@@ -87,7 +86,7 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
   .layout {
     position: relative;
     z-index: 0;
-    padding-top: 5rem;
+    padding-top: 1.5rem;
     padding-bottom: 2rem;
     color: #fff;
     text-align: center;
@@ -127,9 +126,9 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
     justify-content: space-between;
     gap: 1.5rem;
     padding-block: 0.25rem;
-    margin-top: 16rem;
+    margin-top: 8rem;
     margin-inline: auto;
-    padding-inline: 1.5rem;
+    padding-inline: 0.75rem;
     padding-bottom: 2rem;
     background-color: hsl(var(--color--white) / 50%);
     backdrop-filter: blur(4px);
@@ -144,6 +143,26 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 15%;
+    object-position: 20% 50%;
+  }
+  
+  @media (width >= 36rem) {
+    .footer {
+      margin-top: 16rem;
+    }
+
+    .image {
+      object-position: 30% 55%;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      padding-top: 5rem;
+    }
+
+    .image {
+      object-position: 50% 55%;
+    }
   }
 </style>

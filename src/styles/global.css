@@ -22,6 +22,12 @@
   --color--blue--900: 198.8 39% 16%;
 }
 
+@media (width < 28rem) {
+  :root {
+    --font-size--2xl: 4rem;
+  }
+}
+
 /** Fonts */
 
 @font-face {
