@@ -13,6 +13,7 @@ import PrincessTianaImage from '@assets/images/princessTiana.jpg';
 import DisneyCharactersImage from '@assets/images/disneyCharacters.jpg';
 import royalCaribbeanShipAerial from '@assets/images/royalCaribbeanShipAerial.jpg'
 import Header from '@components/Header.astro';
+import Article from '@components/Article.astro';
 
 const scrollerOneSmallWidths = [312 * 2, 312];
 const scrollerOneLargeWidths = [416 * 2, 416];
@@ -87,12 +88,14 @@ const scrollerTwo = [
   <Container>
     <div class="card">
       <div class="text">
-        <Header as="h2">
-          Ready for Adventure?
-        </Header>
-        <p class="body">
-          Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
-        </p>
+        <Article>
+          <Header as="h2">
+            Ready for Adventure?
+          </Header>
+          <p class="body">
+            Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
+          </p>
+        </Article>
         <div class="actions">
           <Button as="a" href="/">Begin the Memories</Button>
         </div>
