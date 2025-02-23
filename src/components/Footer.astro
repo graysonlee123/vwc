@@ -9,8 +9,8 @@ import SocialIconList from '@components/SocialIconList.astro';
 ---
 
 <footer class="footer">
-  <Container>
-    <div class="wrapper">
+  <Container breakpoint='sm'>
+    <div class="card">
       <div class="layout">
         <div class="logo">
           <Logomark />
@@ -54,28 +54,30 @@ import SocialIconList from '@components/SocialIconList.astro';
       </div>
       <Legal />
     </div>
+    <div class="back" aria-hidden="true">
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+    </div>
   </Container>
-  <div class="back" aria-hidden="true">
-    <span class="shadow" aria-hidden="true"></span>
-    <span class="shadow" aria-hidden="true"></span>
-  </div>
 </footer>
 
 <style>
   .footer {
-    position: relative;
-    z-index: 0;
     font-size: var(--font-size--sm);
   }
 
-  .wrapper {
+  .container {
+    position: relative;
+    z-index: 0;
+  }
+
+  .card {
     background-color: hsl(0 0% 100% / 70%);
     backdrop-filter: blur(32px) saturate(100%);
     padding-block: 3rem;
     padding-inline: 1.5rem;
-    border-radius: 2rem 2rem 0 0;
-    border: 2px solid hsl(var(--color--gray--100));
-    border-bottom-width: 0px;
+    border-top: 2px solid hsl(var(--color--gray--100));
   }
 
   .layout {
@@ -114,29 +116,36 @@ import SocialIconList from '@components/SocialIconList.astro';
   }
 
   .shadow:nth-child(1) {
-    z-index: -5;
-    bottom: 25%;
-    left: 30%;
+    bottom: 50%;
     right: 5%;
-    aspect-ratio: 2 / 1;
-    background-color: #008a8b;
-    filter: blur(999px) saturate(800%);
-    opacity: 10%;
+    box-shadow: 0px 0px 1200px 100px #008a8b;
+    opacity: 40%;
   }
 
   .shadow:nth-child(2) {
-    z-index: -10;
-    bottom: 15%;
-    left: 0%;
+    top: 40%;
     right: 25%;
-    aspect-ratio: 2 / 1;
-    background-color: #af86e1;
-    filter: blur(9999px) saturate(800%);
-    opacity: 7.5%;
+    box-shadow: 0px 0px 800px 120px #008a8b;
+    opacity: 40%;
+  }
+
+  .shadow:nth-child(3) {
+    bottom: 15%;
+    left: 5%;
+    box-shadow: 0px 0px 950px 100px #af86e1;
+    opacity: 60%;
+  }
+
+  @media (width >= 36rem) {
+    .card {
+      border-radius: 2rem 2rem 0 0;
+      border-left: 2px solid hsl(var(--color--gray--100));
+      border-right: 2px solid hsl(var(--color--gray--100));
+    }
   }
 
   @media (width >= 48rem) {
-    .wrapper {
+    .card {
       padding-inline: 3rem;
     }
 
