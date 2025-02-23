@@ -17,8 +17,8 @@ import allInclusivesImage from '@assets/images/allInclusiveHotelRoom.jpg';
 
 import type { ComponentProps } from 'astro/types';
 
-const sizes = '252px';
-const widths = [252 * 2, 252];
+const sizes = 'calc(85vw - 3rem), (width >= 612px) calc((85vw - 3rem - 1.5rem) / 2), (width >= 904px) calc((85vw - 3rem - 1.5rem - 1.5rem) / 3), (width >= 992px) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem) / 2), (width >= 1384) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem - 1.5rem) / 3), (width >= 1530px) 252px';
+const widths = [1008, 504, 252];
 
 const services: ComponentProps<typeof Card>[] = [
   {
