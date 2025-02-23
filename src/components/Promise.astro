@@ -25,7 +25,7 @@ const currentDate = new Date();
 const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYear() + 1;
 ---
 
-<div class="section">
+<section>
   <Container size="md">
     <div class="layout">
       <div class="intro">
@@ -142,15 +142,16 @@ const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYea
         <Image src={starTwoImage} alt="" class="star-five" />
       </div>
     </div>
+    <div class="back" aria-hidden="true">
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+    </div>
   </Container>
-  <div class="back" aria-hidden="true">
-    <span class="shadow" aria-hidden="true"></span>
-    <span class="shadow" aria-hidden="true"></span>
-  </div>
-</div>
+</section>
 
 <style>
-  .section {
+  .container {
     position: relative;
     z-index: 0;
     margin-top: 8rem;
@@ -169,25 +170,24 @@ const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYea
   }
 
   .shadow:nth-child(1) {
-    z-index: -5;
-    top: 40%;
-    right: 10%;
-    aspect-ratio: 4 / 5;
-    width: 600px;
-    background-color: #e4c1fb;
-    filter: blur(999px);
-    opacity: 20%;
+    top: 50%;
+    left: 15%;
+    box-shadow: 0px 0px 700px 75px #7ab0e0;
+    opacity: 60%;
   }
 
   .shadow:nth-child(2) {
-    z-index: -10;
-    top: -10%;
-    left: 10%;
-    aspect-ratio: 3 / 4;
-    width: 800px;
-    background-color: #a0ddfd;
-    filter: blur(9999px);
-    opacity: 15%;
+    bottom: 25%;
+    right: 25%;
+    box-shadow: 0px 0px 1000px 100px #e4c1fb;
+    opacity: 60%;
+  }
+
+  .shadow:nth-child(3) {
+    top: 35%;
+    right: 35%;
+    box-shadow: 0px 0px 1000px 100px #dfaf20;
+    opacity: 20%;
   }
 
   .layout {
@@ -293,7 +293,7 @@ const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYea
   }
 
   @media (width >= 62rem) {
-    .section {
+    .container {
       margin-top: 14rem;
     }
 
