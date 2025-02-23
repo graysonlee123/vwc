@@ -84,22 +84,29 @@ const scrollerTwo = [
 ];
 ---
 
-<div class="cta">
-  <Container>
+<section class="cta">
+  <Container breakpoint='lg'>
     <div class="card">
-      <div class="text">
-        <Article>
-          <Header as="h2">
-            Ready for Adventure?
-          </Header>
-          <p class="body">
-            Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
-          </p>
-        </Article>
-        <div class="actions">
-          <Button as="a" href="/">Begin the Memories</Button>
+      <Container class="mobile-container">
+        <div class="text">
+          <Article>
+            <Header as="h2">
+              Ready for Adventure?
+            </Header>
+            <p class="body">
+              Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
+            </p>
+          </Article>
+          <div class="actions">
+            <Button as="a" href="/">Begin the Memories</Button>
+          </div>
         </div>
-      </div>
+        <div class="back" aria-hidden="true">
+          <span class="shadow" aria-hidden="true"></span>
+          <span class="shadow" aria-hidden="true"></span>
+          <span class="shadow" aria-hidden="true"></span>
+        </div>
+      </Container>
       <div class="column column--one">
         <Scroller propsForImages={scrollerOne} staggerSizes />
       </div>
@@ -110,14 +117,9 @@ const scrollerTwo = [
           flushAgainst="right"
         />
       </div>
-      <div class="back" aria-hidden="true">
-        <span class="shadow" aria-hidden="true"></span>
-        <span class="shadow" aria-hidden="true"></span>
-        <span class="shadow" aria-hidden="true"></span>
-      </div>
     </div>
   </Container>
-</div>
+</section>
 
 <style>
   .cta {
@@ -130,23 +132,13 @@ const scrollerTwo = [
   .card {
     position: relative;
     z-index: 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--gap);
-    min-height: 30rem;
     color: hsl(var(--color--blue--900));
-    background-color: hsl(var(--color--white));
-    border-width: 2px;
-    border-style: solid;
-    border-color: hsl(var(--color--gray--100));
-    border-radius: 2rem;
     overflow: hidden;
   }
 
-  .text {
-    grid-column: 1 / span 5;
+  .mobile-container {
     align-self: center;
-    padding: 4rem;
+    padding: 2rem;
   }
 
   .body {
@@ -207,5 +199,40 @@ const scrollerTwo = [
     background-color: #007cea;
     filter: blur(9999px);
     opacity: 10%;
+  }
+
+  @media (width < 62rem) {
+    .cta{
+      text-align: center;
+    }
+
+    .mobile-container {
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      background-color: hsl(var(--color--white));
+      border-width: 2px;
+      border-style: solid;
+      border-color: hsl(var(--color--gray--100));
+      border-radius: 2rem;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .card {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gap);
+      min-height: 30rem;
+      background-color: hsl(var(--color--white));
+      border-width: 2px;
+      border-style: solid;
+      border-color: hsl(var(--color--gray--100));
+      border-radius: 2rem;
+    }
+
+    .mobile-container {
+      grid-column: 1 / span 5;
+    }
   }
 </style>
