@@ -7,10 +7,11 @@ import Navbar from '@components/Navigation.astro';
 import SEO from '@components/SEO.astro';
 
 import type { SEOProps } from '@components/SEO.astro';
+import type { Props as NavigationProps } from '@components/Navigation.astro';
 
-type Props = SEOProps;
+type Props = SEOProps & NavigationProps
 
-const { title, description, noindex } = Astro.props as Props;
+const { title, description, noindex, floatingMobileNavbar = false } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -19,7 +20,7 @@ const { title, description, noindex } = Astro.props as Props;
     <SEO title={title} description={description} noindex={noindex} />
   </head>
   <body class="body-font">
-    <Navbar />
+    <Navbar floatingMobileNavbar={floatingMobileNavbar} />
     <main class="main">
       <slot />
     </main>

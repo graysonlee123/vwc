@@ -102,29 +102,31 @@ const services: ComponentProps<typeof Card>[] = [
 ];
 ---
 
-<Container>
-  <div class="layout">
-    <div class="cards">
-      {
-        services.map(({ title, buttonText, href, target, rel, imageProps }) => (
-          <div>
-            <Card
-              title={title}
-              buttonText={buttonText}
-              href={href}
-              target={target}
-              imageProps={imageProps}
-              rel={rel}
-            />
-          </div>
-        ))
-      }
+<section class="section">
+  <Container breakpoint='sm'>
+    <div class="layout">
+      <div class="cards">
+        {
+          services.map(({ title, buttonText, href, target, rel, imageProps }) => (
+            <div>
+              <Card
+                title={title}
+                buttonText={buttonText}
+                href={href}
+                target={target}
+                imageProps={imageProps}
+                rel={rel}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="testimonial">
+        <Testimonial />
+      </div>
     </div>
-    <div class="testimonial">
-      <Testimonial />
-    </div>
-  </div>
-</Container>
+  </Container>
+</section>
 
 <style>
   .layout {
@@ -134,7 +136,6 @@ const services: ComponentProps<typeof Card>[] = [
     align-items: center;
     row-gap: 3rem;
     column-gap: 3rem;
-    margin-top: -4rem;
     padding: 1.5rem;
     text-align: center;
     background-color: #fff;
@@ -147,13 +148,41 @@ const services: ComponentProps<typeof Card>[] = [
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
+  @media (width < 36rem) {
+    .section {
+      padding: 0.75rem;
+    }
+  }
+
+  @media (width >= 36rem) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (width >= 62rem) {
+    .section {
+      margin-top: -4rem;
+    }
+
     .layout {
       grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  @media (width >= 36rem) and (width < 62rem) {
+    .section {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (width >= 75rem) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>

@@ -6,10 +6,16 @@ import Link from '@components/Link.astro';
 import Logo from '@components/Logo.astro';
 import Logomark from '@components/Logomark.astro';
 import SocialIconList from '@components/SocialIconList.astro';
+
+export type Props = {
+  floatingMobileNavbar?: boolean;
+}
+
+const { floatingMobileNavbar = false } = Astro.props as Props;
 ---
 
-<nav class="nav">
-  <Container>
+<nav class="nav" data-floating-mobile-navbar={floatingMobileNavbar}>
+  <Container breakpoint='sm'>
     <div class="layout">
       <span class="logomark">
         <Logomark/>
@@ -88,6 +94,18 @@ import SocialIconList from '@components/SocialIconList.astro';
   @media (width < 28rem) {
     .logomark {
       display: none;
+    }
+  }
+
+  @media (width < 36rem) {
+    [data-floating-mobile-navbar="true"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 2.25rem;
+      padding-inline: 2.25rem;
+      color: #fff;
     }
   }
 
