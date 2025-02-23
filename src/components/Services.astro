@@ -8,12 +8,12 @@ import Card from '@components/Card.astro';
 import Container from '@components/Container.astro';
 import Testimonial from '@components/Testimonial.astro';
 
-import aulaniResortImage from '@assets/images/disneysAulaniResort.jpg';
-import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide.jpg';
-import universalOrlandoImage from '@assets/images/hogwarts.jpg';
-import disneyDestinationsImage from '@assets/images/magicKingdomParade.jpg';
-import sandalsVacationsImage from '@assets/images/beachAerial.jpg';
-import allInclusivesImage from '@assets/images/allInclusiveHotelRoom.jpg';
+import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg';
+import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg';
+import universalOrlandoImage from '@assets/images/hogwarts-20x13.jpg';
+import disneyDestinationsImage from '@assets/images/magicKingdomParade-20x13.jpg';
+import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg';
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg';
 
 import type { ComponentProps } from 'astro/types';
 
@@ -54,9 +54,6 @@ const services: ComponentProps<typeof Card>[] = [
       alt: 'Aerial view of a Disney Cruise Ship at sea at sunset',
       sizes,
       widths,
-      style: {
-        objectPosition: '50% 100%',
-      },
     },
     buttonText: 'Get a Quote',
     href: QUOTE_URL,
@@ -110,14 +107,16 @@ const services: ComponentProps<typeof Card>[] = [
     <div class="cards">
       {
         services.map(({ title, buttonText, href, target, rel, imageProps }) => (
-          <Card
-            title={title}
-            buttonText={buttonText}
-            href={href}
-            target={target}
-            imageProps={imageProps}
-            rel={rel}
-          />
+          <div>
+            <Card
+              title={title}
+              buttonText={buttonText}
+              href={href}
+              target={target}
+              imageProps={imageProps}
+              rel={rel}
+            />
+          </div>
         ))
       }
     </div>

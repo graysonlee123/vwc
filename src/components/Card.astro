@@ -1,4 +1,5 @@
 ---
+import Header from '@components/Header.astro';
 import { Image, type LocalImageProps } from 'astro:assets';
 
 interface Props {
@@ -16,27 +17,34 @@ const { href, imageProps, buttonText, title, target, rel, style, shadow = true }
 ---
 
 <a class="card" href={href} target={target} rel={rel} style={style} data-shadow={shadow}>
-  <h3 class="title">{title}</h3>
-  <span class="button">{buttonText}</span>
+  <div class="content">
+    <Header class="title" as="h3" size="lg">{title}</Header>
+    <span class="button">{buttonText}</span>
+  </div>
   <Image {...imageProps as LocalImageProps} class="image" />
 </a>
 
 <style>
   .card {
+    display: block;
     position: relative;
     z-index: 0;
+    color: #fff;
+    text-align: left;
+    background-color: hsl(0 0% 100% / 70%);
+    border-radius: 0.75rem;
+  }
+
+  .content {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
     gap: 3rem;
     padding: 1rem;
-    color: #fff;
-    text-align: left;
-    text-decoration: none;
-    background-color: hsl(0 0% 100% / 70%);
-    backdrop-filter: blur(32px) saturate(100%);
-    border-radius: 0.75rem;
   }
 
   .button {
@@ -62,7 +70,7 @@ const { href, imageProps, buttonText, title, target, rel, style, shadow = true }
   .card[data-shadow="true"]::after {
     content: '';
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     inset: 0;
     background-image: linear-gradient(
       to bottom,
@@ -74,13 +82,8 @@ const { href, imageProps, buttonText, title, target, rel, style, shadow = true }
   }
 
   .image {
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     border-radius: inherit;
   }
 
@@ -95,21 +98,10 @@ const { href, imageProps, buttonText, title, target, rel, style, shadow = true }
       transform: scale(1.025);
     }
 
-    .image {
-      overflow: hidden;
-      transition-property: filter;
-      transition-duration: 300ms;
-      transition-timing-function: ease-out;
-    }
-
-    .card:hover .image {
-      filter: blur(1px);
-    }
-
     .card::before {
       content: '';
       position: absolute;
-      z-index: -3;
+      z-index: -1;
       inset: 0;
       border-radius: inherit;
       opacity: 0;
