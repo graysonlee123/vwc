@@ -13,9 +13,12 @@ import Header from "@components/Header.astro";
     <div class="layout">
       <div class="media">
         <Image
-          src={aboutImage}
-          alt=""
           class="image"
+          src={aboutImage}
+          alt="Family of four on the beach with a cruise ship in the background"
+          sizes="(min-width: 1530px) 622px, (min-width: 992px) calc((85vw - 4px - 3rem) / 2), calc(85vw - 4px)"
+          widths={[622 * 2, 622, 311]}
+          loading="eager"
         />
       </div>
       <div class="text">
@@ -65,7 +68,7 @@ import Header from "@components/Header.astro";
     margin-top: 1.5rem;
   }
 
-  @media (width > 48rem) {
+  @media (width >= 62rem) {
     .layout {
       grid-template-columns: 1fr 1fr;
       align-items: center;
