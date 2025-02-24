@@ -1,7 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
-import Container from '@components/Container.astro';
 import CTA from '@components/CTA.astro';
 import { default as AboutComponent } from '@components/About.astro';
 ---
@@ -10,8 +9,6 @@ import { default as AboutComponent } from '@components/About.astro';
   title="About | Vacations with Character"
   description="This page is under construction. Visit again soon!"
 >
-  <Container>
-    <AboutComponent/>
-    <CTA/>
-  </Container>
+  <AboutComponent/>
+  <CTA/>
 </Layout>
