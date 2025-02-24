@@ -108,7 +108,7 @@ const services: ComponentProps<typeof Card>[] = [
       <div class="cards">
         {
           services.map(({ title, buttonText, href, target, rel, imageProps }) => (
-            <div>
+            <div class="item">
               <Card
                 title={title}
                 buttonText={buttonText}
@@ -146,21 +146,29 @@ const services: ComponentProps<typeof Card>[] = [
     outline-offset: -2px;
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   @media (width < 36rem) {
     .section {
       padding: 0.75rem;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .item {
+      width: 16rem;
+      max-width: 80%;
+      flex-shrink: 0;
     }
   }
 
   @media (width >= 36rem) {
     .cards {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
 
