@@ -8,6 +8,7 @@ import ContactForm from '@components/ContactForm.astro';
 import Header from '@components/Header.astro';
 
 import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
+import ContactBlip from '@components/ContactBlip.astro';
 ---
 
 <Layout
@@ -40,8 +41,27 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
               loading="eager"
             />
           </div>
-          <div class="card">
-            Contact info
+          <div class="blips">
+            <ContactBlip
+              icon="email"
+              linkProps={{
+              href: 'mailto:info@vacationswithcharacter.com',
+              target: '_blank',
+              rel: 'noopener noreferrer',
+              }}
+            >
+              info@vacationswithcharacter.com
+            </ContactBlip>
+            <ContactBlip
+              icon="phone"
+              linkProps={{
+                href: 'tel:8009083005',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }}
+            >
+              (800) 908-3005
+            </ContactBlip>
           </div>
         </div>
       </div>
@@ -60,7 +80,8 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
     align-items: start;
   }
 
-  .card {
+  .card,
+  .blips {
     padding: 3rem;
     border-radius: 1.5rem;
     background-color: hsl(var(--color--white));
@@ -68,6 +89,11 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
     border-width: 2px;
     border-style: solid;
     border-color: hsl(var(--color--gray--100));
+  }
+
+  .blips {
+    display: grid;
+    gap: 1.5rem;
   }
 
   .description {
