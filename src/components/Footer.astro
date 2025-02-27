@@ -1,5 +1,5 @@
 ---
-import { BLOG_URL } from '@lib/constants';
+import { BLOG_URL, EMAIL } from '@lib/constants';
 
 import Container from '@components/Container.astro';
 import Legal from '@components/Legal.astro';
@@ -48,7 +48,9 @@ import SocialIconList from '@components/SocialIconList.astro';
           </div>
           <div>
             <Link href="tel:+1-800-908-3005">(800) 908-3005</Link> <br />
-            <Link href="mailto:info@vacationswithcharacter.com">info@vacationswithcharacter.com</Link>
+            <Link href=`mailto:${EMAIL}`>
+              { EMAIL }
+            </Link>
           </div>
         </div>
       </div>

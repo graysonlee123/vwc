@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 
 import Article from '@components/Article.astro';
 import Container from '@components/Container.astro';
+
+import { EMAIL } from '@lib/constants';
 ---
 
 <Layout
@@ -88,7 +90,7 @@ import Container from '@components/Container.astro';
         </p>
         <p>
           If there are any questions or concerns, please contact us at:
-          info@vacationswithcharacter.com USA 800-908-3005
+          { EMAIL } USA 800-908-3005
         </p>
       </Article>
     </div>

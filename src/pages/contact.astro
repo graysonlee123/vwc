@@ -6,9 +6,11 @@ import Layout from '@layouts/Layout.astro';
 import Container from '@components/Container.astro';
 import ContactForm from '@components/ContactForm.astro';
 import Header from '@components/Header.astro';
+import ContactBlip from '@components/ContactBlip.astro';
 
 import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
-import ContactBlip from '@components/ContactBlip.astro';
+
+import { EMAIL } from '@lib/constants';
 ---
 
 <Layout
@@ -45,12 +47,12 @@ import ContactBlip from '@components/ContactBlip.astro';
             <ContactBlip
               icon="email"
               linkProps={{
-              href: 'mailto:info@vacationswithcharacter.com',
+              href: `mailto:${EMAIL}`,
               target: '_blank',
               rel: 'noopener noreferrer',
               }}
             >
-              info@vacationswithcharacter.com
+              {EMAIL}
             </ContactBlip>
             <ContactBlip
               icon="phone"
