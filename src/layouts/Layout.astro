@@ -5,6 +5,7 @@ import '../styles/global.css';
 import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navigation.astro';
 import SEO from '@components/SEO.astro';
+import MobileNavigation from '@components/MobileNavigation.astro';
 
 import type { SEOProps } from '@components/SEO.astro';
 import type { Props as NavigationProps } from '@components/Navigation.astro';
@@ -21,6 +22,7 @@ const { title, description, noindex, floatingMobileNavbar = false } = Astro.prop
   </head>
   <body class="body-font">
     <Navbar floatingMobileNavbar={floatingMobileNavbar} />
+    <MobileNavigation/>
     <main class="main">
       <slot />
     </main>
