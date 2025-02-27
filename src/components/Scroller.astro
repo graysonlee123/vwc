@@ -67,12 +67,7 @@ const {
   }
 
   .scroll-direction--backwards .train {
-    animation-name: slide-down;
     animation-duration: 50s;
-  }
-
-  .stagger-sizes .image:nth-child(even) {
-    width: 75%;
   }
 
   .image {
@@ -84,16 +79,65 @@ const {
     border-color: hsl(var(--color--gray--100));
   }
 
-  .flush-against--left .image {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-left-width: 0;
+  @media (width < 62rem) {
+    .track {
+      --height: 12rem;
+
+      height: var(--height);
+    }
+
+    .train {
+      grid-auto-flow: column;
+      grid-auto-columns: 20rem;
+      animation-name: slide-right;
+    }
+
+    .image {
+      height: var(--height);
+      object-fit: cover;
+    }
+
+    .scroll-direction--backwards .train {
+      animation-name: slide-left;
+    }
   }
 
-  .flush-against--right .image {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right-width: 0;
+  @media (width >= 62rem) {
+    .scroll-direction--backwards .train {
+      animation-name: slide-down;
+    }
+
+    .stagger-sizes .image:nth-child(even) {
+      width: 75%;
+    }
+
+    .flush-against--left .image {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-width: 0;
+    }
+
+    .flush-against--right .image {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-width: 0;
+    }
+  }
+
+  @keyframes slide-right {
+    to {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+  }
+
+  @keyframes slide-left {
+    from {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+
+    to {
+      transform: translateX(calc(0%));
+    }
   }
 
   @keyframes slide-up {

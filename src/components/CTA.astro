@@ -86,36 +86,34 @@ const scrollerTwo = [
 
 <section class="cta">
   <Container breakpoint='lg'>
-    <div class="card">
-      <Container class="mobile-container">
-        <div class="text">
-          <Article>
-            <Header as="h2">
-              Ready for Adventure?
-            </Header>
-            <p class="body">
-              Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
-            </p>
-          </Article>
-          <div class="actions">
-            <Button as="a" href="/">Begin the Memories</Button>
-          </div>
-        </div>
-        <div class="back" aria-hidden="true">
-          <span class="shadow" aria-hidden="true"></span>
-          <span class="shadow" aria-hidden="true"></span>
-          <span class="shadow" aria-hidden="true"></span>
-        </div>
-      </Container>
-      <div class="column column--one">
+    <div class="layout">
+      <div class="slider slider--one">
         <Scroller propsForImages={scrollerOne} staggerSizes />
       </div>
-      <div class="column column--two">
+      <div class="slider slider--two">
         <Scroller
           propsForImages={scrollerTwo}
           scrollDirection="backwards"
           flushAgainst="right"
         />
+      </div>
+      <div class="text">
+        <Article>
+          <Header as="h2">
+            Ready for Adventure?
+          </Header>
+          <p class="paragraph">
+            Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
+          </p>
+        </Article>
+        <div class="actions">
+          <Button as="a" href="/destinations/">Begin the Memories</Button>
+        </div>
+      </div>
+      <div class="back" aria-hidden="true">
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
       </div>
     </div>
   </Container>
@@ -124,43 +122,23 @@ const scrollerTwo = [
 <style>
   .cta {
     --gap: 1.5rem;
-
-    margin-top: 10rem;
-    margin-bottom: 12rem;
   }
 
-  .card {
-    position: relative;
-    z-index: 0;
-    color: hsl(var(--color--blue--900));
-    overflow: hidden;
-  }
-
-  .mobile-container {
-    align-self: center;
-    padding: 2rem;
-  }
-
-  .body {
-    text-wrap: balance;
-  }
-
-  .actions {
-    margin-top: 2rem;
-  }
-
-  .column--one {
-    grid-column: span 4;
-  }
-
-  .column--two {
-    grid-column: span 3;
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 0.75rem;
   }
 
   .back {
-    position: absolute;
-    z-index: -5;
-    inset: 0;
+    position: relative;
+    z-index: -1;
+    border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+    overflow: hidden;
   }
 
   .shadow {
@@ -201,38 +179,84 @@ const scrollerTwo = [
     opacity: 10%;
   }
 
+  .paragraph {
+    text-wrap: balance;
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+
   @media (width < 62rem) {
-    .cta{
+    .cta {
+      margin-top: 8rem;
+      margin-bottom: 8rem;
+    }
+
+    .layout {
+      grid-template-rows: repeat(3, auto);
+    }
+
+    .text {
+      grid-row: 3 / 4;
+      grid-column: 2 / 12;
+      padding: 1.5rem;
       text-align: center;
     }
 
-    .mobile-container {
-      position: relative;
-      z-index: 0;
-      overflow: hidden;
-      background-color: hsl(var(--color--white));
-      border-width: 2px;
-      border-style: solid;
-      border-color: hsl(var(--color--gray--100));
-      border-radius: 2rem;
+    .back {
+      grid-row: 3 / 4;
+      grid-column: 2 / 12;
+    }
+
+    .slider--one {
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+    }
+
+    .slider--two {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
     }
   }
 
   @media (width >= 62rem) {
-    .card {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--gap);
-      min-height: 30rem;
-      background-color: hsl(var(--color--white));
-      border-width: 2px;
-      border-style: solid;
-      border-color: hsl(var(--color--gray--100));
-      border-radius: 2rem;
+    .cta {
+      margin-top: 10rem;
+      margin-bottom: 12rem;
     }
 
-    .mobile-container {
-      grid-column: 1 / span 5;
+    .layout {
+      grid-template-rows: 1fr;
+      min-height: 30rem;
+    }
+
+    .text {
+      grid-row: 1 / -1;
+      grid-column: 1 / 6;
+      align-self: center;
+      padding: 4rem;
+    }
+
+    .back {
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
+    }
+
+    .slider--one {
+      grid-row: 1 / -1;
+      grid-column: 6 / 10;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .slider--two {
+      grid-row: 1 / -1;
+      grid-column: 10 / 13;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border-radius: 0 2rem 2rem 0;
+      overflow: hidden;
     }
   }
 </style>
