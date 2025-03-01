@@ -5,6 +5,8 @@ import Hero from '@components/Hero.astro';
 import CTA from '@components/CTA.astro';
 import Promise from '@components/Promise.astro';
 import Services from '@components/Services.astro';
+import HeroFooter from '@components/HeroFooter.astro';
+import Badges from '@components/Badges.astro';
 ---
 
 <Layout
@@ -12,7 +14,11 @@ import Services from '@components/Services.astro';
   description="Vacations with Character offers expert planning for Disney, Universal, cruises, all-inclusive resorts, and more. Book a vacation with a personal touch today!"
   floatingMobileNavbar={true}
 >
-  <Hero />
+  <Hero>
+    <HeroFooter slot="footer">
+      <Badges/>
+    </HeroFooter>
+  </Hero>
   <Services />
   <Promise />
   <CTA />

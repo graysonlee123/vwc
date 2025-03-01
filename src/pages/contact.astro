@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { EMAIL, QUOTE_URL } from '@lib/constants';
 
 import Layout from '@layouts/Layout.astro';
 
@@ -7,29 +8,63 @@ import Container from '@components/Container.astro';
 import ContactForm from '@components/ContactForm.astro';
 import Header from '@components/Header.astro';
 import ContactBlip from '@components/ContactBlip.astro';
+import Hero from '@components/Hero.astro';
+import HeroActions from '@components/HeroActions.astro';
 
+import heroImage from '@assets/images/beachAerial.jpg';
 import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
 
-import { EMAIL } from '@lib/constants';
+import Link from '@components/Link.astro';
+import Button from '@components/Button.astro';
 ---
 
 <Layout
   title="Contact | Vacations with Character"
   description="This page is under construction. Visit again soon!"
+  floatingMobileNavbar
 >
+  <Hero imageProps={{
+    src: heroImage,
+    alt: 'Aerial view of the ocean from a beachfront with palm trees',
+    style: {
+      objectPosition: '50% 10%',
+    }
+  }}>
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      Ready to begin?
+    </Header>
+    <p slot="subheader">
+      If you know where you want to go, use our <Link href={QUOTE_URL} target="_blank" rel="noopener noreferrer">quote form!</Link> If you have a general question or want to have a conversaion, use the contact form below!
+    </p>
+    <HeroActions slot="actions">
+      <Button
+        as="a"
+        href={QUOTE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Request a Quote
+      </Button>
+    </HeroActions>
+  </Hero>
   <section class="section">
-    <Container size="md">
+    <Container size="md" breakpoint="md">
       <div class="layout">
         <div class="card main">
           <Header
-            as="h1"
-            family="brush"
-            size="2xl"
+            as="h2"
+            family="body"
+            size="xl"
             color="navy"
           >
             Contact
           </Header>
-          <p class="description">Ready to Begin the Memories? Have a specific question you'd like to have answered? Feel free to reach out to us and we'd love to help!</p>
+          <p class="description">Reach out to us&mdash;we'd love to help!</p>
           <ContactForm/>
         </div>
         <div class="right">
@@ -84,13 +119,7 @@ import { EMAIL } from '@lib/constants';
 
   .card,
   .blips {
-    padding: 3rem;
-    border-radius: 1.5rem;
-    background-color: hsl(var(--color--white));
-    drop-shadow: 0 0 1rem hsl(var(--color--black) / 10%);
-    border-width: 2px;
-    border-style: solid;
-    border-color: hsl(var(--color--gray--100));
+    padding-inline: 1.5rem;
   }
 
   .blips {
@@ -100,7 +129,7 @@ import { EMAIL } from '@lib/constants';
 
   .description {
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     text-wrap: balance;
   }
 
@@ -116,6 +145,26 @@ import { EMAIL } from '@lib/constants';
   .right {
     display: grid;
     gap: inherit;
+  }
+
+  @media (width < 48rem) {
+    .media,
+    .media img {
+      display: none;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .card,
+    .blips {
+      padding: 3rem;
+      border-radius: 1.5rem;
+      background-color: hsl(var(--color--white));
+      drop-shadow: 0 0 1rem hsl(var(--color--black) / 10%);
+      border-width: 2px;
+      border-style: solid;
+      border-color: hsl(var(--color--gray--100));
+    }
   }
 
   @media (width >= 62rem) {

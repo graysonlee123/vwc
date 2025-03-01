@@ -3,12 +3,32 @@ import Layout from '@layouts/Layout.astro';
 
 import CTA from '@components/CTA.astro';
 import { default as AboutComponent } from '@components/About.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+
+import heroImage from '@assets/images/beachAerial.jpg';
 ---
 
 <Layout
   title="About | Vacations with Character"
   description="This page is under construction. Visit again soon!"
 >
+  <Hero imageProps={{
+    src: heroImage,
+    alt: 'Aerial view of the ocean from a beachfront with palm trees',
+    style: {
+      objectPosition: '50% 10%',
+    }
+  }}>
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      About Us
+    </Header>
+  </Hero>
   <AboutComponent/>
   <CTA/>
 </Layout>

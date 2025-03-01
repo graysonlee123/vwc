@@ -1,0 +1,34 @@
+<div class="footer">
+  <slot />
+</div>
+
+<style>
+  .footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 0.25rem;
+    padding-inline: 0.75rem;
+    margin-top: 8rem;
+    background-color: hsl(var(--color--white) / 60%);
+    backdrop-filter: blur(4px);
+  }
+
+  @media (width < 62rem) {
+    .footer {
+      max-width: 24rem;
+      border-radius: calc(2rem - 0.75rem);
+    }
+  }
+
+  @media (width >= 62rem) {
+    .footer {
+      margin-top: 13rem;
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+      border-radius: 2rem 2rem 0 0;
+      padding-bottom: 2.75rem;
+    }
+  }
+</style>

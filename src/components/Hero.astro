@@ -1,32 +1,43 @@
 ---
 import { Image } from 'astro:assets';
 
-import Badges from '@components/Badges.astro';
 import Container from '@components/Container.astro';
 import Header from '@components/Header.astro';
 
 import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
+import type { LocalImageProps } from 'astro:assets';
+
+type Props = {
+  imageProps?: LocalImageProps
+}
+
+const { imageProps = {} } = Astro.props
 ---
 
 <section class="section">
   <Container breakpoint='sm'>
     <div class="layout">
       <div class="texts">
-        <Header
-          as="h1"
-          family="brush"
-          size="2xl"
-        >
-          Where the Fun Begins!
-        </Header>
-        <p class="subheader">
-          A family-owned, full-service travel agency located in and licensed by
-          the state of Florida.
-        </p>
+        <slot name="header">
+          <Header
+            as="h1"
+            family="brush"
+            size="2xl"
+          >
+            Where the Fun Begins!
+          </Header>
+        </slot>
+        <div class="subheader">
+          <slot name="subheader">
+            <p>
+              A family-owned, full-service travel agency located in and licensed by
+              the state of Florida.
+            </p>
+          </slot>
+        </div>
+        <slot name="actions"/>
       </div>
-      <div class="footer">
-        <Badges />
-      </div>
+      <slot name="footer"/>
       <Image
         class="image"
         src={heroImage}
@@ -35,6 +46,7 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
         widths={[2600, 1300, 996, 768, 480]}
         quality="high"
         loading="eager"
+        {...imageProps}
       />
     </div>
     <div class="back" aria-hidden="true">
@@ -77,24 +89,17 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
     );
   }
 
+  .texts {
+    margin-bottom: 3rem;
+  }
+
   .subheader {
     max-width: 40ch;
     margin-top: 1.5rem;
     margin-inline: auto;
     font-weight: bold;
     font-size: var(--font-size--lg);
-  }
-
-  .footer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding-block: 0.25rem;
-    padding-inline: 0.75rem;
-    margin-top: 8rem;
-    background-color: hsl(var(--color--white) / 60%);
-    backdrop-filter: blur(4px);
+    text-wrap: pretty;
   }
 
   .image {
@@ -156,24 +161,9 @@ import heroImage from '@assets/images/disneyCruiseShipOffShore.jpg';
     }
   }
 
-  @media (width < 62rem) {
-    .footer {
-      max-width: 24rem;
-      border-radius: calc(2rem - 0.75rem);
-    }
-  }
-
   @media (width >= 62rem) {
     .image {
       object-position: 50% 55%;
-    }
-
-    .footer {
-      margin-top: 16rem;
-      margin-inline: auto;
-      padding-inline: 1.5rem;
-      border-radius: 2rem 2rem 0 0;
-      padding-bottom: 2.75rem;
     }
   }
 </style>
