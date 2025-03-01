@@ -10,12 +10,11 @@ import Header from '@components/Header.astro';
 import ContactBlip from '@components/ContactBlip.astro';
 import Hero from '@components/Hero.astro';
 import HeroActions from '@components/HeroActions.astro';
+import Link from '@components/Link.astro';
+import Button from '@components/Button.astro';
 
 import heroImage from '@assets/images/beachAerial.jpg';
 import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
-
-import Link from '@components/Link.astro';
-import Button from '@components/Button.astro';
 ---
 
 <Layout
@@ -102,6 +101,13 @@ import Button from '@components/Button.astro';
           </div>
         </div>
       </div>
+      <div class="back" aria-hidden="true">
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+      </div>
     </Container>
   </section>
 </Layout>
@@ -147,6 +153,57 @@ import Button from '@components/Button.astro';
     gap: inherit;
   }
 
+  .container {
+    position: relative;
+    z-index: 0;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+  }
+
+  .shadow {
+    display: block;
+    position: absolute;
+  }
+
+  .shadow:nth-child(1) {
+    top: 10%;
+    left: 50%;
+    box-shadow: 0px 0px 1200px 75px #c100ff;
+    opacity: 30%;
+  }
+
+  .shadow:nth-child(2) {
+    bottom: 45%;
+    right: 30%;
+    box-shadow: 0px 0px 700px 75px #00ff90;
+    opacity: 50%;
+  }
+
+  .shadow:nth-child(3) {
+    bottom: 30%;
+    left: 35%;
+    box-shadow: 0px 0px 900px 95px #fca82e;
+    opacity: 30%;
+  }
+
+  .shadow:nth-child(4) {
+    bottom: 55%;
+    left: 20%;
+    box-shadow: 0px 0px 900px 95px #fc2220;
+    opacity: 50%;
+  }
+
+  .shadow:nth-child(5) {
+    bottom: 15%;
+    right: 20%;
+    box-shadow: 0px 0px 900px 95px #7b20fc;
+    opacity: 20%;
+  }
+
   @media (width < 48rem) {
     .media,
     .media img {
@@ -159,7 +216,7 @@ import Button from '@components/Button.astro';
     .blips {
       padding: 3rem;
       border-radius: 1.5rem;
-      background-color: hsl(var(--color--white));
+      background-color: hsl(var(--color--white) / 70%);
       drop-shadow: 0 0 1rem hsl(var(--color--black) / 10%);
       border-width: 2px;
       border-style: solid;
