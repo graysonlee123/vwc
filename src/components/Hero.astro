@@ -46,12 +46,12 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
       </div>
       <picture>
         <source
-          srcset={optimizedHeroImageMobile.srcSet.values.map(value => value.url + ' ' + value.descriptor).join(', ')}
+          srcset={optimizedHeroImageMobile.srcSet.attribute}
           media="(max-width: 767px)"
           type="image/webp"
         >
         <source
-          srcset={optimizedHeroImageTablet.src}
+          srcset={optimizedHeroImageTablet.srcSet.attribute}
           media="(min-width: 768px) and (max-width: 1200px)"
           type="image/webp"
         >
@@ -60,7 +60,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
           width={optimizedHeroImageDesktop.attributes.width}
           height={optimizedHeroImageDesktop.attributes.height}
           src={optimizedHeroImageDesktop.src}
-          srcset={optimizedHeroImageDesktop.srcSet.values.map(value => value.url + ' ' + value.descriptor).join(', ')}
+          srcset={optimizedHeroImageDesktop.srcSet.attribute}
           alt="A Disney Cruise Ship docked off of the shore of a tropical island."
           sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
           loading="eager"
