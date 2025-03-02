@@ -13,7 +13,9 @@ import HeroActions from '@components/HeroActions.astro';
 import Link from '@components/Link.astro';
 import Button from '@components/Button.astro';
 
-import heroImage from '@assets/images/beachAerial.jpg';
+import HeroImageMobile from '@assets/images/disneyCruiseShipOffShore-3x4.jpg'
+import HeroImageTablet from '@assets/images/disneyCruiseShipOffShore-4x3.jpg'
+import HeroImageDesktop from '@assets/images/disneyCruiseShipOffShore-2x1.jpg';
 import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
 ---
 
@@ -22,13 +24,11 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
   description="This page is under construction. Visit again soon!"
   floatingMobileNavbar
 >
-  <Hero imageProps={{
-    src: heroImage,
-    alt: 'Aerial view of the ocean from a beachfront with palm trees',
-    style: {
-      objectPosition: '50% 10%',
-    }
-  }}>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+  >
     <Header
       as="h1"
       family="brush"

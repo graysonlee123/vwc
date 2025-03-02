@@ -7,6 +7,10 @@ import Promise from '@components/Promise.astro';
 import Services from '@components/Services.astro';
 import HeroFooter from '@components/HeroFooter.astro';
 import Badges from '@components/Badges.astro';
+
+import HeroImageMobile from '@assets/images/disneyCruiseShipOffShore-3x4.jpg'
+import HeroImageTablet from '@assets/images/disneyCruiseShipOffShore-4x3.jpg'
+import HeroImageDesktop from '@assets/images/disneyCruiseShipOffShore-2x1.jpg';
 ---
 
 <Layout
@@ -14,7 +18,11 @@ import Badges from '@components/Badges.astro';
   description="Vacations with Character offers expert planning for Disney, Universal, cruises, all-inclusive resorts, and more. Book a vacation with a personal touch today!"
   floatingMobileNavbar={true}
 >
-  <Hero>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+  >
     <HeroFooter slot="footer">
       <Badges/>
     </HeroFooter>
