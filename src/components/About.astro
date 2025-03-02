@@ -36,11 +36,6 @@ import Header from "@components/Header.astro";
           <p>This is why our team at Vacations with Character has come together. We recognize every family is a story beyond just people and vacations. We have the experience and expert knowledge plus training to not only help you create an amazing vacation - but one that is tailored to your wishes and dreams, and that you'll cherish forever.</p>
           <p>We are thankful to all of the many families who have put their trust in us for over 16 years and hope you will too. We are "where the fun begins" and we'd love to help you celebrate life&mdash;with a vacation! ♥</p>
         </Article>
-        <div class="actions">
-          <Button as="a" href="/">
-            Begin the Memories
-          </Button>
-        </div>
       </div>
     </div>
   </Container>
@@ -64,8 +59,10 @@ import Header from "@components/Header.astro";
     border-color: hsl(var(--color--gray--100));
   }
 
-  .actions {
-    margin-top: 1.5rem;
+  @media (width < 62rem) {
+    .media {
+      display: none;
+    }
   }
 
   @media (width >= 62rem) {
