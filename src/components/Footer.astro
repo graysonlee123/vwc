@@ -46,9 +46,12 @@ import SocialIconList from '@components/SocialIconList.astro';
           <div class="socials">
             <SocialIconList />
           </div>
-          <div>
-            <Link href="tel:+1-800-908-3005">(800) 908-3005</Link> <br />
-            <Link href=`mailto:${EMAIL}`>
+          <div class="contact-links">
+            <Link href="tel:+1-800-908-3005" style={{display: 'inline-block'}}>
+              (800) 908-3005
+            </Link>
+            <br/>
+            <Link href=`mailto:${EMAIL}` style={{display: 'inline-block'}}>
               { EMAIL }
             </Link>
           </div>
@@ -104,6 +107,10 @@ import SocialIconList from '@components/SocialIconList.astro';
 
   .socials {
     margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    line-height: 24px;
   }
 
   .back {
