@@ -1,15 +1,38 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
-import ComingSoon from '@components/ComingSoon.astro';
-import Container from '@components/Container.astro';
+import CTA from '@components/CTA.astro';
+import { default as DestinationsComponent } from '@components/Destinations.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+
+import HeroImageDesktop from '@assets/images/disneyCruiseShipOffShore-2x1.jpg';
+import HeroImageMobile from '@assets/images/disneyCruiseShipOffShore-3x4.jpg';
+import HeroImageTablet from '@assets/images/disneyCruiseShipOffShore-4x3.jpg';
 ---
 
 <Layout
   title="Destinations | Vacations with Character"
   description="This page is under construction. Visit again soon!"
+  floatingMobileNavbar
 >
-  <Container size="sm">
-    <ComingSoon title="Destinations" />
-  </Container>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+  >
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      Destinations
+    </Header>
+    <p slot="subheader">
+      We can guide you just about anywhere you want to go! From beaches to castles, pirate coves to quiet getaways, let us know what peaks your interest.
+    </p>
+  </Hero>
+  <DestinationsComponent/>
+  <CTA/>
 </Layout>

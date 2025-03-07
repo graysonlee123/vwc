@@ -1,0 +1,149 @@
+---
+import { AFFILIATE_URL_AULANI, AFFILIATE_URL_DISNEY, QUOTE_URL } from '@lib/constants'
+
+import Container from "@components/Container.astro"
+import Destination from "@components/Destination.astro"
+import Button from '@components/Button.astro'
+
+import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg'
+import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg'
+import universalOrlandoImage from '@assets/images/hogwarts-20x13.jpg'
+import disneyDestinationsImage from '@assets/images/magicKingdomParade-20x13.jpg'
+import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg'
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
+---
+
+<section class="destinations">
+  <Container size="md" breakpoint='sm'>
+    <div class="layout">
+      <Destination
+        title="Disney Destinatons"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: disneyDestinationsImage,
+          alt: "A child looking at a Disney float with Disney princesses on it",
+        }}
+      >
+        <Button
+          as="a"
+          href={AFFILIATE_URL_DISNEY}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Learn More
+        </Button>
+      </Destination>
+      <Destination
+        title="Universal Orlando"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: universalOrlandoImage,
+          alt: "Photo of the Hogwarts Castle at Universal Orlando at night",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="Cruising Adventures"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: cruisingAdventuresImage,
+          alt: "Aerial view of a Disney Cruise Ship at sea at sunset",
+        }}
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="Disney's Aulani"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: aulaniResortImage,
+          alt: "Off-shore photo of the tropical Disney's Aulani resort, there are two large hotel buildings",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href={AFFILIATE_URL_AULANI}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Learn More
+        </Button>
+      </Destination>
+      <Destination
+        title="Sandals Vacations"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: sandalsVacationsImage,
+          alt: "Aerial view of a beach with people enjoying the sand and the water",
+        }}
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="All-Inclusives"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ratione commodi molestias nulla ut libero earum molestiae culpa nostrum vitae."
+        imageProps={{
+          src: allInclusivesImage,
+          alt: "A tropical all-inclusive hotel room looking out at the beach and ocean",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href="https://alg.widen.net/s/ddwkdtdq96/ic23-inclusivecollection-brochure"
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Read Brochure
+        </Button>
+      </Destination>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .destinations {
+    margin-block: 8rem;
+  }
+
+  .layout {
+    display: grid;
+    gap: 10rem;
+  }
+
+  @media (width < 36rem) {
+    .layout {
+      padding-inline: 0.75rem;
+    }
+  }
+</style>
