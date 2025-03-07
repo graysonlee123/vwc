@@ -16,6 +16,7 @@ import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg';
 import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg';
 
 import type { ComponentProps } from 'astro/types';
+import ScreenReader from '@components/ScreenReader.astro';
 
 const sizes = 'calc(85vw - 3rem), (width >= 612px) calc((85vw - 3rem - 1.5rem) / 2), (width >= 904px) calc((85vw - 3rem - 1.5rem - 1.5rem) / 3), (width >= 992px) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem) / 2), (width >= 1384) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem - 1.5rem) / 3), (width >= 1530px) 252px';
 const widths = [1008, 504, 252];
@@ -104,6 +105,9 @@ const services: ComponentProps<typeof Card>[] = [
 
 <section class="section">
   <Container breakpoint='sm'>
+    <ScreenReader>
+      <h2>Services</h2>
+    </ScreenReader>
     <div class="layout">
       <div class="cards">
         {
