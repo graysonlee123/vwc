@@ -12,7 +12,8 @@
     { "source": "/cruises.html", "destination": "/", "permanent": false },
     { "source": "/authorization.html", "destination": "/", "permanent": true },
     { "source": "/guided-tours.html", "destination": "/", "permanent": true },
-    { "source": "/faqs.html", "destination": "/", "permanent": true }
+    { "source": "/faqs.html", "destination": "/", "permanent": true },
+    { "source": "/:path/index.html", "destination": "/:path/", "permanent": true }
   ],
   "trailingSlash": true
 }
