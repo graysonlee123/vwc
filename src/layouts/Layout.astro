@@ -19,7 +19,7 @@ const { title, description, noindex, floatingMobileNavbar = false } = Astro.prop
 <html lang="en">
   <head>
     <SEO title={title} description={description} noindex={noindex} />
-    <link rel="preload" href="/fonts/caveat-brush/caveat-brush-subset.ttf" type="font/ttf"/>
+    <link rel="preload" href="/fonts/caveat-brush/caveat-brush-subset.ttf" as="font" type="font/ttf"/>
   </head>
   <body class="body-font">
     <Navbar floatingMobileNavbar={floatingMobileNavbar} />
