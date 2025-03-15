@@ -1,13 +1,15 @@
 ---
-import Container from "@components/Container.astro";
-import Article from "@components/Article.astro";
 import Image from "astro/components/Image.astro";
 
-import aboutImage from '@assets/images/familyOnBeachWithShip.jpg';
+import Container from "@components/Container.astro";
+import Article from "@components/Article.astro";
 import Header from "@components/Header.astro";
+import Section from "@components/Section.astro";
+
+import aboutImage from '@assets/images/familyOnBeachWithShip.jpg';
 ---
 
-<section class="section">
+<Section spacing="md">
   <Container>
     <div class="layout">
       <div class="media">
@@ -38,13 +40,9 @@ import Header from "@components/Header.astro";
       </div>
     </div>
   </Container>
-</section>
+</Section>
 
 <style>
-  .section {
-    margin-block: 5rem;
-  }
-
   .layout {
     display: grid;
     gap: 3rem;

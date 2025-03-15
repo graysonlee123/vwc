@@ -8,6 +8,7 @@ import Card from '@components/Card.astro';
 import Container from '@components/Container.astro';
 import Testimonial from '@components/Testimonial.astro';
 import ScreenReader from '@components/ScreenReader.astro';
+import Section from '@components/Section.astro';
 
 import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg';
 import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg';
@@ -103,7 +104,7 @@ const services: ComponentProps<typeof Card>[] = [
 ];
 ---
 
-<section class="section">
+<Section>
   <Container breakpoint='sm'>
     <ScreenReader>
       <h2>Services</h2>
@@ -130,7 +131,7 @@ const services: ComponentProps<typeof Card>[] = [
       </div>
     </div>
   </Container>
-</section>
+</Section>
 
 <style>
   .layout {
@@ -151,8 +152,8 @@ const services: ComponentProps<typeof Card>[] = [
   }
 
   @media (width < 36rem) {
-    .section {
-      padding: 0.75rem;
+    .layout {
+      margin: 0.75rem;
     }
 
     .cards {
@@ -177,7 +178,7 @@ const services: ComponentProps<typeof Card>[] = [
   }
 
   @media (width >= 62rem) {
-    .section {
+    .layout {
       margin-top: -4rem;
     }
 
@@ -187,7 +188,7 @@ const services: ComponentProps<typeof Card>[] = [
   }
 
   @media (width >= 36rem) and (width < 62rem) {
-    .section {
+    .layout {
       margin-top: 2rem;
     }
   }

@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 
 import Container from '@components/Container.astro';
 import Header from '@components/Header.astro';
+import Section from '@components/Section.astro';
 
 type Props = {
   mobileImage: ImageMetadata
@@ -18,62 +19,64 @@ const optimizedHeroImageTablet = await getImage({src: tabletImage, quality: 'hig
 const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'high', widths: [1300, 2600]})
 ---
 
-<section class="section">
-  <Container breakpoint='sm'>
-    <div class="card">
-      <div class="layout">
-        <div class="texts">
-          <slot name="header">
-            <Header
-              as="h1"
-              family="brush"
-              size="2xl"
-            >
-              Where the Fun Begins!
-            </Header>
-          </slot>
-          <div class="subheader">
-            <slot name="subheader">
-              <p>
-                A family-owned, full-service travel agency located in and licensed by
-                the state of Florida.
-              </p>
+<Section>
+  <div class="wrapper">
+    <Container breakpoint='sm'>
+      <div class="card">
+        <div class="layout">
+          <div class="texts">
+            <slot name="header">
+              <Header
+                as="h1"
+                family="brush"
+                size="2xl"
+              >
+                Where the Fun Begins!
+              </Header>
             </slot>
+            <div class="subheader">
+              <slot name="subheader">
+                <p>
+                  A family-owned, full-service travel agency located in and licensed by
+                  the state of Florida.
+                </p>
+              </slot>
+            </div>
+            <slot name="actions"/>
           </div>
-          <slot name="actions"/>
+          <slot name="footer"/>
         </div>
-        <slot name="footer"/>
+        <picture>
+          <source
+            srcset={optimizedHeroImageMobile.srcSet.attribute}
+            media="(max-width: 767px)"
+            type="image/webp"
+          >
+          <source
+            srcset={optimizedHeroImageTablet.srcSet.attribute}
+            media="(min-width: 768px) and (max-width: 1200px)"
+            type="image/webp"
+          >
+          <img
+            class="image"
+            width={optimizedHeroImageDesktop.attributes.width}
+            height={optimizedHeroImageDesktop.attributes.height}
+            src={optimizedHeroImageDesktop.src}
+            srcset={optimizedHeroImageDesktop.srcSet.attribute}
+            alt="A Disney Cruise Ship docked off of the shore of a tropical island."
+            sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
+            loading="eager"
+          />
+        </picture>
       </div>
-      <picture>
-        <source
-          srcset={optimizedHeroImageMobile.srcSet.attribute}
-          media="(max-width: 767px)"
-          type="image/webp"
-        >
-        <source
-          srcset={optimizedHeroImageTablet.srcSet.attribute}
-          media="(min-width: 768px) and (max-width: 1200px)"
-          type="image/webp"
-        >
-        <img
-          class="image"
-          width={optimizedHeroImageDesktop.attributes.width}
-          height={optimizedHeroImageDesktop.attributes.height}
-          src={optimizedHeroImageDesktop.src}
-          srcset={optimizedHeroImageDesktop.srcSet.attribute}
-          alt="A Disney Cruise Ship docked off of the shore of a tropical island."
-          sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
-          loading="eager"
-        />
-      </picture>
-    </div>
-    <div class="back" aria-hidden="true">
-      <span class="shadow" aria-hidden="true"></span>
-      <span class="shadow" aria-hidden="true"></span>
-      <span class="shadow" aria-hidden="true"></span>
-    </div>
-  </Container>
-</section>
+      <div class="back" aria-hidden="true">
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+      </div>
+    </Container>
+  </div>
+</Section>
 
 <style>
   .container {
@@ -172,8 +175,8 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   }
 
   @media (width < 36rem) {
-    .section {
-      padding: 0.75rem;
+    .wrapper {
+      margin: 0.75rem;
     }
   }
 

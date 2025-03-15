@@ -2,6 +2,9 @@
 import Button from '@components/Button.astro';
 import Container from '@components/Container.astro';
 import Scroller from '@components/Scroller.astro';
+import Header from '@components/Header.astro';
+import Article from '@components/Article.astro';
+import Section from '@components/Section.astro';
 
 import DiagonAlleyImage from '@assets/images/diagonAlley.jpg';
 import FamilyOnBeachImage from '@assets/images/familyOnBeach.jpg';
@@ -12,8 +15,6 @@ import familyOnBeachWithShip from '@assets/images/familyOnBeachWithShip.jpg';
 import PrincessTianaImage from '@assets/images/princessTiana.jpg';
 import DisneyCharactersImage from '@assets/images/disneyCharacters.jpg';
 import royalCaribbeanShipAerial from '@assets/images/royalCaribbeanShipAerial.jpg'
-import Header from '@components/Header.astro';
-import Article from '@components/Article.astro';
 
 const scrollerOneSmallWidths = [312 * 2, 312];
 const scrollerOneLargeWidths = [416 * 2, 416];
@@ -84,7 +85,7 @@ const scrollerTwo = [
 ];
 ---
 
-<section class="cta">
+<Section spacing={{top: 'lg', bottom: 'md'}}>
   <Container breakpoint='lg'>
     <div class="layout">
       <div class="slider slider--one">
@@ -117,13 +118,9 @@ const scrollerTwo = [
       </div>
     </div>
   </Container>
-</section>
+</Section>
 
 <style>
-  .cta {
-    --gap: 1.5rem;
-  }
-
   .layout {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -188,11 +185,6 @@ const scrollerTwo = [
   }
 
   @media (width < 62rem) {
-    .cta {
-      margin-top: 8rem;
-      margin-bottom: 8rem;
-    }
-
     .layout {
       grid-template-rows: repeat(3, auto);
     }
@@ -221,11 +213,6 @@ const scrollerTwo = [
   }
 
   @media (width >= 62rem) {
-    .cta {
-      margin-top: 10rem;
-      margin-bottom: 12rem;
-    }
-
     .layout {
       grid-template-rows: 1fr;
       min-height: 30rem;

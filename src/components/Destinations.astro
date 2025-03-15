@@ -4,6 +4,7 @@ import { AFFILIATE_URL_AULANI, AFFILIATE_URL_DISNEY, QUOTE_URL } from '@lib/cons
 import Container from "@components/Container.astro"
 import Destination from "@components/Destination.astro"
 import Button from '@components/Button.astro'
+import Section from '@components/Section.astro'
 
 import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg'
 import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg'
@@ -13,7 +14,7 @@ import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg'
 import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
 ---
 
-<section class="destinations">
+<Section spacing="md">
   <Container size="md" breakpoint='sm'>
     <div class="layout">
       <Destination
@@ -129,16 +130,12 @@ import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
       </Destination>
     </div>
   </Container>
-</section>
+</Section>
 
 <style>
-  .destinations {
-    margin-block: 8rem;
-  }
-
   .layout {
     display: grid;
-    gap: 10rem;
+    gap: clamp(6rem, 4.545rem + 7.27vw, 10rem);
   }
 
   @media (width < 36rem) {

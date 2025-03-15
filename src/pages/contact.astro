@@ -12,6 +12,7 @@ import Hero from '@components/Hero.astro';
 import HeroActions from '@components/HeroActions.astro';
 import Link from '@components/Link.astro';
 import Button from '@components/Button.astro';
+import Section from '@components/Section.astro';
 
 import HeroImageMobile from '@assets/images/disneyCruiseShipOffShore-3x4.jpg'
 import HeroImageTablet from '@assets/images/disneyCruiseShipOffShore-4x3.jpg'
@@ -51,7 +52,7 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
       </Button>
     </HeroActions>
   </Hero>
-  <section class="section">
+  <Section spacing="md">
     <Container size="md" breakpoint="md">
       <div class="layout">
         <div class="card main">
@@ -109,14 +110,10 @@ import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
         <span class="shadow" aria-hidden="true"></span>
       </div>
     </Container>
-  </section>
+  </Section>
 </Layout>
 
 <style>
-  .section {
-    margin-block: 7rem;
-  }
-
   .layout {
     display: grid;
     gap: 3rem;
