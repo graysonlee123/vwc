@@ -58,7 +58,6 @@ const {
     gap: var(--gap);
     animation-name: slide-up;
     animation-play-state: paused;
-    animation-duration: 40s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
@@ -68,7 +67,7 @@ const {
   }
 
   .scroll-direction--backwards .train {
-    animation-duration: 50s;
+    
   }
 
   .image {
@@ -88,24 +87,32 @@ const {
     }
 
     .train {
+      width: min-content;
       grid-auto-flow: column;
       grid-auto-columns: 20rem;
+      animation-name: slide-left;
+      animation-duration: 35s;
+    }
+
+    .scroll-direction--backwards .train {
       animation-name: slide-right;
+      animation-duration: 45s;
     }
 
     .image {
       height: var(--height);
       object-fit: cover;
     }
-
-    .scroll-direction--backwards .train {
-      animation-name: slide-left;
-    }
   }
 
   @media (width >= 62rem) {
+    .train {
+      animation-duration: 40s;
+    }
+
     .scroll-direction--backwards .train {
       animation-name: slide-down;
+      animation-duration: 50s;
     }
 
     .stagger-sizes .image:nth-child(even) {
@@ -125,19 +132,19 @@ const {
     }
   }
 
-  @keyframes slide-right {
+  @keyframes slide-left {
     to {
       transform: translateX(calc(-50% - var(--gap) / 2));
     }
   }
 
-  @keyframes slide-left {
+  @keyframes slide-right {
     from {
       transform: translateX(calc(-50% - var(--gap) / 2));
     }
 
     to {
-      transform: translateX(calc(0%));
+      transform: translateX(0%);
     }
   }
 
