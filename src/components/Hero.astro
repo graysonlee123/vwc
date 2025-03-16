@@ -10,9 +10,10 @@ type Props = {
   mobileImage: ImageMetadata
   tabletImage: ImageMetadata
   desktopImage: ImageMetadata
+  tall?: boolean
 }
 
-const { mobileImage, tabletImage, desktopImage } = Astro.props
+const { mobileImage, tabletImage, desktopImage, tall = false } = Astro.props
 
 const optimizedHeroImageMobile = await getImage({src: mobileImage, quality: 'high', widths: [320, 375, 430, 640, 750, 860]})
 const optimizedHeroImageTablet = await getImage({src: tabletImage, quality: 'high', widths: [768, 1024, 1536, 2048]})
@@ -58,7 +59,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
             type="image/webp"
           >
           <img
-            class="image"
+            class:list={{image: true, tall}}
             width={optimizedHeroImageDesktop.attributes.width}
             height={optimizedHeroImageDesktop.attributes.height}
             src={optimizedHeroImageDesktop.src}
@@ -156,6 +157,10 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
     width: 100%;
     height: auto;
     aspect-ratio: 3 / 4;
+  }
+
+  .tall {
+    aspect-ratio: 3 / 5;
   }
 
   .back {

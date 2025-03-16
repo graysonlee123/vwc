@@ -12,7 +12,7 @@ import { default as ContactComponent } from '@components/Contact.astro'
 
 import HeroImageDesktop from '@assets/images/hogwarts-2x1.jpg';
 import HeroImageTablet from '@assets/images/hogwarts-4x3.jpg'
-import HeroImageMobile from '@assets/images/hogwarts-3x4.jpg'
+import HeroImageMobile from '@assets/images/hogwarts-3x5.jpg'
 ---
 
 <Layout
@@ -21,6 +21,7 @@ import HeroImageMobile from '@assets/images/hogwarts-3x4.jpg'
   floatingMobileNavbar
 >
   <Hero
+    tall
     mobileImage={HeroImageMobile}
     tabletImage={HeroImageTablet}
     desktopImage={HeroImageDesktop}
