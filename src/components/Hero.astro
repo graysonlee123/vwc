@@ -102,9 +102,9 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
     gap: 1.5rem;
     width: 100%;
     height: 100%;
-    padding-top: 8rem;
-    padding-inline: 1.5rem;
-    padding-bottom: 3rem;
+    padding-top: 7rem;
+    padding-inline: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .card::after {
@@ -125,6 +125,22 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   .texts {
     position: relative;
     z-index: 2;
+  }
+
+  .texts::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    backdrop-filter: blur(2px) brightness(0.9) contrast(0.8);
+    opacity: 100%;
+    mask-image: radial-gradient(50% 50%, black 30%, transparent);
+    mask-repeat: no-repeat;
+    max-width: calc(85vw * 2 / 3);
   }
 
   .subheader {
@@ -177,6 +193,10 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   @media (width < 36rem) {
     .wrapper {
       margin: 0.75rem;
+    }
+
+    .subheader {
+      font-size: var(--font-size--md);
     }
   }
 
