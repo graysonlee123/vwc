@@ -1,8 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 
-import defaultAvatarImage from '@assets/images/defaultAvatar.png';
 import Stars from '@components/Stars.astro';
+
+import defaultAvatarImage from '@assets/images/defaultAvatar.jpg';
 ---
 
 <div class="testimonial">
@@ -58,6 +59,10 @@ import Stars from '@components/Stars.astro';
       width: 4rem;
       height: 4rem;
       border-radius: 2rem;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #eee;
+      box-sizing: content-box;
     }
 
     .meta {
