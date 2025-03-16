@@ -11,9 +11,16 @@ type Props = {
   tabletImage: ImageMetadata
   desktopImage: ImageMetadata
   tall?: boolean
+  blurred?: boolean
 }
 
-const { mobileImage, tabletImage, desktopImage, tall = false } = Astro.props
+const {
+  mobileImage,
+  tabletImage,
+  desktopImage,
+  tall = false,
+  blurred = false,
+} = Astro.props
 
 const optimizedHeroImageMobile = await getImage({src: mobileImage, quality: 'high', widths: [320, 375, 430, 640, 750, 860]})
 const optimizedHeroImageTablet = await getImage({src: tabletImage, quality: 'high', widths: [768, 1024, 1536, 2048]})
@@ -24,7 +31,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   <div class="wrapper">
     <Container breakpoint='sm'>
       <div class="card">
-        <div class="layout">
+        <div class:list={{layout: true, blurred}}>
           <div class="texts">
             <slot name="header">
               <Header
@@ -86,6 +93,8 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   }
 
   .card {
+    position: relative;
+    z-index: 0;
     color: hsl(var(--color--white));
     text-align: center;
     border-radius: 2rem;
@@ -94,6 +103,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
 
   .layout {
     position: absolute;
+    z-index: 0;
     top: 0;
     left: 0;
     display: flex;
@@ -108,10 +118,20 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
     padding-bottom: 0.75rem;
   }
 
+  .blurred::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    backdrop-filter: blur(1px) brightness(0.9) contrast(0.9);
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
   .card::after {
     content: '';
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     inset: 0;
     background-image: linear-gradient(
       to top,
@@ -125,23 +145,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
 
   .texts {
     position: relative;
-    z-index: 2;
-  }
-
-  .texts::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-    backdrop-filter: blur(2px) brightness(0.9) contrast(0.8);
-    opacity: 100%;
-    mask-image: radial-gradient(50% 50%, black 30%, transparent);
-    mask-repeat: no-repeat;
-    max-width: calc(85vw * 2 / 3);
+    z-index: 1;
   }
 
   .subheader {
@@ -154,6 +158,8 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   }
 
   .image {
+    position: relative;
+    z-index: -2;
     width: 100%;
     height: auto;
     aspect-ratio: 3 / 4;
@@ -220,6 +226,11 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   @media (width >= 75rem) {
     .image {
       aspect-ratio: 2 / 1;
+    }
+
+    .blurred::after {
+      mask-image: linear-gradient(to bottom, transparent, black 50%, black 70%, transparent);
+      mask-repeat: no-repeat;
     }
   }
 </style>
