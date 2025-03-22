@@ -5,8 +5,11 @@ import { default as CareersComponent } from '@components/Careers.astro'
 ---
 
 <Layout
-  title="Careers | Vacations with Character"
-  description="Interested in a career at Vacations with Character? Want to join our team of travel professionals? Email us for more details!"
+  seoProps={{
+    title: "Careers | Vacations with Character",
+    description: "Interested in a career at Vacations with Character? Want to join our team of travel professionals? Email us for more details!",
+    image: "og-careers.jpg",
+  }}
 >
   <CareersComponent/>
 </Layout>

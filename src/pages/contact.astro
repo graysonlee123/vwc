@@ -16,9 +16,14 @@ import HeroImageMobile from '@assets/images/hogwarts-3x5.jpg'
 ---
 
 <Layout
-  title="Contact | Vacations with Character"
-  description="This page is under construction. Visit again soon!"
-  floatingMobileNavbar
+  seoProps={{
+    title: "Contact | Vacations with Character",
+    description: "This page is under construction. Visit again soon!",
+    image: "og-contact.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
 >
   <Hero
     mobileImage={HeroImageMobile}

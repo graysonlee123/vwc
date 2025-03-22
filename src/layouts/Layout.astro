@@ -10,19 +10,22 @@ import MobileNavigation from '@components/MobileNavigation.astro';
 import type { SEOProps } from '@components/SEO.astro';
 import type { Props as NavigationProps } from '@components/Navigation.astro';
 
-type Props = SEOProps & NavigationProps
+type Props = {
+  seoProps: SEOProps
+  navigationProps?: NavigationProps
+}
 
-const { title, description, noindex, floatingMobileNavbar = false } = Astro.props as Props;
+const { seoProps, navigationProps = { floatingMobileNavbar: false } } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO title={title} description={description} noindex={noindex} />
+    <SEO {...seoProps} />
     <link rel="preload" href="/fonts/caveat-brush/caveat-brush-subset.ttf" as="font" type="font/ttf" crossorigin/>
   </head>
   <body class="body-font">
-    <Navbar floatingMobileNavbar={floatingMobileNavbar} />
+    <Navbar {...navigationProps} />
     <MobileNavigation/>
     <main class="main">
       <slot />
