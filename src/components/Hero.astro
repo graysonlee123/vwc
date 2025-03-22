@@ -45,7 +45,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
             <div class="subheader">
               <slot name="subheader">
                 <p>
-                  A family-owned, full-service travel agency located in and licensed by
+                  A family-owned, full-service travel agency <br class="br">located in and licensed by
                   the state of Florida.
                 </p>
               </slot>
@@ -220,6 +220,12 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   @media (width >= 48rem) {
     .image {
       aspect-ratio: 4 / 3;
+    }
+  }
+
+  @media (width < 75rem) {
+    .br {
+      display: none;
     }
   }
 
