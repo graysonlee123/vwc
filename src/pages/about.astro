@@ -12,9 +12,14 @@ import HeroImageMobile from '@assets/images/childrenEatingIceCream-3x4.jpg'
 ---
 
 <Layout
-  title="About | Vacations with Character"
-  description="This page is under construction. Visit again soon!"
-  floatingMobileNavbar
+  seoProps={{
+    title: "About | Vacations with Character",
+    description: "Vacations with Character weaves tailored planning and expert insights into seamless booking. Let us handle the details to craft a magical getaway for you! ✨",
+    image: "og-about.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
 >
   <Hero
     mobileImage={HeroImageMobile}
