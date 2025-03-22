@@ -2,11 +2,17 @@ import { defineConfig, envField } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 const site = (() => {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return 'https://' + process.env.VERCEL_PROJECT_PRODUCTION_URL
+  switch (process.env.VERCEL_ENV) {
+    case 'production': {
+      return 'https://www.vacationswithcharacter.com'
+    }
+    case 'preview': {
+      return 'https://www.preview.vacationswithcharacter.com'
+    }
+    default: {
+      return 'http://localhost:4321'
+    }
   }
-
-  return 'http://localhost:4321'
 })()
 
 // https://astro.build/config
@@ -26,3 +32,5 @@ export default defineConfig({
     }
   }
 });
+
+console.log(`Configured with Astro.site set as [${site}]`)
