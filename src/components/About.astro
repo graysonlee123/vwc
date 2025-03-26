@@ -6,7 +6,7 @@ import Article from "@components/Article.astro";
 import Header from "@components/Header.astro";
 import Section from "@components/Section.astro";
 
-import aboutImage from '@assets/images/familyOnBeachWithShip.jpg';
+import aboutImage from '@assets/images/team.png'
 ---
 
 <Section spacing="md">
@@ -16,10 +16,9 @@ import aboutImage from '@assets/images/familyOnBeachWithShip.jpg';
         <Image
           class="image"
           src={aboutImage}
-          alt="Family of four on the beach with a cruise ship in the background"
+          alt="The Vacations with Character team"
           sizes="(min-width: 1530px) 622px, (min-width: 992px) calc((85vw - 4px - 3rem) / 2), calc(85vw - 4px)"
           widths={[622 * 2, 622, 311]}
-          loading="eager"
         />
       </div>
       <div class="text">
