@@ -30,7 +30,8 @@ export default defineConfig({
         length: 8,
       })
     }
-  }
+  },
+  prefetch: true,
 });
 
 console.log(`Configured with Astro.site set as [${site}]`)

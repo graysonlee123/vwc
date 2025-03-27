@@ -25,17 +25,17 @@ const { floatingMobileNavbar = false } = Astro.props as Props;
       </span>
       <ul class="items">
         <li class="item">
-          <Link href="/">
+          <Link href="/" data-astro-prefetch>
             Home
           </Link>
         </li>
         <li class="item">
-          <Link href="/about/">
+          <Link href="/about/" data-astro-prefetch>
             About
           </Link>
         </li>
         <li class="item">
-          <Link href="/destinations/">
+          <Link href="/destinations/" data-astro-prefetch>
             Destinations
           </Link>
         </li>
@@ -45,7 +45,7 @@ const { floatingMobileNavbar = false } = Astro.props as Props;
           <SocialIconList />
         </span>
         <span class="divider" aria-hidden="true"></span>
-        <Button as="a" class="button" href="/contact/">
+        <Button as="a" class="button" href="/contact/" data-astro-prefetch>
           Contact
         </Button>
         <span class="hamburger">
