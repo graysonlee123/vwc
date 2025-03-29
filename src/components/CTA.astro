@@ -16,10 +16,28 @@ import PrincessTianaImage from '@assets/images/princessTiana.jpg';
 import DisneyCharactersImage from '@assets/images/disneyCharacters.jpg';
 import royalCaribbeanShipAerial from '@assets/images/royalCaribbeanShipAerial.jpg'
 
-const scrollerOneSmallWidths = [312 * 2, 312];
-const scrollerOneLargeWidths = [416 * 2, 416];
-const scrollerOneSmallSizes = '312px';
-const scrollerOneLargeSizes = '416px';
+const scrollerOneSmallWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  201,        // tablet viewport 1x
+  201 * 2,    // tablet viewport 2x
+  245,        // laptop viewport 1x
+  245 * 2,    // laptop viewport 2x
+  315,        // desktop viewport 1x
+  315 * 2,    // desktop viewport 2x
+];
+const scrollerOneLargeWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  269,        // tablet viewport 1x
+  269 * 2,    // tablet viewport 2x
+  328,        // laptop viewport 1x
+  328 * 2,    // laptop viewport 2x
+  422,        // desktop viewport 1x
+  422 * 2,    // desktop viewport 2x
+];
+const scrollerOneSmallSizes = '(min-width: 1530px) 315px, (min-width: 992px) 20.3408093vw, 316px';
+const scrollerOneLargeSizes = '(min-width: 1530px) 421px, (min-width: 992px) 27.2359525vw, 316px';
 
 const scrollerOne = [
   {
@@ -48,8 +66,17 @@ const scrollerOne = [
   },
 ];
 
-const scrollerTwoWidths = [306 * 2, 306];
-const scrollerTwoSizes = '306px';
+const scrollerTwoWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  200,        // tablet viewport 1x
+  200 * 2,    // tablet viewport 2x
+  244,        // laptop viewport 1x
+  244 * 2,    // laptop viewport 2x
+  314,        // desktop viewport 1x
+  314 * 2,    // desktop viewport 2x
+];
+const scrollerTwoSizes = '(min-width: 1530px) 314px, (min-width: 992px) 20.5307692vw, 316px';
 
 const scrollerTwo = [
   {

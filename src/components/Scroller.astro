@@ -30,12 +30,8 @@ const {
 >
   <div class="train">
     {
-      propsForImages.map((imageProps, i) => (
-        <Image
-          class="image"
-          sizes={staggerSizes ? (i % 2 ? '312px' : '416px') : '306px'}
-          {...imageProps}
-        />
+      propsForImages.map((imageProps) => (
+        <Image class="image" {...imageProps}/>
       ))
     }
   </div>
