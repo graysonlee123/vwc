@@ -19,8 +19,15 @@ import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg';
 
 import type { ComponentProps } from 'astro/types';
 
-const sizes = 'calc(85vw - 3rem), (width >= 612px) calc((85vw - 3rem - 1.5rem) / 2), (width >= 904px) calc((85vw - 3rem - 1.5rem - 1.5rem) / 3), (width >= 992px) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem) / 2), (width >= 1384) calc((((85vw - 3rem - 3rem) * 2 / 3) - 1.5rem - 1.5rem) / 3), (width >= 1530px) 252px';
-const widths = [1008, 504, 252];
+const sizes = '(min-width: 1530px) 252px, (min-width: 1200px) calc((((85vw - 6rem) * (2 / 3)) - 3rem) / 3), (min-width: 992px) calc((((85vw - 6rem) * 2 / 3) - 1.5rem) / 2), (min-width: 576px) calc((85vw - 4.5rem) / 2), (min-width: 407px) 256px, calc((85vw - 3rem) * 0.8)';
+const widths = [
+  198,        // laptop 1x
+  198 * 2,    // laptop 2x
+  290,        // tablet 1x
+  290 * 2,    // tablet 2x
+  252,        // desktop 1x
+  252 * 2,    // desktop 2x
+];
 
 const services: ComponentProps<typeof Card>[] = [
   {
