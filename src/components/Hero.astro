@@ -57,11 +57,13 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
         <picture>
           <source
             srcset={optimizedHeroImageMobile.srcSet.attribute}
+            sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
             media="(max-width: 767px)"
             type="image/webp"
           >
           <source
             srcset={optimizedHeroImageTablet.srcSet.attribute}
+            sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
             media="(min-width: 768px) and (max-width: 1200px)"
             type="image/webp"
           >
