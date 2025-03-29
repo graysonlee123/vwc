@@ -5,8 +5,15 @@ import Article from '@components/Article.astro'
 import Header from '@components/Header.astro'
 import Image from '@components/Image.astro'
 
-const widths = [422, 844]
-const sizes = '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 24px) * (2 / 3)), 85vw'
+const widths = [
+  486,       // tablet 1x
+  486 * 2,   // tablet 2x
+  324,       // tablet 1x
+  324 * 2,   // tablet 2x
+  422,       // desktop 1x
+  422 * 2,   // desktop 2x
+]
+const sizes = '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 1.5rem) * 2 / 5), (min-width: 576px) 85vw, calc(100vw - 1.5rem)'
 
 type ImageProps = Omit<ComponentProps<typeof Image>, 'densities'>
 
