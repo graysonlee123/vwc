@@ -13,7 +13,8 @@
     { "source": "/authorization.html", "destination": "/", "permanent": true },
     { "source": "/guided-tours.html", "destination": "/destinations/", "permanent": true },
     { "source": "/faqs.html", "destination": "/", "permanent": true },
-    { "source": "/:path/index.html", "destination": "/:path/", "permanent": true }
+    { "source": "/:path/index.html", "destination": "/:path/", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
   ],
   "trailingSlash": true
 }
