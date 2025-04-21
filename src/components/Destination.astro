@@ -1,5 +1,5 @@
 ---
-import type { ComponentProps } from 'astro/types'
+import type { LocalImageProps } from 'astro:assets'
 
 import Article from '@components/Article.astro'
 import Header from '@components/Header.astro'
@@ -15,7 +15,7 @@ const widths = [
 ]
 const sizes = '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 1.5rem) * 2 / 5), (min-width: 576px) 85vw, calc(100vw - 1.5rem)'
 
-type ImageProps = Omit<ComponentProps<typeof Image>, 'densities'>
+type ImageProps = Omit<LocalImageProps, 'densities'>
 
 type Props = {
   title: string

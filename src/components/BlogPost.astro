@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import type { InferEntrySchema } from 'astro:content';
+
+import Container from '@components/Container.astro';
+import Header from '@components/Header.astro';
+
+type Props = {
+  data: InferEntrySchema<'posts'>;
+};
+const { data } = Astro.props;
+const { name, content } = data;
+const { hero_image, teaser, body } = content;
+---
+
+<Container size="xs">
+  <p class="teaser">
+    {teaser}
+  </p>
+  <Image
+    src={hero_image.filename}
+    alt={hero_image.alt}
+    width={1920}
+    height={1080}
+    class="hero-image"
+  />
+  <!-- TODO: Sizes attribute -->
+  <Header as="h1" class="header">
+    {name}
+  </Header>
+  <div class="meta">
+    {
+      data.updated_at
+        ? `Updated on ${data.updated_at}`
+        : `Published on ${data.published_at}`
+    } by Vacations with Character
+  </div>
+  <main class="body">
+    <pre>
+      {JSON.stringify(body, null, 2)}
+    </pre>
+  </main>
+</Container>
+
+<style>
+  .teaser {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-wrap: balance;
+  }
+
+  .hero-image {
+    height: auto;
+  }
+
+  .header {
+    margin-top: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .meta {
+    margin-top: 0.25rem;
+    font-size: var(--font-size--sm);
+  }
+
+  .body {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+  }
+</style>
