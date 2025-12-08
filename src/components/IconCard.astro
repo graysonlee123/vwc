@@ -1,0 +1,82 @@
+---
+interface Props {
+  icon?: any;
+  iconColor?: 'blue' | 'green' | 'red' | 'gold' | 'purple';
+  title?: string;
+  style?: string | astroHTML.JSX.CSSProperties;
+  accent?: boolean;
+}
+
+const { icon: Icon, iconColor, title, style, accent } = Astro.props;
+---
+
+<div class:list={{ card: true, accent: accent }} style={style}>
+  {Icon && <span class:list={['icon', iconColor]}>{<Icon />}</span>}
+  <h3 class="title">{title}</h3>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .card {
+    padding: 1.5rem;
+    border-radius: 2rem;
+    text-align: left;
+    background-color: hsl(var(--color--white) / 70%);
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  .title {
+    margin-top: 1rem;
+  }
+
+  .icon {
+    --_color: var(--color--white);
+    --_background-color: var(--color--brand);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.75rem;
+    color: hsl(var(--_color));
+    background-color: hsl(var(--_background-color));
+    border-radius: 1.5rem;
+    outline-width: 6px;
+    outline-style: solid;
+    outline-color: hsl(var(--_background-color) / 40%);
+  }
+
+  .icon.blue {
+    --_color: 212 48% 37%;
+    --_background-color: 209 74% 87%;
+  }
+
+  .icon.green {
+    --_color: 120 55% 27%;
+    --_background-color: 120 50% 84%;
+  }
+
+  .icon.red {
+    --_color: 0 56% 42%;
+    --_background-color: 0 89% 82%;
+  }
+
+  .icon.gold {
+    --_color: 45 75% 50%;
+    --_background-color: 51 86% 83%;
+  }
+
+  .icon.purple {
+    --_color: 273 75% 50%;
+    --_background-color: 276 87% 87%;
+  }
+
+  .content {
+    text-wrap: balance;
+  }
+</style>

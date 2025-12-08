@@ -1,107 +1,397 @@
 ---
 import { Image } from 'astro:assets';
 
-import cruiseShipFunnel from '../assets/images/cruiseShipFunnel.jpg';
-import Container from './Container.astro';
-import Article from './Article.astro';
-import Button from './Button.astro';
-import { QUOTE_URL } from '../lib/constants';
+import Button from '@components/Button.astro';
+import Card from '@components/Card.astro';
+import Container from '@components/Container.astro';
+import IconCard from '@components/IconCard.astro';
+import AwardIcon from '@components/Icons/AwardIcon.astro';
+import CompassIcon from '@components/Icons/CompassIcon.astro';
+import HeartIcon from '@components/Icons/HeartIcon.astro';
+import ShieldIcon from '@components/Icons/ShieldIcon.astro';
+import StarIcon from '@components/Icons/StarIcon.astro';
+import Header from '@components/Header.astro';
+import Section from '@components/Section.astro';
+
+import ctaCardImage from '@assets/images/girlMakingHeartWithHands-3x4.jpg';
+import fireworkOneImage from '@assets/images/firework-01.png'
+import fireworkTwoImage from '@assets/images/firework-02.png'
+import starOneImage from '@assets/images/star-01.png'
+import starTwoImage from '@assets/images/star-02.png'
+
+const startDate = new Date(Date.UTC(2010, 0, 1));
+const currentDate = new Date();
+const yearsOfExperience = currentDate.getUTCFullYear() - startDate.getUTCFullYear() + 1;
 ---
 
-<div class="promise">
-  <Container>
+<Section spacing={{top: 'xl', bottom: 'lg'}}>
+  <Container size="md">
     <div class="layout">
-      <div class="media">
-        <Image
-          class="image"
-          src={cruiseShipFunnel}
-          alt="A photo aimed towards the sky of a Disney cruise ship smokestack"
-          fetchpriority="high"
-          widths={[1040, 520, 480, 320]}
-          sizes="(min-width: 1280px) 520px, (min-width: 768px) calc((85vw - 48px) / 2), 85vw"
+      <div class="intro">
+        <Header
+          as="h2"
+          family="brush"
+          size="2xl"
+          color="navy"
+        >
+          Our Promise to You
+        </Header>
+        <p class="subtitle">
+          Our core beliefs are what make us stand out from other agencies.
+        </p>
+        <div class="actions">
+          <Button as="a" href="/contact/" data-astro-prefetch="hover">
+            Get Started
+          </Button>
+        </div>
+        <Image src={fireworkOneImage} alt="" class="firework-one" />
+        <Image src={starOneImage} alt="" class="star-one" />
+        <Image src={starTwoImage} alt="" class="star-two" />
+        <Image src={starTwoImage} alt="" class="star-three" />
+      </div>
+      <div class="item">
+        <IconCard
+          icon={AwardIcon}
+          iconColor="green"
+          title="Best Prices"
+          style={{ height: '100%' }}
+        >
+          <p>
+            Having a good relationship with our suppliers allows us to provide
+            the best prices possible for your vacation and even monitor it for
+            new discounts right up until you travel, saving you time and money!
+          </p>
+        </IconCard>
+      </div>
+      <div class="item">
+        <IconCard
+          icon={StarIcon}
+          iconColor="gold"
+          title="Personal Touch"
+          style={{ height: '100%' }}
+          accent
+        >
+          <p>
+            You will always have access to your agent and not a random person or
+            chat-bot. This also allows us to provide personal and thoughtful
+            touches to your vacation - something that can't be Googled!
+          </p>
+        </IconCard>
+      </div>
+      <div class="item">
+        <IconCard
+          icon={CompassIcon}
+          iconColor="purple"
+          title="Guidance"
+          style={{ height: '100%' }}
+        >
+          <p>
+            The internet is overwhelming and impersonal! We have the knowledge,
+            experience, tools. and connections to provide insightful, expert
+            guidance for your specific needs.
+          </p>
+        </IconCard>
+      </div>
+      <div class="item">
+        <IconCard
+          icon={HeartIcon}
+          iconColor="red"
+          title="Memories"
+          style={{ height: '100%' }}
+          accent
+        >
+          <p>
+            We love what we do and provide the highest level of service to make
+            your vacation a truly memorable one! We are proud to say more and
+            more families trust us to plan their vacations each year!
+          </p>
+        </IconCard>
+      </div>
+      <div class="item">
+        <IconCard
+          icon={ShieldIcon}
+          iconColor="blue"
+          title="Safety Net"
+          style={{ height: '100%' }}
+        >
+          <p>
+            Sometimes things don't turn out as planned. We truly care for you
+            from pre to post vacation and are here to assist you in case of
+            emergency or travel disruptions, and more!
+          </p>
+        </IconCard>
+      </div>
+      <div class="item">
+        <Card
+          href="/about/"
+          buttonText="About Us"
+          title={`${yearsOfExperience} Years of Experience`}
+          imageProps={{
+            src: ctaCardImage,
+            alt: "Photo of a Disney Cruise Ship's horns, with a chimney behind",
+            widths: [
+              265,        // tablet 1x
+              265 * 2,    // tablet 2x
+              324,        // laptop 1x
+              324 * 2,    // laptop 2x
+              347,        // desktop 1x
+              347 * 2,    // desktop 2x
+            ],
+            sizes: '(min-width: 1280px) 346px, (min-width: 992px) calc((85vw - 3rem) / 3), (min-width: 575px) calc(42.5vw - 0.75rem), 85vw',
+          }}
+          shadow={false}
         />
       </div>
-      <div class="content">
-        <Article>
-          <h2>Our Promise to You</h2>
-          <p>
-            These core beliefs are what make us stand out from other agencies.
-          </p>
-          <ul>
-            <li>
-              <strong>Best Prices</strong>: Having a good relationship with our
-              suppliers allows us to provide the best prices possible for your
-              vacation and even monitor it for new discounts right up until you
-              travel, saving you time and money!
-            </li>
-            <li>
-              <strong>Personal Touch</strong>: You will always have access to
-              your agent and not a random person or chat-bot. This also allows
-              us to provide personal and thoughtful touches to your vacation -
-              something that can't be Googled!
-            </li>
-            <li>
-              <strong>Guidance</strong>: The internet is overwhelming and
-              impersonal! We have the knowledge, experience, tools. and
-              connections to provide insightful, expert guidance for <em
-                >your specific needs.</em
-              >
-            </li>
-            <li>
-              <strong>Memories</strong>: We love what we do and provide the
-              highest level of service to make your vacation a truly memorable
-              one! We are proud to say more and more families <em>trust us</em> to
-              plan their vacations each year!
-            </li>
-            <li>
-              <strong>Safety Net</strong>: Sometimes things don't turn out as
-              planned. We truly care for you from pre to post vacation and are
-              here to assist you in case of emergency or travel disruptions, and
-              more!
-            </li>
-          </ul>
-        </Article>
-        <div class="actions">
-          <Button href={QUOTE_URL} target="_blank" rel="noopener noreferrer"
-            >Get a quote</Button
-          >
-        </div>
+      <div class="item" aria-hidden="true">
+        <Image src={fireworkTwoImage} alt="" class="firework-two" />
+        <Image src={starOneImage} alt="" class="star-four" />
+        <Image src={starTwoImage} alt="" class="star-five" />
       </div>
     </div>
+    <div class="back" aria-hidden="true">
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+    </div>
   </Container>
-</div>
+</Section>
 
 <style>
-  .promise {
-    margin-block: 5rem;
+  .container {
+    position: relative;
+    z-index: 0;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -5;
+    inset: 0;
+  }
+
+  .shadow {
+    position: absolute;
+    display: block;
+  }
+
+  .shadow:nth-child(1) {
+    top: 50%;
+    left: 15%;
+    box-shadow: 0px 0px 700px 75px #7ab0e0;
+    opacity: 60%;
+  }
+
+  .shadow:nth-child(2) {
+    bottom: 25%;
+    right: 25%;
+    box-shadow: 0px 0px 1000px 100px #e4c1fb;
+    opacity: 60%;
+  }
+
+  .shadow:nth-child(3) {
+    top: 35%;
+    right: 35%;
+    box-shadow: 0px 0px 1000px 100px #dfaf20;
+    opacity: 20%;
   }
 
   .layout {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 3rem;
-    margin-block: 6rem;
+    gap: 1.5rem;
   }
 
-  .image {
-    width: 100%;
+  .intro {
+    position: relative;
+    z-index: 0;
+    text-align: center;
+  }
+
+  .firework-one,
+  .star-one,
+  .star-two,
+  .star-three,
+  .firework-two,
+  .star-four,
+  .star-five {
+    position: absolute;
+    z-index: -1;
+    opacity: 7.5%;
     height: auto;
-    object-fit: cover;
-    border-radius: 2rem;
-    box-shadow:
-      6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-      22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-      100px 100px 80px rgba(0, 0, 0, 0.07);
+  }
+
+  .firework-one {
+    --width: 15rem;
+
+    width: var(--width);
+    bottom: calc(50% - 0.5 * var(--width));
+    left: calc(50% - 0.5 * var(--width));
+  }
+
+  .subtitle {
+    margin-top: 0.75rem;
+    margin-inline: auto;
+    max-width: 32ch;
+    font-size: var(--font-size--lg);
   }
 
   .actions {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
-  @media (width < 48rem) {
+  @media (width < 36rem) {
+    .star-one,
+    .star-two,
+    .star-three {
+      display: none;
+    }
+  }
+
+  @media (width >= 36rem) {
     .layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro {
+      grid-column: 1 / -1;
+    }
+
+    .firework-one {
+      --width: 12rem;
+
+      bottom: calc(-0.15 * var(--width));
+      left: 2rem;
+    }
+
+    .star-one {
+      --width: 8rem;
+
+      width: var(--width);
+      top: 30%;
+      right: 1rem;
+    }
+
+    .star-two {
+      --width: 5rem;
+
+      width: var(--width);
+      top: -5rem;
+      left: 20%;
+    }
+
+    .star-three {
+      --width: 4rem;
+
+      width: var(--width);
+      top: calc(-0.3 * var(--width));
+      right: 0;
+    }
+  }
+
+  @media (width < 62rem) {
+    .item:nth-of-type(8) {
+      display: none;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, auto) repeat(7, 1fr);
+    }
+
+    .intro {
+      grid-column: 1 / span 8;
+      grid-row: 1 / span 2;
+      transform: translateY(-4rem);
+    }
+
+    .item:nth-of-type(2) {
+      grid-column: 1 / span 4;
+      grid-row: 4 / span 3;
+    }
+
+    .item:nth-of-type(3) {
+      grid-column: 5 / span 4;
+      grid-row: 3 / span 3;
+    }
+
+    .item:nth-of-type(4) {
+      grid-column: 9 / span 4;
+      grid-row: 5 / span 3;
+    }
+
+    .item:nth-of-type(5) {
+      grid-column: 1 / span 4;
+      grid-row: 7 / span 3;
+    }
+
+    .item:nth-of-type(6) {
+      grid-column: 5 / span 4;
+      grid-row: 6 / span 3;
+    }
+
+    .item:nth-of-type(7) {
+      grid-column: 9 / span 4;
+      grid-row: 1 / span 4;
+    }
+
+    .item:nth-of-type(8) {
+      position: relative;
+      z-index: 0;
+      transform: translate(3rem, 6rem);
+      grid-column: 5 / -1;
+      grid-row: 7 / 10;
+    }
+
+    .firework-one {
+      --width: 15rem;
+
+      bottom: calc(-0.5 * var(--width));
+      left: calc(-0.25 * var(--width));
+    }
+
+    .star-one {
+      top: 45%;
+      right: 2rem;
+    }
+
+    .star-two {
+      --width: 6rem;
+
+      top: calc(100% + var(--width) / 3);
+      left: 25%;
+    }
+
+    .star-three {
+      top: calc(-0.3 * var(--width));
+      right: 0;
+    }
+
+    .firework-two {
+      --width: 12rem;
+
+      bottom: -2rem;
+      right: 5rem;
+      width: var(--width);
+    }
+
+    .star-four {
+      --width: 6rem;
+
+      top: 10%;
+      right: 0;
+      width: var(--width);
+    }
+
+    .star-five {
+      --width: 4rem;
+
+      bottom: 4rem;
+      right: 20rem;
+      width: var(--width);
     }
   }
 </style>

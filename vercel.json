@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    { "source": "/about-us.html", "destination": "/about/", "permanent": true },
+    { "source": "/all-inclusive-resorts.html", "destination": "/destinations/", "permanent": false },
+    { "source": "/disney.html", "destination": "/destinations/", "permanent": false },
+    { "source": "/happy-clients.html", "destination": "/", "permanent": true },
+    { "source": "/our-services.html", "destination": "/destinations/", "permanent": false },
+    { "source": "/privacy-policy.html", "destination": "/privacy-policy/", "permanent": true },
+    { "source": "/terms-and-conditions.html", "destination": "/terms-and-conditions/", "permanent": true },
+    { "source": "/tickets.html", "destination": "/contact/", "permanent": true },
+    { "source": "/universal-orlando.html", "destination": "/destinations/", "permanent": false },
+    { "source": "/cruises.html", "destination": "/destinations/", "permanent": false },
+    { "source": "/authorization.html", "destination": "/", "permanent": true },
+    { "source": "/guided-tours.html", "destination": "/destinations/", "permanent": true },
+    { "source": "/faqs.html", "destination": "/", "permanent": true },
+    { "source": "/:path/index.html", "destination": "/:path/", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
+  "trailingSlash": true
+}

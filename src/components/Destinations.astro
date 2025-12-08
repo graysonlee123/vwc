@@ -1,0 +1,146 @@
+---
+import { AFFILIATE_URL_AULANI, AFFILIATE_URL_DISNEY, QUOTE_URL } from '@lib/constants'
+
+import Container from "@components/Container.astro"
+import Destination from "@components/Destination.astro"
+import Button from '@components/Button.astro'
+import Section from '@components/Section.astro'
+
+import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg'
+import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg'
+import universalOrlandoImage from '@assets/images/hogwarts-20x13.jpg'
+import disneyDestinationsImage from '@assets/images/magicKingdomParade-20x13.jpg'
+import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg'
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
+---
+
+<Section spacing="md">
+  <Container size="md" breakpoint='sm'>
+    <div class="layout">
+      <Destination
+        title="Disney Destinatons"
+        subtitle="Disney offers magical vacations worldwide. Iconic theme parks like Walt Disney World (FL) and Disneyland (CA) bring beloved stories to life while gorgeous Disney Cruise Line ships provide world-class service and entertainment, themed dining, character experiences, kids' clubs, adult-exclusive areas, and Broadway-style shows with itineraries to the Caribbean, Bahamas, Alaska, Europe, and more. For global adventures, Adventures by Disney provides guided tours to breathtaking destinations and guests can also enjoy luxury getaways at Aulani, A Disney Resort & Spa (Hawaii). Whether seeking thrills, relaxation, or family fun, Disney creates unforgettable experiences for all ages."
+        imageProps={{
+          src: disneyDestinationsImage,
+          alt: "A child looking at a Disney float with Disney princesses on it",
+        }}
+      >
+        <Button
+          as="a"
+          href={AFFILIATE_URL_DISNEY}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Learn More
+        </Button>
+      </Destination>
+      <Destination
+        title="Universal Orlando"
+        subtitle=" Universal Orlando Resort is a world-class entertainment destination featuring thrill rides, immersive attractions, and live shows across four theme parks: Universal Studios Florida, Islands of Adventure, Volcano Bay water park, and opening May of 2025, Epic Universe. Guests can explore The Wizarding World of Harry Potter, Jurassic World, Minions, Super Nintendo World, and more. The resort also offers themed hotels, dining, shopping, and nightlife at Universal CityWalk. Perfect for families, thrill-seekers, and movie fans, Universal Orlando delivers epic adventures and unforgettable experiences."
+        imageProps={{
+          src: universalOrlandoImage,
+          alt: "Photo of the Hogwarts Castle at Universal Orlando at night",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="Cruising Adventures"
+        subtitle="Cruising invites you to rediscover the marvels of our world to multiple destinations, all without having to unpack. Experience world-class dining, entertainment, and relaxation—all in one trip. Whether you seek family fun, romantic getaways, or adventure, cruises provide luxury accommodations, onboard activities, excursions, and stunning ocean views. With options from Disney, Royal Caribbean, Celebrity Cruises, Norwegian, Carnival and more, there's a perfect cruise for every traveler."
+        imageProps={{
+          src: cruisingAdventuresImage,
+          alt: "Aerial view of a Disney Cruise Ship at sea at sunset",
+        }}
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="Disney's Aulani"
+        subtitle=" Disney's Aulani Resort & Spa in Ko Olina, Oahu, Hawaii, is a luxury oceanfront retreat blending Hawaiian culture with Disney magic. Featuring stunning beaches, themed pools, a lazy river, a snorkeling lagoon, and Laniwai Spa, Aulani offers relaxation and adventure for all ages. Families can enjoy character meet-and-greets, cultural activities, live entertainment, and Aunty's Beach House kids' club. Dining options include Makahiki (character dining), 'AMA'AMA (Hawaiian fine dining), and casual spots. Perfect for families, couples, and Disney fans, Aulani delivers an unforgettable island experience."
+        imageProps={{
+          src: aulaniResortImage,
+          alt: "Off-shore photo of the tropical Disney's Aulani resort, there are two large hotel buildings",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href={AFFILIATE_URL_AULANI}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Learn More
+        </Button>
+      </Destination>
+      <Destination
+        title="Sandals Vacations"
+        subtitle="Sandals Resorts offers luxury all-inclusive getaways for couples in the Caribbean, with stunning beachfront locations, gourmet dining, unlimited premium drinks, water sports, golf, and romantic accommodations. Beaches Resorts delivers family-friendly, all-inclusive vacations with water parks, kids' clubs, Sesame Street characters, and activities for all ages in Jamaica, Turks & Caicos, and more. Both brands provide unmatched tropical escapes with white-sand beaches, crystal-clear waters, and world-class service."
+        imageProps={{
+          src: sandalsVacationsImage,
+          alt: "Aerial view of a beach with people enjoying the sand and the water",
+        }}
+      >
+        <Button
+          as="a"
+          href={QUOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Get a Quote
+        </Button>
+      </Destination>
+      <Destination
+        title="All-Inclusives"
+        subtitle="Hyatt All-Inclusive Collection offers luxury, all-inclusive resorts across Mexico, the Caribbean, Central America, and beyond, featuring world-class dining, premium drinks, beachfront locations, and personalized service. Brands like Hyatt Ziva (family-friendly), Hyatt Zilara (adults-only), and Dreams, Secrets, Breathless, and more provide tailored experiences for families, couples, and groups. Enjoy stunning properties, infinity pools, spa retreats, live entertainment, and adventure activities in paradise."
+        imageProps={{
+          src: allInclusivesImage,
+          alt: "A tropical all-inclusive hotel room looking out at the beach and ocean",
+        }}
+        flipped
+      >
+        <Button
+          as="a"
+          href="https://alg.widen.net/s/ddwkdtdq96/ic23-inclusivecollection-brochure"
+          target="_blank"
+          rel="noopener noreferrer"
+          slot="button"
+        >
+          Read Brochure
+        </Button>
+      </Destination>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: clamp(6rem, 4.545rem + 7.27vw, 10rem);
+  }
+
+  @media (width < 36rem) {
+    .layout {
+      padding-inline: 0.75rem;
+    }
+  }
+</style>

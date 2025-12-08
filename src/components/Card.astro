@@ -1,0 +1,120 @@
+---
+import Header from '@components/Header.astro';
+import { Image, type LocalImageProps } from 'astro:assets';
+
+interface Props {
+  href: string;
+  imageProps: Omit<LocalImageProps, 'class'>;
+  buttonText?: string;
+  title?: string;
+  target?: string;
+  rel?: string;
+  style?: string | astroHTML.JSX.CSSProperties;
+  shadow?: boolean;
+}
+
+const { href, imageProps, buttonText, title, target, rel, style, shadow = true } = Astro.props;
+---
+
+<a class="card" href={href} target={target} rel={rel} style={style} data-shadow={shadow}>
+  <div class="content">
+    <Header class="title" as="h3" size="lg">{title}</Header>
+    <span class="button">{buttonText}</span>
+  </div>
+  <Image {...imageProps as LocalImageProps} class="image" />
+</a>
+
+<style>
+  .card {
+    display: block;
+    position: relative;
+    z-index: 0;
+    color: hsl(var(--color--white));
+    text-align: left;
+    background-color: hsl(0 0% 100% / 70%);
+    border-radius: 0.75rem;
+  }
+
+  .content {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: var(--font-size--sm);
+    color: hsl(var(--color--white));
+    background-color: hsl(var(--color--black) / 60%);
+    backdrop-filter: blur(4px);
+    border-radius: 10rem;
+
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  .button:hover,
+  .button:focus,
+  .button:active {
+    transform: scale(1.05);
+  }
+
+  .card[data-shadow="true"]::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0 0% 0% / 30%) 33%,
+      hsla(0 0% 0% / 20%) 45%,
+      hsla(0 0% 0% / 10%) 100%
+    );
+    border-radius: inherit;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+  }
+
+  @media (hover: hover) {
+    .card {
+      transition-property: transform;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+    }
+
+    .card:hover {
+      transform: scale(1.025);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        0 8px 16px rgba(0, 0, 0, 0.25);
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+  }
+</style>

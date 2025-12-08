@@ -1,0 +1,282 @@
+---
+import Button from '@components/Button.astro';
+import Container from '@components/Container.astro';
+import Scroller from '@components/Scroller.astro';
+import Header from '@components/Header.astro';
+import Article from '@components/Article.astro';
+import Section from '@components/Section.astro';
+
+import DiagonAlleyImage from '@assets/images/diagonAlley.jpg';
+import FamilyOnBeachImage from '@assets/images/familyOnBeach.jpg';
+import DisneysAulaniImage from '@assets/images/disneysAulaniResort.jpg';
+import MomAndDaughterAnimalKingdomImage from '@assets/images/momAndDaughterAnimalKingdom.jpg';
+import HogwartsImage from '@assets/images/hogwartsDaytime.jpg';
+import familyOnBeachWithShip from '@assets/images/familyOnBeachWithShip.jpg';
+import PrincessTianaImage from '@assets/images/princessTiana.jpg';
+import DisneyCharactersImage from '@assets/images/disneyCharacters.jpg';
+import royalCaribbeanShipAerial from '@assets/images/royalCaribbeanShipAerial.jpg'
+
+const scrollerOneSmallWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  201,        // tablet viewport 1x
+  201 * 2,    // tablet viewport 2x
+  245,        // laptop viewport 1x
+  245 * 2,    // laptop viewport 2x
+  315,        // desktop viewport 1x
+  315 * 2,    // desktop viewport 2x
+];
+const scrollerOneLargeWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  269,        // tablet viewport 1x
+  269 * 2,    // tablet viewport 2x
+  328,        // laptop viewport 1x
+  328 * 2,    // laptop viewport 2x
+  422,        // desktop viewport 1x
+  422 * 2,    // desktop viewport 2x
+];
+const scrollerOneSmallSizes = '(min-width: 1530px) 315px, (min-width: 992px) 20.3408093vw, 316px';
+const scrollerOneLargeSizes = '(min-width: 1530px) 421px, (min-width: 992px) 27.2359525vw, 316px';
+
+const scrollerOne = [
+  {
+    src: DisneyCharactersImage,
+    alt: 'Goofy, Donald Duck, Mickey Mouse, Minnie Mouse, and Pluto posing for a picture in front of Magic Kindom Castle.',
+    widths: scrollerOneLargeWidths,
+    sizes: scrollerOneLargeSizes,
+  },
+  {
+    src: DisneysAulaniImage,
+    alt: "Off-shore photo of the tropical Disney's Aulani resort, there are two large hotel buildings",
+    widths: scrollerOneSmallWidths,
+    sizes: scrollerOneSmallSizes,
+  },
+  {
+    src: HogwartsImage,
+    alt: 'Hogwarts at Universal Studios; a lush forest covers the lower third of the view.',
+    widths: scrollerOneLargeWidths,
+    sizes: scrollerOneLargeSizes,
+  },
+  {
+    src: MomAndDaughterAnimalKingdomImage,
+    alt: "A mother and daughter wearing Mickey Mouse ears share a loving moment in front of the Tree of Life at Disney's Animal Kingdom.",
+    widths: scrollerOneSmallWidths,
+    sizes: scrollerOneSmallSizes,
+  },
+];
+
+const scrollerTwoWidths = [
+  316,        // mobile 1x
+  316 * 2,    // mobile 2x
+  200,        // tablet 1x
+  200 * 2,    // tablet 2x
+  244,        // laptop 1x
+  244 * 2,    // laptop 2x
+  314,        // desktop 1x
+  314 * 2,    // desktop 2x
+];
+const scrollerTwoSizes = '(min-width: 1530px) 314px, (min-width: 992px) 20.5307692vw, 316px';
+
+const scrollerTwo = [
+  {
+    src: DiagonAlleyImage,
+    alt: 'View of Diagon Alley at Universal Studios, featuring colorful shopfronts, hanging signs, and a fire-breathing dragon atop Gringotts Bank against a bright blue sky.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
+  },
+  {
+    src: FamilyOnBeachImage,
+    alt: 'A woman in a hammock on the beach; in the background, a man and child are playing in the water near the shoreline.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
+  },
+  {
+    src: familyOnBeachWithShip,
+    alt: 'Front view of Magic Kingdom Castle on a bright, cloudless day; Minnie Mouse, Minnie Mouse, and Olaf stand on the stage.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
+  },
+  {
+    src: PrincessTianaImage,
+    alt: 'Princess Tiana actress sharing a special moment with a young girl; the Magic Kingdom Castle can be seen in the background.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
+  },
+  {
+    src: royalCaribbeanShipAerial,
+    alt: 'Aerial shot of a Royal Caribbean ship , showcasing lots of activies on-deck.',
+    widths: scrollerTwoWidths,
+    sizes: scrollerTwoSizes,
+  },
+];
+---
+
+<Section spacing={{top: 'lg', bottom: 'md'}}>
+  <Container breakpoint='lg'>
+    <div class="layout">
+      <div class="slider slider--one">
+        <Scroller propsForImages={scrollerOne} staggerSizes />
+      </div>
+      <div class="slider slider--two">
+        <Scroller
+          propsForImages={scrollerTwo}
+          scrollDirection="backwards"
+          flushAgainst="right"
+        />
+      </div>
+      <div class="text">
+        <Article>
+          <Header as="h2" color="navy">
+            Ready for Adventure?
+          </Header>
+          <p class="paragraph">
+            Start planning the vacation of your dreams with our expert travel agents! From magical destinations to unforgettable experiences, we&apos;ll help you create memories that last a lifetime.
+          </p>
+        </Article>
+        <div class="actions">
+          <Button
+            as="a"
+            href="/contact/"
+            data-astro-prefetch="hover"
+          >
+            Begin the Memories
+          </Button>
+        </div>
+      </div>
+      <div class="back" aria-hidden="true">
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+        <span class="shadow" aria-hidden="true"></span>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 0.75rem;
+  }
+
+  .back {
+    position: relative;
+    z-index: -1;
+    border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+    overflow: hidden;
+  }
+
+  .shadow {
+    position: absolute;
+    display: block;
+  }
+
+  .shadow:nth-child(1) {
+    z-index: -5;
+    top: -140%;
+    left: -30%;
+    aspect-ratio: 1;
+    width: 900px;
+    background-color: #2394d7;
+    filter: blur(999px);
+    opacity: 7.5%;
+  }
+
+  .shadow:nth-child(2) {
+    z-index: -10;
+    bottom: -20%;
+    left: -5%;
+    aspect-ratio: 1;
+    width: 500px;
+    background-color: #46008b;
+    filter: blur(9999px);
+    opacity: 10%;
+  }
+
+  .shadow:nth-child(3) {
+    z-index: -5;
+    bottom: -10%;
+    right: -5%;
+    aspect-ratio: 1;
+    width: 900px;
+    background-color: #007cea;
+    filter: blur(9999px);
+    opacity: 10%;
+  }
+
+  .paragraph {
+    text-wrap: balance;
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+
+  @media (width < 62rem) {
+    .layout {
+      grid-template-rows: repeat(3, auto);
+    }
+
+    .text {
+      grid-row: 3 / 4;
+      grid-column: 2 / 12;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .back {
+      grid-row: 3 / 4;
+      grid-column: 2 / 12;
+    }
+
+    .slider--one {
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+    }
+
+    .slider--two {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-rows: 1fr;
+      min-height: 30rem;
+    }
+
+    .text {
+      grid-row: 1 / -1;
+      grid-column: 1 / 6;
+      align-self: center;
+      padding: 4rem;
+    }
+
+    .back {
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
+    }
+
+    .slider--one {
+      grid-row: 1 / -1;
+      grid-column: 6 / 10;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .slider--two {
+      grid-row: 1 / -1;
+      grid-column: 10 / 13;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border-radius: 0 2rem 2rem 0;
+      overflow: hidden;
+    }
+  }
+</style>

@@ -1,14 +1,39 @@
 ---
-import Hero from '../components/Hero.astro';
-import Promise from '../components/Promise.astro';
-import Services from '../components/Services.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+
+import Hero from '@components/Hero.astro';
+import CTA from '@components/CTA.astro';
+import Promise from '@components/Promise.astro';
+import Services from '@components/Services.astro';
+import HeroFooter from '@components/HeroFooter.astro';
+import Badges from '@components/Badges.astro';
+
+import HeroImageDesktop from '@assets/images/disneyCruiseShipOffShore-2x1.jpg';
+import HeroImageTablet from '@assets/images/disneyCruiseShipOffShore-4x3.jpg'
+import HeroImageMobile from '@assets/images/disneyCruiseShipOffShore-3x5.jpg'
 ---
 
-<Layout>
-  <main>
-    <Hero />
-    <Services />
-    <Promise />
-  </main>
+<Layout
+  seoProps={{
+    title: "Home | Vacations with Character",
+    description: "Experience Disney magic, Universal thrills, serene cruises, or luxurious resorts with Vacations with Character! Book your fairy tale vacation today! ✨",
+    image: "og-home.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
+>
+  <Hero
+    tall
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+  >
+    <HeroFooter slot="footer">
+      <Badges/>
+    </HeroFooter>
+  </Hero>
+  <Services />
+  <Promise />
+  <CTA />
 </Layout>

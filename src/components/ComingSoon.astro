@@ -1,5 +1,7 @@
 ---
-import Link from './Link.astro';
+import Article from '@components/Article.astro';
+import Header from '@components/Header.astro';
+import Link from '@components/Link.astro';
 
 type Props = {
   title?: string;
@@ -7,13 +9,19 @@ type Props = {
 ---
 
 <div class="coming-soon">
-  <h1>{Astro.props.title || 'Coming soon'}</h1>
-  <p>
-    This page is coming soon! In the meantime, would you like to <Link
-      class="link"
-      href="/">return to the home page?</Link
-    >
-  </p>
+  <Article>
+    <Header as="h1">
+      {Astro.props.title || 'Coming soon'}
+    </Header>
+    <p>
+      This page is coming soon! In the meantime, would you like to <Link
+        class="link"
+        href="/"
+      >
+        return to the home page?
+      </Link>
+    </p>
+  </Article>
 </div>
 
 <style>
@@ -23,5 +31,6 @@ type Props = {
 
   .link {
     text-decoration: underline;
+    text-decoration-thickness: 2px;
   }
 </style>

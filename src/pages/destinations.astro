@@ -1,13 +1,44 @@
 ---
-import ComingSoon from '../components/ComingSoon.astro';
-import Container from '../components/Container.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+
+import CTA from '@components/CTA.astro';
+import { default as DestinationsComponent } from '@components/Destinations.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+
+import HeroImageDesktop from '@assets/images/batuu-2x1.jpg';
+import HeroImageTablet from '@assets/images/batuu-4x3.jpg';
+import HeroImageMobile from '@assets/images/batuu-3x4.jpg';
 ---
 
-<Layout>
-  <main>
-    <Container size="sm">
-      <ComingSoon title="Destinations" />
-    </Container>
-  </main>
+<Layout
+  seoProps={{
+    title: "Destinations | Vacations with Character",
+    description: "Ready for an adventure? We offer expert travel advice and unforgettable journeys. Browse our destinations and let's start planning your escape! ✨",
+    image: "og-destinations.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
+>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+    blurred
+  >
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      Destinations
+    </Header>
+    <p slot="subheader">
+      We can guide you through just about anywhere you want to go! From beaches to castles, pirate coves to quiet getaways, let us know what peaks your interest.
+    </p>
+  </Hero>
+  <DestinationsComponent/>
+  <CTA/>
 </Layout>

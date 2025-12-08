@@ -1,0 +1,85 @@
+---
+import type { ComponentProps } from 'astro/types'
+
+import Article from '@components/Article.astro'
+import Header from '@components/Header.astro'
+import Image from '@components/Image.astro'
+
+const widths = [
+  486,       // tablet 1x
+  486 * 2,   // tablet 2x
+  324,       // tablet 1x
+  324 * 2,   // tablet 2x
+  422,       // desktop 1x
+  422 * 2,   // desktop 2x
+]
+const sizes = '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 1.5rem) * 2 / 5), (min-width: 576px) 85vw, calc(100vw - 1.5rem)'
+
+type ImageProps = Omit<ComponentProps<typeof Image>, 'densities'>
+
+type Props = {
+  title: string
+  subtitle: string
+  imageProps: ImageProps
+  flipped?: boolean
+}
+
+const { title, subtitle, imageProps, flipped = false } = Astro.props
+---
+
+<div class="layout" data-flipped={flipped}>
+  <div class="media">
+    <Image {...imageProps} widths={widths} sizes={sizes}/>
+  </div>
+  <div class="texts">
+    <Article>
+      <Header as="h3">
+        {title}
+      </Header>
+      <p>
+        {subtitle}
+      </p>
+    </Article>
+    <div class="actions">
+      <slot name="button"/>
+    </div>
+  </div>
+</div>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-areas: 'media' 'texts';
+    gap: 1.5rem;
+  }
+
+  .media {
+    grid-area: media;
+  }
+
+  .texts {
+    grid-area: texts;
+  }
+
+  .actions {
+    margin-top: 1.5rem;
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: 'media texts';
+      align-items: center;
+    }
+
+    .layout[data-flipped="true"] {
+      grid-template-columns: 3fr 2fr;
+      grid-template-areas: 'texts media';
+    }
+
+    .texts {
+      max-width: 56ch;
+      margin-inline: auto;
+    }
+  }
+</style>

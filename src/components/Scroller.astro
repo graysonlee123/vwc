@@ -1,0 +1,210 @@
+---
+import { Image } from 'astro:assets';
+
+import type { ComponentProps } from 'astro/types';
+
+interface Props {
+  propsForImages: ComponentProps<typeof Image>[];
+  scrollDirection?: 'forwards' | 'backwards';
+  staggerSizes?: boolean;
+  flushAgainst?: 'left' | 'right';
+}
+
+const {
+  propsForImages,
+  scrollDirection = 'forwards',
+  staggerSizes = false,
+  flushAgainst,
+} = Astro.props;
+---
+
+<div
+  class:list={{
+    track: true,
+    'scroll-direction--forwards': scrollDirection !== 'backwards',
+    'scroll-direction--backwards': scrollDirection === 'backwards',
+    'stagger-sizes': staggerSizes === true,
+    'flush-against--left': flushAgainst === 'left',
+    'flush-against--right': flushAgainst === 'right',
+  }}
+>
+  <div class="train">
+    {
+      propsForImages.map((imageProps) => (
+        <Image class="image" {...imageProps}/>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .track {
+    --gap: 1.5rem;
+
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .train {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: grid;
+    justify-items: end;
+    gap: var(--gap);
+    animation-name: slide-up;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .track[data-scroller-animate='true'] .train {
+    animation-play-state: running;
+  }
+
+  .scroll-direction--backwards .train {
+    
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  @media (width < 62rem) {
+    .track {
+      --height: 12rem;
+
+      height: var(--height);
+    }
+
+    .train {
+      width: min-content;
+      grid-auto-flow: column;
+      grid-auto-columns: 20rem;
+      animation-name: slide-left;
+      animation-duration: 35s;
+    }
+
+    .scroll-direction--backwards .train {
+      animation-name: slide-right;
+      animation-duration: 45s;
+    }
+
+    .image {
+      height: var(--height);
+      object-fit: cover;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .train {
+      animation-duration: 40s;
+    }
+
+    .scroll-direction--backwards .train {
+      animation-name: slide-down;
+      animation-duration: 50s;
+    }
+
+    .stagger-sizes .image:nth-child(even) {
+      width: 75%;
+    }
+
+    .flush-against--left .image {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-width: 0;
+    }
+
+    .flush-against--right .image {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-width: 0;
+    }
+  }
+
+  @keyframes slide-left {
+    to {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+  }
+
+  @keyframes slide-right {
+    from {
+      transform: translateX(calc(-50% - var(--gap) / 2));
+    }
+
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes slide-up {
+    to {
+      transform: translateY(calc(-50% - var(--gap) / 2));
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(calc(-50% - var(--gap) / 2));
+    }
+
+    to {
+      transform: translateY(calc(0%));
+    }
+  }
+</style>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.track').forEach(initScroller);
+  }
+
+  /**
+   * Initializes scrollers.
+   *
+   * TODO: Setup an observation observer.
+   *
+   * @param scroller Scroller element.
+   */
+  function initScroller(scroller: Element) {
+    scroller.setAttribute('data-scroller-animate', 'true');
+
+    const isReverse =
+      scroller.getAttribute('data-scroller-direction') === 'reverse';
+    const scrollerInner = scroller.querySelector('.train');
+
+    if (!scrollerInner) {
+      console.warn('Could not find train for scroller track.', scroller);
+      return;
+    }
+
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    if (isReverse) {
+      scrollerContent.reverse();
+    }
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+
+      if (duplicatedItem instanceof Element) {
+        duplicatedItem.setAttribute('aria-hidden', 'true');
+
+        if (isReverse) {
+          scrollerInner.prepend(duplicatedItem);
+        } else {
+          scrollerInner.appendChild(duplicatedItem);
+        }
+      }
+    });
+  }
+</script>

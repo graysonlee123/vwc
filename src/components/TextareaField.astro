@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = {
+  id: string
+  textareaProps: HTMLAttributes<'textarea'>
+  labelProps?: HTMLAttributes<'label'>
+}
+
+const {id, textareaProps, labelProps} = Astro.props
+---
+
+<div>
+  <div>
+    <label for={id} {...labelProps}>
+      <slot/>
+    </label>
+  </div>
+  <textarea id={id} {...textareaProps}/>
+</div>
+
+<style>
+  textarea {
+    width: 100%;
+    height: 8rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid hsl(var(--color--black) / 10%);
+    border-radius: 0.25rem;
+    color: inherit;
+    resize: none;
+  }
+</style>

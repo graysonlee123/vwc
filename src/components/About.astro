@@ -1,0 +1,70 @@
+---
+import Image from "astro/components/Image.astro";
+
+import Container from "@components/Container.astro";
+import Article from "@components/Article.astro";
+import Header from "@components/Header.astro";
+import Section from "@components/Section.astro";
+
+import aboutImage from '@assets/images/team.png'
+---
+
+<Section spacing="md">
+  <Container>
+    <div class="layout">
+      <div class="media">
+        <Image
+          class="image"
+          src={aboutImage}
+          alt="The Vacations with Character team"
+          sizes="(min-width: 1530px) 622px, (min-width: 992px) calc((85vw - 4px - 3rem) / 2), calc(85vw - 4px)"
+          widths={[622 * 2, 622, 311]}
+        />
+      </div>
+      <div class="text">
+        <Article>
+          <Header
+            as="h2"
+            family="body"
+            size="xl"
+            color="navy"
+          >
+            About Vacations with Character
+          </Header>
+          <p>The word "character" can be used to describe many things such as the charm of a city, a beloved life-sized mouse, or Muggle-born boy with wizarding powers. More Importantly having character means you possess honesty, moral and ethical quality, integrity, dedication, creativity and sense of humor. These traits summarize who we are at Vacations with Character and this is what our agency represents.</p>
+          <p>Beyond this we understand the importance of vacations! They're not only fun and relaxing, but healthy for us. They help us recharge and while our minds, bodies and souls personally benefit, our relationships do too. We reconnect and bond all while creating precious and amazing memories that remain with us for a lifetime.</p>
+          <p>This is why our team at Vacations with Character has come together. We recognize every family is a story beyond just people and vacations. We have the experience and expert knowledge plus training to not only help you create an amazing vacation - but one that is tailored to your wishes and dreams, and that you'll cherish forever.</p>
+          <p>We are thankful to all of the many families who have put their trust in us for over 16 years and hope you will too. We are "where the fun begins" and we'd love to help you celebrate life&mdash;with a vacation! ♥</p>
+        </Article>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .image {
+    height: auto;
+    border-radius: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  @media (width < 62rem) {
+    .media {
+      display: none;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+</style>

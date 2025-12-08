@@ -1,0 +1,24 @@
+---
+import Button from '@components/Button.astro';
+import Header from '@components/Header.astro';
+---
+
+<div class="layout">
+  <Header as="h1">
+    404 Not Found
+  </Header>
+  <p>Sorry, that page wasn't found.</p>
+  <div class="actions">
+    <Button as="a" href="/">Return Home</Button>
+  </div>
+</div>
+
+<style>
+  .layout {
+    margin-block: 5rem;
+  }
+
+  .actions {
+    margin-top: 1.5rem;
+  }
+</style>

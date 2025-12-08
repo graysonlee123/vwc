@@ -1,15 +1,28 @@
-<div class="article">
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'div'>
+
+const {class: className, ...props} = Astro.props
+---
+
+<div class:list={["article", className]} {...props}>
   <slot />
 </div>
 
-<style is:global>
-  .article * + h2 {
+<style>
+  .article :global(* + h2) {
     margin-top: 2rem;
   }
 
-  .article * + p,
-  .article * + ul,
-  .article * + ol {
+  .article :global(* + p),
+  .article :global(* + ul),
+  .article :global(* + ol) {
     margin-top: 0.75rem;
+  }
+
+  .article :global(a) {
+    color: inherit;
+    text-decoration: underline;
   }
 </style>

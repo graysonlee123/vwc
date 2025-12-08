@@ -1,13 +1,15 @@
 ---
-import ComingSoon from '../components/ComingSoon.astro';
-import Container from '../components/Container.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+
+import { default as CareersComponent } from '@components/Careers.astro'
 ---
 
-<Layout>
-  <main>
-    <Container size="sm">
-      <ComingSoon title="Careers" />
-    </Container>
-  </main>
+<Layout
+  seoProps={{
+    title: "Careers | Vacations with Character",
+    description: "Love traveling and helping others? Explore an exciting career opportunity and help make travel dreams come true. Contact us for more info on joining our team!",
+    image: "og-careers.jpg",
+  }}
+>
+  <CareersComponent/>
 </Layout>

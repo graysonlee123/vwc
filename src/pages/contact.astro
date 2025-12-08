@@ -1,13 +1,58 @@
 ---
-import ComingSoon from '../components/ComingSoon.astro';
-import Container from '../components/Container.astro';
-import Layout from '../layouts/Layout.astro';
+import { QUOTE_URL } from '@lib/constants';
+
+import Layout from '@layouts/Layout.astro';
+
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+import HeroActions from '@components/HeroActions.astro';
+import Link from '@components/Link.astro';
+import Button from '@components/Button.astro';
+import { default as ContactComponent } from '@components/Contact.astro'
+
+import HeroImageDesktop from '@assets/images/hogwarts-2x1.jpg';
+import HeroImageTablet from '@assets/images/hogwarts-4x3.jpg'
+import HeroImageMobile from '@assets/images/hogwarts-3x5.jpg'
 ---
 
-<Layout>
-  <main>
-    <Container size="sm">
-      <ComingSoon title="Contact" />
-    </Container>
-  </main>
+<Layout
+  seoProps={{
+    title: "Contact | Vacations with Character",
+    description: "Plan your dream vacation with Vacations with Character! We offer personalized travel planning for all destinations and budgets. Reach out to us today!",
+    image: "og-contact.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
+>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+    tall
+    blurred
+  >
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      Ready to begin?
+    </Header>
+    <p slot="subheader">
+      If you have a destination in mind, please utilize our <Link href={QUOTE_URL} target="_blank" rel="noopener noreferrer">quote form!</Link> For general inquiries or if you'd like to start a conversation, feel free to use the contact form provided below!
+    </p>
+    <HeroActions slot="actions">
+      <Button
+        as="a"
+        href={QUOTE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Request a Quote
+      </Button>
+    </HeroActions>
+  </Hero>
+  <ContactComponent/>
 </Layout>

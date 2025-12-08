@@ -1,10 +1,10 @@
 ---
-import Logo from './Logo.astro';
+import Logo from '@components/Logo.astro';
 ---
 
 <a class="link" href="/" title="Home">
   <Logo />
-  <span>Vacations with<br />Character&reg;</span>
+  <span>Vacations with<br />Character<span class="tm">&reg;</span></span>
 </a>
 
 <style>
@@ -12,10 +12,16 @@ import Logo from './Logo.astro';
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: inherit;
     font-size: var(--font-size--lg);
-    line-height: 1;
     font-weight: bold;
-    color: var(--clr--white);
+    line-height: 1;
     text-decoration: none;
+  }
+
+  .tm {
+    display: inline-block;
+    font-size: 0.75em;
+    transform: translate(2px, -4px);
   }
 </style>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.vacationswithcharacter.com/sitemap-index.xml

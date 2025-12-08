@@ -1,0 +1,21 @@
+---
+import { Image as AstroImage } from 'astro:assets'
+import type { LocalImageProps } from 'astro:assets'
+
+type Props = LocalImageProps
+const props = Astro.props
+---
+
+<AstroImage {...props}/>
+
+<style>
+  img {
+    border-radius: 2rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+</style>

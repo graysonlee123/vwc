@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+const spacings = {
+  sm: 'clamp(3rem, 2.273rem + 3.64vw, 5rem)',
+  md: 'clamp(4rem, 1.818rem + 10.91vw, 10rem)',
+  lg: 'clamp(7rem, 4.455rem + 12.73vw, 14rem)',
+  xl: 'clamp(8rem, 4.364rem + 18.18vw, 18rem)',
+}
+
+type SectionSpacing = keyof typeof spacings
+
+type Props = Omit<HTMLAttributes<'section'>, 'style'> & {
+  spacing?: {
+    top?: SectionSpacing
+    bottom?: SectionSpacing
+  } | SectionSpacing
+}
+const {spacing, ...props} = Astro.props
+---
+
+<section
+  {...props}
+  style={{
+    marginTop: typeof spacing === 'string' ? spacings[spacing] : spacing?.top && spacings[spacing?.top],
+    marginBottom: typeof spacing === 'string' ? spacings[spacing] : spacing?.bottom && spacings[spacing?.bottom],
+  }}
+>
+  <slot/>
+</section>

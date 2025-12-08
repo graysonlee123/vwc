@@ -1,138 +1,180 @@
 ---
-import { BLOG_URL } from '../lib/constants';
-import Container from './Container.astro';
-import Legal from './Legal.astro';
-import Link from './Link.astro';
-import SocialIconList from './SocialIconList.astro';
+import { BLOG_URL, EMAIL } from '@lib/constants';
 
-const menus = [
-  {
-    label: 'Learn',
-    links: [
-      {
-        title: 'About',
-        href: '/about/',
-      },
-      {
-        title: 'Blog',
-        href: BLOG_URL,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      },
-      {
-        title: 'Contact',
-        href: '/contact/',
-      },
-      {
-        title: 'Destinations',
-        href: '/destinations/',
-      },
-    ],
-  },
-  {
-    label: 'Other',
-    links: [
-      {
-        title: 'Careers',
-        href: '/careers/',
-      },
-      {
-        title: 'Privacy',
-        href: '/privacy-policy/',
-      },
-      {
-        title: 'Terms and Conditions',
-        href: '/terms-and-conditions/',
-      },
-    ],
-  },
-];
+import Container from '@components/Container.astro';
+import Legal from '@components/Legal.astro';
+import Link from '@components/Link.astro';
+import Logomark from '@components/Logomark.astro';
+import SocialIconList from '@components/SocialIconList.astro';
 ---
 
 <footer class="footer">
-  <Container size="sm">
-    <div class="layout">
-      {
-        menus.map(({ label, links }) => (
-          <div class="col">
-            <div class="label">{label}</div>
-            <ul class="list">
-              {links.map(({ title, href, target, rel }) => (
-                <li class="item">
-                  <Link href={href} target={target} rel={rel}>
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-      <div class="col col--last">
-        <div class="socials">
-          <SocialIconList />
+  <Container breakpoint='sm'>
+    <div class="card">
+      <div class="layout">
+        <div class="logo">
+          <Logomark />
         </div>
-        <div>
-          (800) 908-3005 <br />
-          info@vacationswithcharacter.com
+        <div class="links">
+          <ul class="links">
+            <li class="item">
+              <Link href="/about/">About</Link>
+            </li>
+            <li class="item">
+              <Link href={BLOG_URL} target="_blank" rel="noopener noreferrer"
+                >Blog</Link
+              >
+            </li>
+            <li class="item">
+              <Link href="/contact/">Contact</Link>
+            </li>
+            <li class="item">
+              <Link href="/destinations/">Destinations</Link>
+            </li>
+            <li class="item">
+              <Link href="/careers/">Careers</Link>
+            </li>
+            <li class="item">
+              <Link href="/privacy-policy/">Privacy</Link>
+            </li>
+            <li class="item">
+              <Link href="/terms-and-conditions/">Terms and Conditions</Link>
+            </li>
+          </ul>
+        </div>
+        <div class="extras">
+          <div class="socials">
+            <SocialIconList />
+          </div>
+          <div class="contact-links">
+            <Link href="tel:+1-800-908-3005" style={{display: 'inline-block'}}>
+              (800) 908-3005
+            </Link>
+            <br/>
+            <Link href=`mailto:${EMAIL}` style={{display: 'inline-block'}}>
+              { EMAIL }
+            </Link>
+          </div>
         </div>
       </div>
+      <Legal />
     </div>
-    <Legal />
+    <div class="back" aria-hidden="true">
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+    </div>
   </Container>
 </footer>
 
 <style>
   .footer {
-    margin-block: 4rem;
-    font-size: 0.8125rem;
-    background-color: #fff;
+    font-size: var(--font-size--sm);
+  }
+
+  .container {
+    position: relative;
+    z-index: 0;
+  }
+
+  .card {
+    background-color: hsl(var(--color--white) / 70%);
+    backdrop-filter: blur(32px) saturate(100%);
+    padding-block: 3rem;
+    padding-inline: 1.5rem;
+    border-top: 2px solid hsl(var(--color--gray--100));
   }
 
   .layout {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 3rem;
-    margin-block: 4rem;
-    padding-block: 4rem;
-    border-top-color: currentColor;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-bottom-color: currentColor;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-  }
-
-  @media (width >= 48rem) {
-    .layout {
-      flex-direction: row;
-    }
-
-    .col--last {
-      margin-left: auto;
-    }
-  }
-
-  .col {
-    width: 100%;
-    max-width: 12rem;
-  }
-
-  .list {
     display: grid;
-    gap: 0.75rem;
+    row-gap: 3rem;
+    column-gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: hsl(var(--color--gray--100));
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
     padding: 0;
     list-style: none;
   }
 
-  .label {
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
   .socials {
     margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    line-height: 24px;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -5;
+    inset: 0;
+  }
+
+  .shadow {
+    position: absolute;
+    display: block;
+  }
+
+  .shadow:nth-child(1) {
+    bottom: 50%;
+    right: 5%;
+    box-shadow: 0px 0px 1200px 100px #008a8b;
+    opacity: 40%;
+  }
+
+  .shadow:nth-child(2) {
+    top: 40%;
+    right: 25%;
+    box-shadow: 0px 0px 800px 120px #008a8b;
+    opacity: 40%;
+  }
+
+  .shadow:nth-child(3) {
+    bottom: 15%;
+    left: 5%;
+    box-shadow: 0px 0px 950px 100px #af86e1;
+    opacity: 60%;
+  }
+
+  @media (width >= 36rem) {
+    .card {
+      border-radius: 2rem 2rem 0 0;
+      border-left: 2px solid hsl(var(--color--gray--100));
+      border-right: 2px solid hsl(var(--color--gray--100));
+    }
+  }
+
+  @media (width >= 48rem) {
+    .card {
+      padding-inline: 3rem;
+    }
+
+    .layout {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .logo {
+      grid-column: 1 / span 8;
+      grid-row: 1 / 2;
+    }
+
+    .links {
+      grid-column: 1 / span 8;
+      grid-row: 2 / 3;
+    }
+
+    .extras {
+      grid-column: 9 / span 4;
+      grid-row: 1 / 3;
+    }
   }
 </style>

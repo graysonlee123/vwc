@@ -1,147 +1,207 @@
 ---
 import {
+AFFILIATE_URL_AULANI,
   AFFILIATE_URL_DISNEY,
-  AFFILIATE_URL_SANDALS,
   QUOTE_URL,
-} from '../lib/constants';
-import Button from './Button.astro';
-import Container from './Container.astro';
+} from '@lib/constants';
+import Card from '@components/Card.astro';
+import Container from '@components/Container.astro';
+import Testimonial from '@components/Testimonial.astro';
+import ScreenReader from '@components/ScreenReader.astro';
+import Section from '@components/Section.astro';
 
-interface Service {
-  title: string;
-  content: string;
-  buttonText: string;
-  href: string;
-  target?: string;
-  rel?: string;
-}
-const services: Service[] = [
+import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg';
+import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg';
+import universalOrlandoImage from '@assets/images/hogwarts-20x13.jpg';
+import disneyDestinationsImage from '@assets/images/magicKingdomParade-20x13.jpg';
+import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg';
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg';
+
+import type { ComponentProps } from 'astro/types';
+
+const sizes = '(min-width: 1530px) 252px, (min-width: 1200px) calc((((85vw - 6rem) * (2 / 3)) - 3rem) / 3), (min-width: 992px) calc((((85vw - 6rem) * 2 / 3) - 1.5rem) / 2), (min-width: 576px) calc((85vw - 4.5rem) / 2), (min-width: 407px) 256px, calc((85vw - 3rem) * 0.8)';
+const widths = [
+  198,        // laptop 1x
+  198 * 2,    // laptop 2x
+  290,        // tablet 1x
+  290 * 2,    // tablet 2x
+  252,        // desktop 1x
+  252 * 2,    // desktop 2x
+];
+
+const services: ComponentProps<typeof Card>[] = [
   {
     title: 'Disney Destinations',
-    content:
-      "From Walt Disney World, Disneyland, Disney Cruise Line, Adventures by Disney, Disney's Beach Resorts, to Disney's Aulani Resort and Spa in Hawaii, we can help you plan a magical vacation with memories that will last a lifetime.",
-    buttonText: 'Learn more',
+    imageProps: {
+      src: disneyDestinationsImage,
+      alt: 'A child looking at a Disney float with Disney princesses on it',
+      sizes,
+      widths,
+    },
+    buttonText: 'Learn More',
     href: AFFILIATE_URL_DISNEY,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     title: 'Universal Orlando',
-    content:
-      'This is the place where vacation becomes adventure. An entire universe of action, thrills, and excitement for all ages. Stay at a fabulous onsite resort and experience the adventure of a lifetime at Universal Orlando Resort.',
-    buttonText: 'Get a quote',
+    imageProps: {
+      src: universalOrlandoImage,
+      alt: 'Photo of the Hogwarts Castle at Universal Orlando at night',
+      sizes,
+      widths,
+    },
+    buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     title: 'Cruising Adventures',
-    content:
-      "With multiple ships and endless adventures, cruises give you the chance to be in awe of the world again. Contact us and we'll help you navigate the waters to find the perfect ship and perfect cruise line tailored to your vacation style.",
-    buttonText: 'Get a quote',
+    imageProps: {
+      src: cruisingAdventuresImage,
+      alt: 'Aerial view of a Disney Cruise Ship at sea at sunset',
+      sizes,
+      widths,
+    },
+    buttonText: 'Get a Quote',
     href: QUOTE_URL,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
-    title: 'All-inclusive Vacations',
-    content:
-      'Searching for a seamless vacation? You have enough to do and we have information at our fingertips. From the Caribbean to Europe or even Hawaii, let us take the worry out of this part of your planning.',
-    buttonText: 'Get a quote',
-    href: QUOTE_URL,
+    title: "Disney's Aulani",
+    imageProps: {
+      src: aulaniResortImage,
+      alt: "Off-shore photo of the tropical Disney's Aulani resort, there are two large hotel buildings",
+      sizes,
+      widths,
+    },
+    buttonText: 'Learn More',
+    href: AFFILIATE_URL_AULANI,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     title: 'Sandals Vacations',
-    content:
-      "No other place in the world captures the imagination more than the Caribbean. People call it paradise. Stay, play, and indulge to your heart's content at one of many Caribbean resorts and experience the best the islands have to offer.",
-    buttonText: 'Learn more',
-    href: AFFILIATE_URL_SANDALS,
+    imageProps: {
+      src: sandalsVacationsImage,
+      alt: 'Aerial view of a beach with people enjoying the sand and the water',
+      sizes,
+      widths,
+    },
+    buttonText: 'Get a Quote',
+    href: QUOTE_URL,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
-    title: 'Beaches Vacations',
-    content:
-      "Stay, play, and indulge to your heart's content at one of many Caribbean resorts and experience the best the islands have to offer in paradise!",
-    buttonText: 'Learn more',
-    href: AFFILIATE_URL_SANDALS,
+    title: 'All-Inclusives',
+    imageProps: {
+      src: allInclusivesImage,
+      alt: 'A tropical all-inclusive hotel room looking out at the beach and ocean',
+      sizes,
+      widths,
+    },
+    buttonText: 'Read Brochure',
+    href: 'https://alg.widen.net/s/ddwkdtdq96/ic23-inclusivecollection-brochure',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
 ];
 ---
 
-<div class="services">
-  <div class="intro">
-    <h2>Services</h2>
-    <p>We specialize in the happiest places on earth!</p>
-  </div>
-  <Container>
+<Section>
+  <Container breakpoint='sm'>
+    <ScreenReader>
+      <h2>Services</h2>
+    </ScreenReader>
     <div class="layout">
-      {
-        services.map(({ title, content, buttonText, href, target, rel }) => (
-          <div class="card">
-            <h3 class="card-title">{title}</h3>
-            <p class="card-content">{content}</p>
-            <div class="card-actions">
-              <Button href={href} target={target} rel={rel}>
-                {buttonText}
-              </Button>
+      <div class="cards">
+        {
+          services.map(({ title, buttonText, href, target, rel, imageProps }) => (
+            <div class="item">
+              <Card
+                title={title}
+                buttonText={buttonText}
+                href={href}
+                target={target}
+                imageProps={imageProps}
+                rel={rel}
+              />
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
+      <div class="testimonial">
+        <Testimonial />
+      </div>
     </div>
   </Container>
-</div>
+</Section>
 
 <style>
-  .services {
-    padding-block: 5rem;
-    text-align: center;
-    background-color: #ebf4f7;
-  }
-
-  .intro {
-    margin-bottom: 5rem;
-    padding-inline: 1.5rem;
-  }
-
   .layout {
+    position: relative;
+    z-index: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    text-align: left;
+    align-items: center;
+    row-gap: 3rem;
+    column-gap: 3rem;
+    padding: 1.5rem;
+    text-align: center;
     background-color: hsl(var(--color--white));
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    border-radius: 2rem;
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: hsl(var(--color--gray--100));
+    outline-offset: -2px;
   }
 
-  .card-content {
-    margin-top: 0.75rem;
-  }
-
-  .card-actions {
-    margin-top: auto;
-    padding-top: 2rem;
-  }
-
-  @media (width >= 48rem) {
+  @media (width < 36rem) {
     .layout {
+      margin: 0.75rem;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .item {
+      width: 16rem;
+      max-width: 80%;
+      flex-shrink: 0;
+    }
+  }
+
+  @media (width >= 36rem) {
+    .cards {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
 
   @media (width >= 62rem) {
     .layout {
+      margin-top: -4rem;
+    }
+
+    .layout {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  @media (width >= 36rem) and (width < 62rem) {
+    .layout {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (width >= 75rem) {
+    .cards {
       grid-template-columns: repeat(3, 1fr);
     }
   }

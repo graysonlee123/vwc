@@ -1,54 +1,160 @@
 ---
-import Container from './Container.astro';
-import Link from './Link.astro';
-import Logomark from './Logomark.astro';
+import Button from '@components/Button.astro';
+import Container from '@components/Container.astro';
+import Hamburger from '@components/Hamburger.astro';
+import Link from '@components/Link.astro';
+import LinkedLogo from '@components/LinkedLogo.astro';
+import Logomark from '@components/Logomark.astro';
+import SocialIconList from '@components/SocialIconList.astro';
+
+export type Props = {
+  floatingMobileNavbar?: boolean;
+}
+
+const { floatingMobileNavbar = false } = Astro.props as Props;
 ---
 
-<nav class="nav">
-  <Container>
+<nav class="nav" data-floating-mobile-navbar={floatingMobileNavbar}>
+  <Container breakpoint='sm'>
     <div class="layout">
-      <Logomark />
+      <span class="logomark">
+        <Logomark/>
+      </span>
+      <span class="logo">
+        <LinkedLogo/>
+      </span>
       <ul class="items">
         <li class="item">
-          <Link href="/"> Home </Link>
+          <Link
+            href="/"
+            data-astro-prefetch="hover"
+          >
+            Home
+          </Link>
         </li>
         <li class="item">
-          <Link href="/about/"> About </Link>
+          <Link
+            href="/about/"
+            data-astro-prefetch="hover"
+          >
+            About
+          </Link>
         </li>
         <li class="item">
-          <Link href="/destinations/"> Destinations </Link>
-        </li>
-        <li class="item">
-          <Link href="/contact/"> Contact </Link>
+          <Link
+            href="/destinations/"
+            data-astro-prefetch="hover"
+          >
+            Destinations
+          </Link>
         </li>
       </ul>
+      <div class="right">
+        <span class="socials">
+          <SocialIconList />
+        </span>
+        <span class="divider" aria-hidden="true"></span>
+        <Button
+          as="a"
+          class="button"
+          href="/contact/"
+          data-astro-prefetch="hover"
+        >
+          Contact
+        </Button>
+        <span class="hamburger">
+          <Hamburger/>
+        </span>
+      </div>
     </div>
   </Container>
 </nav>
 
 <style>
   .nav {
-    padding: 0.75rem;
-    background-color: hsl(var(--color--blue--400));
-    color: hsl(var(--color--white));
+    position: relative;
+    z-index: 25;
+    padding: 1.25rem 0.75rem;
+    color: hsl(var(--color--blue--900));
   }
 
   .layout {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    justify-content: space-between;
   }
 
   .items {
     display: flex;
-    gap: 1.5rem;
+    gap: 3rem;
     align-items: center;
     list-style: none;
   }
 
-  @media (width < 48rem) {
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+
+  .divider {
+    display: block;
+    width: 2px;
+    height: 2rem;
+    background-color: hsl(var(--color--gray--100));
+  }
+
+  @media (width < 28rem) {
+    .logomark {
+      display: none;
+    }
+  }
+
+  @media (width < 36rem) {
+    [data-floating-mobile-navbar="true"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 2.25rem;
+      padding-inline: 2.25rem;
+      color: hsl(var(--color--white));
+    }
+  }
+
+  @media (width >= 28rem) {
+    .logo {
+      display: none;
+    }
+  }
+
+  @media (width < 62rem) {
     .items {
+      display: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+
+  @media (width >= 62rem) {
+    .logomark {
+      flex-shrink: 0;
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+
+  @media (width < 75rem) {
+    .socials {
+      display: none;
+    }
+
+    .divider {
       display: none;
     }
   }

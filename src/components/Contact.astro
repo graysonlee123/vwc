@@ -1,0 +1,186 @@
+---
+import { EMAIL } from '@lib/constants';
+
+import ContactForm from "@components/ContactForm.astro";
+import Container from "@components/Container.astro";
+import Header from "@components/Header.astro";
+import Image from "@components/Image.astro";
+import Section from "@components/Section.astro";
+import ContactBlip from "@components/ContactBlip.astro";
+
+import ContactImage from '@assets/images/disneyCharacters-4x3.jpg'
+---
+
+<Section spacing="md">
+  <Container size="md" breakpoint="md">
+    <div class="layout">
+      <div class="card main">
+        <Header
+          as="h2"
+          family="body"
+          size="xl"
+          color="navy"
+        >
+          Contact
+        </Header>
+        <p class="description">Reach out to us&mdash;we'd love to help!</p>
+        <ContactForm/>
+      </div>
+      <div class="right">
+        <div class="media">
+          <Image
+            class="image"
+            src={ContactImage}
+            alt="Disney characters standing in front of the Magic Kingdom castle"
+            sizes="(min-width: 1280px) 516px, (min-width: 992px) calc((85vw - 3rem - 4px) / 2), calc(85vw - 4px)"
+            widths={[516 * 2, 516]}
+            loading="eager"
+          />
+        </div>
+        <div class="blips">
+          <ContactBlip
+            icon="email"
+            linkProps={{
+            href: `mailto:${EMAIL}`,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            }}
+          >
+            {EMAIL}
+          </ContactBlip>
+          <ContactBlip
+            icon="phone"
+            linkProps={{
+              href: 'tel:8009083005',
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            }}
+          >
+            (800) 908-3005
+          </ContactBlip>
+        </div>
+      </div>
+    </div>
+    <div class="back" aria-hidden="true">
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+      <span class="shadow" aria-hidden="true"></span>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .card,
+  .blips {
+    padding-inline: 1.5rem;
+  }
+
+  .blips {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .description {
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    text-wrap: balance;
+  }
+
+  .image {
+    height: auto;
+    background-color: hsl(var(--color--gray--100));
+    border-radius: 1.5rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: hsl(var(--color--gray--100));
+  }
+
+  .right {
+    display: grid;
+    gap: inherit;
+  }
+
+  .container {
+    position: relative;
+    z-index: 0;
+  }
+
+  .back {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+  }
+
+  .shadow {
+    display: block;
+    position: absolute;
+  }
+
+  .shadow:nth-child(1) {
+    top: 10%;
+    left: 50%;
+    box-shadow: 0px 0px 1200px 75px #c100ff;
+    opacity: 30%;
+  }
+
+  .shadow:nth-child(2) {
+    bottom: 45%;
+    right: 30%;
+    box-shadow: 0px 0px 700px 75px #00ff90;
+    opacity: 50%;
+  }
+
+  .shadow:nth-child(3) {
+    bottom: 30%;
+    left: 35%;
+    box-shadow: 0px 0px 900px 95px #fca82e;
+    opacity: 30%;
+  }
+
+  .shadow:nth-child(4) {
+    bottom: 55%;
+    left: 20%;
+    box-shadow: 0px 0px 900px 95px #fc2220;
+    opacity: 50%;
+  }
+
+  .shadow:nth-child(5) {
+    bottom: 15%;
+    right: 20%;
+    box-shadow: 0px 0px 900px 95px #7b20fc;
+    opacity: 20%;
+  }
+
+  @media (width < 48rem) {
+    .media,
+    .media img {
+      display: none;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .card,
+    .blips {
+      padding: 3rem;
+      border-radius: 1.5rem;
+      background-color: hsl(var(--color--white) / 70%);
+      border-width: 2px;
+      border-style: solid;
+      border-color: hsl(var(--color--gray--100));
+    }
+  }
+
+  @media (width >= 62rem) {
+    .layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,36 +1,48 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLTag, Polymorphic } from 'astro/types';
 
-type Props = HTMLAttributes<'a'>;
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag
+}>
+
+const {as: Tag, ...props} = Astro.props
 ---
 
-<a {...Astro.props}>
-  <slot />
-</a>
+<Tag {...props}>
+  <slot/>
+</Tag>
 
 <style>
-  a {
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
+  a,
+  button {
     display: inline-flex;
     gap: 0.75rem;
     align-items: center;
+    padding: 1rem 2rem;
+    font-family: var(--font-family--body);
     text-decoration: none;
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
     color: hsl(var(--color--white));
-    font-size: var(--font-size--lg);
     font-weight: 900;
     text-transform: uppercase;
-    background-color: hsl(var(--color--blue--400));
+    border-radius: 5rem;
+    background-color: hsl(var(--color--blue--900));
   }
 
   @media (hover: hover) {
-    a {
+    a,
+    button {
       transition-property: transform;
       transition-duration: 400ms;
       transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
 
-    a:hover {
+    a:hover,
+    button:hover {
       transform: scale(1.05);
     }
   }

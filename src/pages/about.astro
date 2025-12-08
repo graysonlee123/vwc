@@ -1,13 +1,41 @@
 ---
-import ComingSoon from '../components/ComingSoon.astro';
-import Container from '../components/Container.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+
+import CTA from '@components/CTA.astro';
+import { default as AboutComponent } from '@components/About.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+
+import HeroImageDesktop from '@assets/images/childrenEatingIceCream-2x1.jpg';
+import HeroImageTablet from '@assets/images/childrenEatingIceCream-4x3.jpg'
+import HeroImageMobile from '@assets/images/childrenEatingIceCream-3x4.jpg'
 ---
 
-<Layout>
-  <main>
-    <Container size="sm">
-      <ComingSoon title="About" />
-    </Container>
-  </main>
+<Layout
+  seoProps={{
+    title: "About | Vacations with Character",
+    description: "Vacations with Character weaves tailored planning and expert insights into seamless booking. Let us handle the details to craft a magical getaway for you! ✨",
+    image: "og-about.jpg",
+  }}
+  navigationProps={{
+    floatingMobileNavbar: true,
+  }}
+>
+  <Hero
+    mobileImage={HeroImageMobile}
+    tabletImage={HeroImageTablet}
+    desktopImage={HeroImageDesktop}
+    blurred
+  >
+    <Header
+      as="h1"
+      family="brush"
+      size="2xl"
+      slot="header"
+    >
+      About Us
+    </Header>
+  </Hero>
+  <AboutComponent/>
+  <CTA/>
 </Layout>
