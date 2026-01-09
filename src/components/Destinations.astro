@@ -1,17 +1,18 @@
 ---
 import { AFFILIATE_URL_AULANI, AFFILIATE_URL_DISNEY, QUOTE_URL } from '@lib/constants'
 
+import Button from '@components/Button.astro'
+import ButtonRow from '@components/ButtonRow.astro'
 import Container from "@components/Container.astro"
 import Destination from "@components/Destination.astro"
-import Button from '@components/Button.astro'
 import Section from '@components/Section.astro'
 
-import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg'
+import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
+import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg'
 import cruisingAdventuresImage from '@assets/images/cruiseshipWaterslide-20x13.jpg'
+import aulaniResortImage from '@assets/images/disneysAulaniResort-20x13.jpg'
 import universalOrlandoImage from '@assets/images/hogwarts-20x13.jpg'
 import disneyDestinationsImage from '@assets/images/magicKingdomParade-20x13.jpg'
-import sandalsVacationsImage from '@assets/images/beachAerial-20x13.jpg'
-import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
 ---
 
 <Section spacing="md">
@@ -44,15 +45,24 @@ import allInclusivesImage from '@assets/images/allInclusiveHotelRoom-20x13.jpg'
         }}
         flipped
       >
-        <Button
-          as="a"
-          href={QUOTE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          slot="button"
-        >
-          Get a Quote
-        </Button>
+        <ButtonRow slot="button">
+          <Button
+            as="a"
+            href={QUOTE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get a Quote
+          </Button>
+          <Button
+            as="a"
+            href="https://www.universalorlando.com/web/en/us/sales/overview?mapFilters=uor.venues;uor.usf,uor.venues;uor.ioa,uor.venues;uor.vb,uor.venues;uor.eu,uor.place_types;ride"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore Attractions
+          </Button>
+        </ButtonRow>
       </Destination>
       <Destination
         title="Cruising Adventures"
