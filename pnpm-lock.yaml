@@ -14,6 +14,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.6.0
         version: 3.6.0
+      '@storyblok/js':
+        specifier: ^3.4.0
+        version: 3.5.0
       astro:
         specifier: ^5.16.6
         version: 5.16.6(@types/node@25.0.3)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2)
@@ -590,6 +593,12 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@storyblok/js@3.5.0':
+    resolution: {integrity: sha512-1gGY6t4CIZNOt9t5h+Q7lMN6lfG8VgrChktv1L3gsMzBcOcEnQdr7ZeqUWFbB9VlGPc8X/RRfULRgckzEwJ6BA==}
+
+  '@storyblok/richtext@3.2.0':
+    resolution: {integrity: sha512-koVGDv1HtiI5vymE5fzRB1VO1PNguj+RSfHI4zCy2+90pRoqZbsUCR8V2TaNl7Pg8R1oOkFZnbAxdt9Z4xoxDg==}
 
   '@swc/helpers@0.5.18':
     resolution: {integrity: sha512-TXTnIcNJQEKwThMMqBXsZ4VGAza6bvN4pa41Rkqoio6QBKMvo+5lexeTMScGCIxtzgQJzElcvIltani+adC5PQ==}
@@ -1500,6 +1509,9 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
+  storyblok-js-client@6.11.0:
+    resolution: {integrity: sha512-2uhd/VA51AB88XoqQ+rw9JqkWNoPl2ydg+J49w+2KBqqFvV2EtUhrS2umnabU8sD7HftFsMg0n69EWhkeDyM/A==}
+
   stream-replace-string@2.0.0:
     resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
 
@@ -2366,6 +2378,13 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@storyblok/js@3.5.0':
+    dependencies:
+      '@storyblok/richtext': 3.2.0
+      storyblok-js-client: 6.11.0
+
+  '@storyblok/richtext@3.2.0': {}
 
   '@swc/helpers@0.5.18':
     dependencies:
@@ -3680,6 +3699,8 @@ snapshots:
   source-map-js@1.2.1: {}
 
   space-separated-tokens@2.0.2: {}
+
+  storyblok-js-client@6.11.0: {}
 
   stream-replace-string@2.0.0: {}
 
