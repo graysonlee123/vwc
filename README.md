@@ -61,6 +61,7 @@ src/
 
 - **main**: Production (www.vacationswithcharacter.com)
 - **preview**: Staging (preview.vacationswithcharacter.com)
+- **storyblok88: Blog (local development)
 
 ## Path Aliases
 
