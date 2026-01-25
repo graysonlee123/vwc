@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+
+import Layout from '@layouts/Layout.astro';
+
+import BlogPost from '@components/BlogPost.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts');
+
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { name, content } = post.data;
+---
+
+<Layout
+  seoProps={{
+    title: `${name} | Vacations with Character`,
+    description: `${content.teaser}`, // TODO Create SEO description field
+    image: 'og-careers.jpg', // TODO load in SEO image
+  }}
+>
+  <BlogPost data={post.data} />
+</Layout>
