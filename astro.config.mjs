@@ -28,15 +28,8 @@ export default defineConfig({
         context: 'client',
         access: 'public',
         length: 8,
-      }),
-      STORYBLOK_ACCESS_TOKEN: envField.string({
-        context: 'server',
-        access: 'secret',
       })
     }
-  },
-  image: {
-    domains: ['a.storyblok.com'],
   },
   prefetch: true,
 });

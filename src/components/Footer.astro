@@ -1,5 +1,5 @@
 ---
-import { EMAIL } from '@lib/constants';
+import { BLOG_URL, EMAIL } from '@lib/constants';
 
 import Container from '@components/Container.astro';
 import Legal from '@components/Legal.astro';
@@ -21,7 +21,9 @@ import SocialIconList from '@components/SocialIconList.astro';
               <Link href="/about/">About</Link>
             </li>
             <li class="item">
-              <Link href="/blog/">Blog</Link>
+              <Link href={BLOG_URL} target="_blank" rel="noopener noreferrer"
+                >Blog</Link
+              >
             </li>
             <li class="item">
               <Link href="/contact/">Contact</Link>
