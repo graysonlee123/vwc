@@ -2,6 +2,7 @@
 import {
 AFFILIATE_URL_AULANI,
   AFFILIATE_URL_DISNEY,
+  AFFILIATE_URL_SANDALS,
   QUOTE_URL,
 } from '@lib/constants';
 import Card from '@components/Card.astro';
@@ -90,8 +91,8 @@ const services: ComponentProps<typeof Card>[] = [
       sizes,
       widths,
     },
-    buttonText: 'Get a Quote',
-    href: QUOTE_URL,
+    buttonText: 'Learn More',
+    href: AFFILIATE_URL_SANDALS,
     target: '_blank',
     rel: 'noopener noreferrer',
   },
