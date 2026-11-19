@@ -1,16 +1,22 @@
 ---
 import type { Polymorphic } from 'astro/types';
 
-type HeaderHTMLTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+type HeaderHTMLTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props<Tag extends HeaderHTMLTags> = Polymorphic<{
-  as: Tag
-  family?: 'body' | 'brush'
-  size?: 'lg' | 'xl' | '2xl'
-  color?: 'navy' | 'inherit'
-}>
+  as: Tag;
+  family?: 'body' | 'brush';
+  size?: 'lg' | 'xl' | '2xl';
+  color?: 'navy' | 'inherit';
+}>;
 
-const {as: Tag, family = 'body', size = 'xl', color = 'inherit', ...props} = Astro.props
+const {
+  as: Tag,
+  family = 'body',
+  size = 'xl',
+  color = 'inherit',
+  ...props
+} = Astro.props;
 ---
 
 <Tag
@@ -19,7 +25,7 @@ const {as: Tag, family = 'body', size = 'xl', color = 'inherit', ...props} = Ast
   data-font-size={size}
   data-color={color}
 >
-  <slot/>
+  <slot />
 </Tag>
 
 <style>

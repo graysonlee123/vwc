@@ -1,12 +1,12 @@
 ---
-import { Image as AstroImage } from 'astro:assets'
-import type { LocalImageProps } from 'astro:assets'
+import { Image as AstroImage } from 'astro:assets';
+import type { LocalImageProps } from 'astro:assets';
 
-type Props = LocalImageProps
-const props = Astro.props
+type Props = LocalImageProps;
+const props = Astro.props;
 ---
 
-<AstroImage {...props}/>
+<AstroImage {...props} />
 
 <style>
   img {

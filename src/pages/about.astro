@@ -7,15 +7,16 @@ import Header from '@components/Header.astro';
 import Hero from '@components/Hero.astro';
 
 import HeroImageDesktop from '@assets/images/childrenEatingIceCream-2x1.jpg';
-import HeroImageTablet from '@assets/images/childrenEatingIceCream-4x3.jpg'
-import HeroImageMobile from '@assets/images/childrenEatingIceCream-3x4.jpg'
+import HeroImageTablet from '@assets/images/childrenEatingIceCream-4x3.jpg';
+import HeroImageMobile from '@assets/images/childrenEatingIceCream-3x4.jpg';
 ---
 
 <Layout
   seoProps={{
-    title: "About | Vacations with Character",
-    description: "Vacations with Character weaves tailored planning and expert insights into seamless booking. Let us handle the details to craft a magical getaway for you! ✨",
-    image: "og-about.jpg",
+    title: 'About | Vacations with Character',
+    description:
+      'Vacations with Character weaves tailored planning and expert insights into seamless booking. Let us handle the details to craft a magical getaway for you! ✨',
+    image: 'og-about.jpg',
   }}
   navigationProps={{
     floatingMobileNavbar: true,
@@ -27,15 +28,8 @@ import HeroImageMobile from '@assets/images/childrenEatingIceCream-3x4.jpg'
     desktopImage={HeroImageDesktop}
     blurred
   >
-    <Header
-      as="h1"
-      family="brush"
-      size="2xl"
-      slot="header"
-    >
-      About Us
-    </Header>
+    <Header as="h1" family="brush" size="2xl" slot="header"> About Us </Header>
   </Hero>
-  <AboutComponent/>
-  <CTA/>
+  <AboutComponent />
+  <CTA />
 </Layout>

@@ -9,42 +9,29 @@ import SocialIconList from '@components/SocialIconList.astro';
 
 export type Props = {
   floatingMobileNavbar?: boolean;
-}
+};
 
 const { floatingMobileNavbar = false } = Astro.props as Props;
 ---
 
 <nav class="nav" data-floating-mobile-navbar={floatingMobileNavbar}>
-  <Container breakpoint='sm'>
+  <Container breakpoint="sm">
     <div class="layout">
       <span class="logomark">
-        <Logomark/>
+        <Logomark />
       </span>
       <span class="logo">
-        <LinkedLogo/>
+        <LinkedLogo />
       </span>
       <ul class="items">
         <li class="item">
-          <Link
-            href="/"
-            data-astro-prefetch="hover"
-          >
-            Home
-          </Link>
+          <Link href="/" data-astro-prefetch="hover"> Home </Link>
         </li>
         <li class="item">
-          <Link
-            href="/about/"
-            data-astro-prefetch="hover"
-          >
-            About
-          </Link>
+          <Link href="/about/" data-astro-prefetch="hover"> About </Link>
         </li>
         <li class="item">
-          <Link
-            href="/destinations/"
-            data-astro-prefetch="hover"
-          >
+          <Link href="/destinations/" data-astro-prefetch="hover">
             Destinations
           </Link>
         </li>
@@ -63,7 +50,7 @@ const { floatingMobileNavbar = false } = Astro.props as Props;
           Contact
         </Button>
         <span class="hamburger">
-          <Hamburger/>
+          <Hamburger />
         </span>
       </div>
     </div>
@@ -112,7 +99,7 @@ const { floatingMobileNavbar = false } = Astro.props as Props;
   }
 
   @media (width < 36rem) {
-    [data-floating-mobile-navbar="true"] {
+    [data-floating-mobile-navbar='true'] {
       position: absolute;
       top: 0;
       left: 0;

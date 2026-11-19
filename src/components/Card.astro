@@ -13,10 +13,26 @@ interface Props {
   shadow?: boolean;
 }
 
-const { href, imageProps, buttonText, title, target, rel, style, shadow = true } = Astro.props;
+const {
+  href,
+  imageProps,
+  buttonText,
+  title,
+  target,
+  rel,
+  style,
+  shadow = true,
+} = Astro.props;
 ---
 
-<a class="card" href={href} target={target} rel={rel} style={style} data-shadow={shadow}>
+<a
+  class="card"
+  href={href}
+  target={target}
+  rel={rel}
+  style={style}
+  data-shadow={shadow}
+>
   <div class="content">
     <Header class="title" as="h3" size="lg">{title}</Header>
     <span class="button">{buttonText}</span>
@@ -67,7 +83,7 @@ const { href, imageProps, buttonText, title, target, rel, style, shadow = true }
     transform: scale(1.05);
   }
 
-  .card[data-shadow="true"]::after {
+  .card[data-shadow='true']::after {
     content: '';
     position: absolute;
     z-index: 1;
