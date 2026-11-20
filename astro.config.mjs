@@ -4,16 +4,16 @@ import sitemap from '@astrojs/sitemap';
 const site = (() => {
   switch (process.env.VERCEL_ENV) {
     case 'production': {
-      return 'https://www.vacationswithcharacter.com'
+      return 'https://www.vacationswithcharacter.com';
     }
     case 'preview': {
-      return 'https://www.preview.vacationswithcharacter.com'
+      return 'https://www.preview.vacationswithcharacter.com';
     }
     default: {
-      return 'http://localhost:4321'
+      return 'http://localhost:4321';
     }
   }
-})()
+})();
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,10 +28,10 @@ export default defineConfig({
         context: 'client',
         access: 'public',
         length: 8,
-      })
-    }
+      }),
+    },
   },
   prefetch: true,
 });
 
-console.log(`Configured with Astro.site set as [${site}]`)
+console.log(`Configured with Astro.site set as [${site}]`);

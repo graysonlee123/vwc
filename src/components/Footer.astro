@@ -9,7 +9,7 @@ import SocialIconList from '@components/SocialIconList.astro';
 ---
 
 <footer class="footer">
-  <Container breakpoint='sm'>
+  <Container breakpoint="sm">
     <div class="card">
       <div class="layout">
         <div class="logo">
@@ -47,12 +47,15 @@ import SocialIconList from '@components/SocialIconList.astro';
             <SocialIconList />
           </div>
           <div class="contact-links">
-            <Link href="tel:+1-800-908-3005" style={{display: 'inline-block'}}>
+            <Link
+              href="tel:+1-800-908-3005"
+              style={{ display: 'inline-block' }}
+            >
               (800) 908-3005
             </Link>
-            <br/>
-            <Link href=`mailto:${EMAIL}` style={{display: 'inline-block'}}>
-              { EMAIL }
+            <br />
+            <Link href=`mailto:${EMAIL}` style={{ display: 'inline-block' }}>
+              {EMAIL}
             </Link>
           </div>
         </div>

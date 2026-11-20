@@ -1,35 +1,36 @@
 ---
-import type { ComponentProps } from 'astro/types'
+import type { ComponentProps } from 'astro/types';
 
-import Article from '@components/Article.astro'
-import Header from '@components/Header.astro'
-import Image from '@components/Image.astro'
+import Article from '@components/Article.astro';
+import Header from '@components/Header.astro';
+import Image from '@components/Image.astro';
 
 const widths = [
-  486,       // tablet 1x
-  486 * 2,   // tablet 2x
-  324,       // tablet 1x
-  324 * 2,   // tablet 2x
-  422,       // desktop 1x
-  422 * 2,   // desktop 2x
-]
-const sizes = '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 1.5rem) * 2 / 5), (min-width: 576px) 85vw, calc(100vw - 1.5rem)'
+  486, // tablet 1x
+  486 * 2, // tablet 2x
+  324, // tablet 1x
+  324 * 2, // tablet 2x
+  422, // desktop 1x
+  422 * 2, // desktop 2x
+];
+const sizes =
+  '(min-width: 1280px) 422px, (min-width: 992px) calc((85vw - 1.5rem) * 2 / 5), (min-width: 576px) 85vw, calc(100vw - 1.5rem)';
 
-type ImageProps = Omit<ComponentProps<typeof Image>, 'densities'>
+type ImageProps = Omit<ComponentProps<typeof Image>, 'densities'>;
 
 type Props = {
-  title: string
-  subtitle: string
-  imageProps: ImageProps
-  flipped?: boolean
-}
+  title: string;
+  subtitle: string;
+  imageProps: ImageProps;
+  flipped?: boolean;
+};
 
-const { title, subtitle, imageProps, flipped = false } = Astro.props
+const { title, subtitle, imageProps, flipped = false } = Astro.props;
 ---
 
 <div class="layout" data-flipped={flipped}>
   <div class="media">
-    <Image {...imageProps} widths={widths} sizes={sizes}/>
+    <Image {...imageProps} widths={widths} sizes={sizes} />
   </div>
   <div class="texts">
     <Article>
@@ -41,7 +42,7 @@ const { title, subtitle, imageProps, flipped = false } = Astro.props
       </p>
     </Article>
     <div class="actions">
-      <slot name="button"/>
+      <slot name="button" />
     </div>
   </div>
 </div>
@@ -72,7 +73,7 @@ const { title, subtitle, imageProps, flipped = false } = Astro.props
       align-items: center;
     }
 
-    .layout[data-flipped="true"] {
+    .layout[data-flipped='true'] {
       grid-template-columns: 3fr 2fr;
       grid-template-areas: 'texts media';
     }

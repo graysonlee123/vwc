@@ -11,27 +11,34 @@ import type { SEOProps } from '@components/SEO.astro';
 import type { Props as NavigationProps } from '@components/Navigation.astro';
 
 type Props = {
-  seoProps: SEOProps
-  navigationProps?: NavigationProps
-}
+  seoProps: SEOProps;
+  navigationProps?: NavigationProps;
+};
 
-const { seoProps, navigationProps = { floatingMobileNavbar: false } } = Astro.props as Props;
+const { seoProps, navigationProps = { floatingMobileNavbar: false } } =
+  Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <SEO {...seoProps} />
-    <link rel="preload" href="/fonts/caveat-brush/caveat-brush-subset.ttf" as="font" type="font/ttf" crossorigin/>
+    <link
+      rel="preload"
+      href="/fonts/caveat-brush/caveat-brush-subset.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
   </head>
   <body>
     <Navbar {...navigationProps} />
-    <MobileNavigation/>
+    <MobileNavigation />
     <main class="main">
       <slot />
     </main>
     <Footer />
-    <Defs/>
+    <Defs />
   </body>
 </html>
 

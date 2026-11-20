@@ -1,22 +1,22 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from 'astro/types';
 
 type Props = {
-  id: string
-  textareaProps: HTMLAttributes<'textarea'>
-  labelProps?: HTMLAttributes<'label'>
-}
+  id: string;
+  textareaProps: HTMLAttributes<'textarea'>;
+  labelProps?: HTMLAttributes<'label'>;
+};
 
-const {id, textareaProps, labelProps} = Astro.props
+const { id, textareaProps, labelProps } = Astro.props;
 ---
 
 <div>
   <div>
     <label for={id} {...labelProps}>
-      <slot/>
+      <slot />
     </label>
   </div>
-  <textarea id={id} {...textareaProps}/>
+  <textarea id={id} {...textareaProps}></textarea>
 </div>
 
 <style>

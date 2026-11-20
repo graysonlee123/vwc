@@ -17,10 +17,10 @@ Website for [www.vacationswithcharacter.com](https://www.vacationswithcharacter.
 
 ## Environment Variables
 
-| Variable | Context | Description |
-|----------|---------|-------------|
-| `PUBLIC_FORMSPREE_FORM_ID` | Client | Formspree form ID (8 chars) |
-| `STORYBLOK_ACCESS_TOKEN` | Server | Storyblok API token |
+| Variable                   | Context | Description                 |
+| -------------------------- | ------- | --------------------------- |
+| `PUBLIC_FORMSPREE_FORM_ID` | Client  | Formspree form ID (8 chars) |
+| `STORYBLOK_ACCESS_TOKEN`   | Server  | Storyblok API token         |
 
 ## Getting Started
 
@@ -37,13 +37,13 @@ Website for [www.vacationswithcharacter.com](https://www.vacationswithcharacter.
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start dev server at localhost:4321 |
-| `pnpm build` | Type-check and build for production |
-| `pnpm preview` | Preview production build locally |
-| `pnpm format:check` | Check code formatting |
-| `pnpm format:write` | Fix code formatting |
+| Command             | Description                         |
+| ------------------- | ----------------------------------- |
+| `pnpm dev`          | Start dev server at localhost:4321  |
+| `pnpm build`        | Type-check and build for production |
+| `pnpm preview`      | Preview production build locally    |
+| `pnpm format:check` | Check code formatting               |
+| `pnpm format:write` | Fix code formatting                 |
 
 ## Project Structure
 
@@ -61,7 +61,7 @@ src/
 
 - **main**: Production (www.vacationswithcharacter.com)
 - **preview**: Staging (preview.vacationswithcharacter.com)
-- **storyblok88: Blog (local development)
+- **storyblok**: Blog (local development)
 
 ## Path Aliases
 

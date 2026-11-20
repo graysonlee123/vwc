@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Props = {
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' ;
+  breakpoint?: 'xs' | 'sm' | 'md' | 'lg';
 } & HTMLAttributes<'div'>;
 
 const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
@@ -12,7 +12,8 @@ const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
 <div
   class:list={['container', `container--${size}`, className]}
   data-breakpoint={breakpoint}
-  {...rest}>
+  {...rest}
+>
   <slot />
 </div>
 
@@ -23,7 +24,7 @@ const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
   }
 
   @media (width < 28rem) {
-    .container[data-breakpoint="xs"] {
+    .container[data-breakpoint='xs'] {
       max-width: unset;
       margin-inline: unset;
     }
@@ -34,7 +35,7 @@ const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
   }
 
   @media (width < 36rem) {
-    .container[data-breakpoint="sm"] {
+    .container[data-breakpoint='sm'] {
       max-width: unset;
       margin-inline: unset;
     }
@@ -45,7 +46,7 @@ const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
   }
 
   @media (width < 48rem) {
-    .container[data-breakpoint="md"] {
+    .container[data-breakpoint='md'] {
       max-width: unset;
       margin-inline: unset;
     }
@@ -56,7 +57,7 @@ const { size = 'lg', breakpoint, class: className, ...rest } = Astro.props;
   }
 
   @media (width < 62rem) {
-    .container[data-breakpoint="lg"] {
+    .container[data-breakpoint='lg'] {
       max-width: unset;
       margin-inline: unset;
     }

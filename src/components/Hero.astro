@@ -7,12 +7,12 @@ import Header from '@components/Header.astro';
 import Section from '@components/Section.astro';
 
 type Props = {
-  mobileImage: ImageMetadata
-  tabletImage: ImageMetadata
-  desktopImage: ImageMetadata
-  tall?: boolean
-  blurred?: boolean
-}
+  mobileImage: ImageMetadata;
+  tabletImage: ImageMetadata;
+  desktopImage: ImageMetadata;
+  tall?: boolean;
+  blurred?: boolean;
+};
 
 const {
   mobileImage,
@@ -20,39 +20,48 @@ const {
   desktopImage,
   tall = false,
   blurred = false,
-} = Astro.props
+} = Astro.props;
 
-const optimizedHeroImageMobile = await getImage({src: mobileImage, quality: 'high', widths: [320, 375, 430, 640, 750, 860]})
-const optimizedHeroImageTablet = await getImage({src: tabletImage, quality: 'high', widths: [768, 1024, 1536, 2048]})
-const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'high', widths: [1300, 2600]})
+const optimizedHeroImageMobile = await getImage({
+  src: mobileImage,
+  quality: 'high',
+  widths: [320, 375, 430, 640, 750, 860],
+});
+const optimizedHeroImageTablet = await getImage({
+  src: tabletImage,
+  quality: 'high',
+  widths: [768, 1024, 1536, 2048],
+});
+const optimizedHeroImageDesktop = await getImage({
+  src: desktopImage,
+  quality: 'high',
+  widths: [1300, 2600],
+});
 ---
 
 <Section>
   <div class="wrapper">
-    <Container breakpoint='sm'>
+    <Container breakpoint="sm">
       <div class="card">
-        <div class:list={{layout: true, blurred}}>
+        <div class:list={{ layout: true, blurred }}>
           <div class="texts">
             <slot name="header">
-              <Header
-                as="h1"
-                family="brush"
-                size="2xl"
-              >
+              <Header as="h1" family="brush" size="2xl">
                 Where the Fun Begins!
               </Header>
             </slot>
             <div class="subheader">
               <slot name="subheader">
                 <p>
-                  A family-owned, full-service travel agency <br class="br">located in and licensed by
-                  the state of Florida.
+                  A family-owned, full-service travel agency <br
+                    class="br"
+                  />located in and licensed by the state of Florida.
                 </p>
               </slot>
             </div>
-            <slot name="actions"/>
+            <slot name="actions" />
           </div>
-          <slot name="footer"/>
+          <slot name="footer" />
         </div>
         <picture>
           <source
@@ -60,15 +69,15 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
             sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
             media="(max-width: 767px)"
             type="image/webp"
-          >
+          />
           <source
             srcset={optimizedHeroImageTablet.srcSet.attribute}
             sizes="(min-width: 1530px) 1300px, (min-width: 576px) 85vw, calc(100vw - 1.5rem)"
             media="(min-width: 768px) and (max-width: 1200px)"
             type="image/webp"
-          >
+          />
           <img
-            class:list={{image: true, tall}}
+            class:list={{ image: true, tall }}
             width={optimizedHeroImageDesktop.attributes.width}
             height={optimizedHeroImageDesktop.attributes.height}
             src={optimizedHeroImageDesktop.src}
@@ -121,7 +130,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
   }
 
   .blurred::after {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     inset: 0;
@@ -139,7 +148,7 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
       to top,
       rgb(0, 0, 0, 0.25) 10%,
       rgb(0, 0, 0, 0.075) 25%,
-      rgb(0, 0, 0, 0.00) 40%,
+      rgb(0, 0, 0, 0) 40%,
       rgb(0, 0, 0, 0.15) 75%
     );
     border-radius: inherit;
@@ -237,7 +246,13 @@ const optimizedHeroImageDesktop = await getImage({src: desktopImage, quality: 'h
     }
 
     .blurred::after {
-      mask-image: linear-gradient(to bottom, transparent, black 50%, black 70%, transparent);
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 50%,
+        black 70%,
+        transparent
+      );
       mask-repeat: no-repeat;
     }
   }
